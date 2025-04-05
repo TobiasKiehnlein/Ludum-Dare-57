@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d2jssux43iotq"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02654, 3.71663)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54233, -1.40755, -6.32822)
+size = Vector3(9.71527, 1, 17.1464)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78367, 1.31689)
+shadow_enabled = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.616376, -0.67596, 0.403929, 0, 0.512957, 0.858414, -0.787452, -0.529106, 0.316175, 0, 1.99778, 0)
+shadow_enabled = true
