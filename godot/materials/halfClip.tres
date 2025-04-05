@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://drihb406rhslt"]
+
+[ext_resource type="Shader" uid="uid://bbjyko0xw80vj" path="res://materials/halfClip.gdshader" id="1_86q11"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_86q11")
+shader_parameter/clip_distance = 5.0
