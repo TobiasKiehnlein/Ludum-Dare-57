@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0dt4hd2qh7o5"]
+[gd_scene load_steps=3 format=3 uid="uid://b0dt4hd2qh7o5"]
 
 [ext_resource type="Script" uid="uid://dlitoxx5evgbc" path="res://Scripts/CameraController.gd" id="1_a3ute"]
+[ext_resource type="PackedScene" uid="uid://buhj2mkghkelp" path="res://models/StairCase/StairCase - SideWall.blend" id="2_u8pla"]
 
 [node name="Camera" type="Node3D"]
 script = ExtResource("1_a3ute")
@@ -8,3 +9,7 @@ cameraOffset = Vector3(0, 2, -5)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, -5)
+far = 200.0
+
+[node name="StairCase - SideWall" parent="." instance=ExtResource("2_u8pla")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
