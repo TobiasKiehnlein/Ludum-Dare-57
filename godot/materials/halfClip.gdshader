@@ -1,13 +1,14 @@
 shader_type spatial;
 
 uniform float clip_distance;
+uniform vec4 albedo : source_color;
 
 void fragment() {
 	vec4 world_vertex = INV_VIEW_MATRIX * vec4(VERTEX, 1.0);
 	world_vertex /= world_vertex.w;
     float distance_to_camera = distance(world_vertex.xz, CAMERA_POSITION_WORLD.xz);
 	//ALBEDO = vec3(clamp( 1. * (distance_to_camera - clip_distance) / .1, 0., 1.),0.,0.);
-	ALBEDO = vec3(clip_distance,0.,0.);
+	ALBEDO = albedo.xyz;
 	//ALPHA = clamp( 1. * (distance_to_camera - clip_distance) / .1, 0., 1.);
 
     if (distance_to_camera < clip_distance) {
