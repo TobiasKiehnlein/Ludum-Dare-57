@@ -11,6 +11,7 @@ var cameraOffset: Vector3
 @export var cameraLookOffset: Vector3
 
 func _ready() -> void:
+	GameManager.ready()
 	self.position.y = ball.position.y
 	camera.look_at_from_position(self.position + cameraOffset, self.position + cameraLookOffset)
 

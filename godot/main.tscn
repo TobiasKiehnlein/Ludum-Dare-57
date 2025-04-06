@@ -1,11 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2jssux43iotq"]
+[gd_scene load_steps=17 format=3 uid="uid://d2jssux43iotq"]
 
 [ext_resource type="PackedScene" uid="uid://b0dt4hd2qh7o5" path="res://scenes/Camera.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://qgsmi0c71ho7" path="res://scenes/StairCases/StairCase.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://blomoleo6w2ia" path="res://Scripts/Player.gd" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://dunqmyfhm1wry" path="res://Scripts/Stairs.gd" id="2_h2yge"]
 [ext_resource type="Theme" uid="uid://dljleuupdkl6m" path="res://materials/pauseButton.tres" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://n6ykemupp7pd" path="res://Scripts/RestartButton.gd" id="6_4c57u"]
 [ext_resource type="Script" uid="uid://cqbkk0swo24id" path="res://Scripts/PauseButton.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://cmjksw0tk6mpd" path="res://Scripts/ResumeButton.gd" id="6_efxa6"]
+[ext_resource type="Script" uid="uid://2p0cn3h61bid" path="res://Scripts/StartButton.gd" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bt1uxl7hey5ca" path="res://models/SkeleTON.blend" id="7_272bh"]
+[ext_resource type="Script" uid="uid://dnvuci0h6lixi" path="res://Scripts/HideByGameState.gd" id="8_kek77"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ig7tw"]
 friction = 0.0
@@ -19,6 +24,9 @@ data = PackedVector3Array(-2.05, 0.1724, 0, -2.0496, 5.1723, -0.0441, -2.05, 5.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
 
+[sub_resource type="Theme" id="Theme_5vw27"]
+Label/font_sizes/font_size = 64
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("1_0xm2m")]
@@ -26,14 +34,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6415, 0)
 ball = NodePath("../RigidBody3D")
 cameraOffset = Vector3(0, 2, -8)
 cameraLookOffset = Vector3(0, -2, 0)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78367, 1.31689)
-shadow_enabled = true
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.616376, -0.67596, 0.403929, 0, 0.512957, 0.858414, -0.787452, -0.529106, 0.316175, 0, 1.99778, 0)
-shadow_enabled = true
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.224279, 7.2489, -1.47457)
@@ -74,7 +74,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="Control"]
+[node name="ResumeButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -131.0
+offset_right = 139.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_lquwl")
+text = "RESUME"
+script = ExtResource("6_efxa6")
+visibleOnPause = true
+
+[node name="ReStartButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -131.0
+offset_right = 139.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_lquwl")
+text = "RESTART"
+script = ExtResource("6_4c57u")
+visibleOnGameOver = true
+
+[node name="PauseButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -92,4 +128,41 @@ text = "II"
 flat = true
 script = ExtResource("6_7mycd")
 
-[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]
+[node name="StartButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -131.0
+offset_right = 139.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_lquwl")
+text = "START"
+script = ExtResource("7_5vw27")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 295.0
+grow_horizontal = 2
+theme = SubResource("Theme_5vw27")
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("8_kek77")
+visibleOnGameOver = true
+
+[node name="SkeleTON" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.185125, 5.26903, -1.47507)
+
+[connection signal="pressed" from="Control/ResumeButton" to="Control/ResumeButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/ReStartButton" to="Control/ReStartButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/PauseButton" to="Control/PauseButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/StartButton" to="Control/StartButton" method="_on_pressed"]

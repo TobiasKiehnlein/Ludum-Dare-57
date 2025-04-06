@@ -1,11 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0dt4hd2qh7o5"]
+[gd_scene load_steps=5 format=3 uid="uid://b0dt4hd2qh7o5"]
 
 [ext_resource type="Script" uid="uid://dlitoxx5evgbc" path="res://Scripts/CameraController.gd" id="1_a3ute"]
 
-[node name="Camera" type="Node3D" node_paths=PackedStringArray("ball")]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a3ute"]
+sky_top_color = Color(0.76, 0.76, 0.76, 1)
+sky_horizon_color = Color(0.873873, 0.878057, 0.884665, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+sun_angle_max = 21.11
+
+[sub_resource type="Sky" id="Sky_u8pla"]
+sky_material = SubResource("ProceduralSkyMaterial_a3ute")
+
+[sub_resource type="Environment" id="Environment_a3ute"]
+background_mode = 2
+background_color = Color(1, 0.556863, 0.054902, 1)
+sky = SubResource("Sky_u8pla")
+ambient_light_source = 3
+ambient_light_energy = 5.05
+
+[node name="Camera" type="Node3D"]
 script = ExtResource("1_a3ute")
-ball = NodePath("")
 cameraOffset = Vector3(0, 2, -5)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, -5)
+environment = SubResource("Environment_a3ute")

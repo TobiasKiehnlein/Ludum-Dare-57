@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qgsmi0c71ho7"]
+[gd_scene load_steps=9 format=3 uid="uid://qgsmi0c71ho7"]
 
 [ext_resource type="PackedScene" uid="uid://ckpqyejex6s73" path="res://models/StairCase.gltf" id="1_kifvi"]
 [ext_resource type="PackedScene" uid="uid://gk6sg043vp3k" path="res://models/StairCase - Wall.gltf" id="2_uwwho"]
@@ -13,6 +13,9 @@ data = PackedVector3Array(-2.05, 0.1724, 0, -2.0496, 5.1723, -0.0441, -2.05, 5.1
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kifvi"]
 height = 5.00157
 radius = 0.996094
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uwwho"]
+bounce = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uwwho"]
 size = Vector3(1.3042, 1, 0.10791)
@@ -39,6 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.67268, 0)
 shape = SubResource("CylinderShape3D_kifvi")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_uwwho")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41595, 4.12141, 0.0529257)
