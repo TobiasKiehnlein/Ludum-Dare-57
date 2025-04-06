@@ -3,20 +3,35 @@ extends RigidBody3D
 @export var maxFlyTime = 1
 @export var secondsUntilGameOver = 3
 
+@onready var head: MeshInstance3D = $SkeleTON/Skeleton/Skeleton3D/Head_2/Head_2
+@onready var jaw: MeshInstance3D = $SkeleTON/Skeleton/Skeleton3D/Jaw_2/Jaw_2
+@onready var skeleton: Node3D = $SkeleTON
+
+
 var flyTime = -1;
 var isAscending = false
 
 func _ready() -> void:
 	self.freeze = true
 	
-	GameManager.game_started.connect(func(): self.freeze = false)
+	GameManager.game_started.connect(handleGameStart)
 	GameManager.game_over.connect(func(): self.freeze = true)
 
+func handleGameStart():
+	self.freeze = false
+	head.reparent(self)
+	jaw.reparent(self)
+	skeleton.hide()
+	
+
 func checkGrounded() -> bool:
-	var from = self.position
+	var from = self.global_position
 	var to = from - Vector3.UP * 0.6  # Adjust length as needed
+	DebugDraw3D.draw_arrow(from, to, Color(1,0,0), .1)
 	var params = PhysicsRayQueryParameters3D.create(from, to, 0xFFFFFFFF,[self])
 	var result = get_world_3d().direct_space_state.intersect_ray(params)
+	if 'position' in result:
+		print(result)
 	return 'position' in result
 
 

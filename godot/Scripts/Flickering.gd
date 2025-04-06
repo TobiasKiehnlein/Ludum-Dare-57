@@ -9,6 +9,7 @@ var initialEnergy: float
 var offset: float
 
 func _init() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	texture = NoiseTexture2D.new()
 	texture.noise = FastNoiseLite.new()
 	initialEnergy = light_energy
