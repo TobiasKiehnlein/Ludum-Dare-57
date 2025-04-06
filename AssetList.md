@@ -26,7 +26,7 @@
 
 - [ ] Flame -> Particles
 - [ ] Candle
-- [ ] Torch
+- [x] Torch
 - [ ] Candelier
 - [x] BeerMug
 - [x] Meat
