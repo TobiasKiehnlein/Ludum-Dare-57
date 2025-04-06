@@ -38,6 +38,7 @@ cameraLookOffset = Vector3(0, -2, 0)
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.224279, 7.2489, -1.47457)
 physics_material_override = SubResource("PhysicsMaterial_ig7tw")
+continuous_cd = true
 script = ExtResource("2_1bvp3")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="RigidBody3D"]
