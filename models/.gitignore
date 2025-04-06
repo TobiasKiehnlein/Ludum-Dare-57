@@ -1,0 +1,5 @@
+# Exclude .blend1 and alike
+*.blend*
+!*.blend
+
+*.FCBak
