@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bah74nymunscq"
-path="res://.godot/imported/StairCase - OuterCollider.gltf-5f72bbe56e486b26e5092486234306f2.scn"
+uid="uid://dlkqctijqas65"
+path="res://.godot/imported/StairCase - PlayerGuide.gltf-8a21da510230425166ce7bf2e425936d.scn"
 
 [deps]
 
-source_file="res://models/StairCase - OuterCollider.gltf"
-dest_files=["res://.godot/imported/StairCase - OuterCollider.gltf-5f72bbe56e486b26e5092486234306f2.scn"]
+source_file="res://models/StairCase/StairCase - PlayerGuide.gltf"
+dest_files=["res://.godot/imported/StairCase - PlayerGuide.gltf-8a21da510230425166ce7bf2e425936d.scn"]
 
 [params]
 

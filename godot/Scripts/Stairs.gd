@@ -8,7 +8,12 @@ var bottom = 0
 func instantiateNext():
 	var randi = randi_range(0, len(stairCaseScenes) - 1)
 	var x = stairCaseScenes[randi].instantiate()
-	var height = x.get_node('Center').shape.height
+	var height
+	if x.has_method("get_section_height"):
+		height = x.get_section_height()
+	else:
+		height = 5.0
+		push_warning("Stair section has no get_section_height")
 	bottom -= height
 	x.position.y = bottom
 	self.add_child(x)

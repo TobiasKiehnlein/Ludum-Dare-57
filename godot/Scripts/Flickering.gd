@@ -20,5 +20,5 @@ func _process(delta: float) -> void:
 	time_passed += delta
 	
 	var sampled_noise = texture.noise.get_noise_1d((time_passed+offset)* flickeringSpeed)
-	sampled_noise = clamp( abs(sampled_noise), .2, 1)
+	sampled_noise = clamp( abs(sampled_noise) * 1.5, .2, 1.5)
 	light_energy = sampled_noise*initialEnergy

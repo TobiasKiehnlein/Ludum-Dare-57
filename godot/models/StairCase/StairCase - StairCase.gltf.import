@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ckpqyejex6s73"
-path="res://.godot/imported/StairCase.gltf-951a45b7370917af50ba84afcf76f5e8.scn"
+uid="uid://855iwi1qyecp"
+path="res://.godot/imported/StairCase - StairCase.gltf-f207985624d7914e34c8280fbfda05bf.scn"
 
 [deps]
 
-source_file="res://models/StairCase.gltf"
-dest_files=["res://.godot/imported/StairCase.gltf-951a45b7370917af50ba84afcf76f5e8.scn"]
+source_file="res://models/StairCase/StairCase - StairCase.gltf"
+dest_files=["res://.godot/imported/StairCase - StairCase.gltf-f207985624d7914e34c8280fbfda05bf.scn"]
 
 [params]
 

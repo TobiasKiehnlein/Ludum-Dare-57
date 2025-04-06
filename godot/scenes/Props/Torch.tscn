@@ -1,19 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://3qwxjbcbb06o"]
+[gd_scene load_steps=3 format=3 uid="uid://d0orevnn0fw38"]
 
-[ext_resource type="PackedScene" uid="uid://dg4o38aradqm7" path="res://models/Torch.blend" id="1_4vgfd"]
+[ext_resource type="PackedScene" uid="uid://dg4o38aradqm7" path="res://models/Props/Torch.blend" id="1_4vgfd"]
 [ext_resource type="Script" uid="uid://dhoo88motyuqk" path="res://Scripts/Flickering.gd" id="2_j08e6"]
 
 [node name="Torch" type="Node3D"]
 
 [node name="Torch2" parent="." instance=ExtResource("1_4vgfd")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Torch2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31323e-10, 0.438876, -0.0128307)
-light_color = Color(1, 0.643137, 0.027451, 1)
-light_size = 0.552
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515095, 0)
+light_color = Color(0.826544, 0.53831, 0.130859, 1)
+light_energy = 7.0
 shadow_enabled = true
 distance_fade_enabled = true
 distance_fade_begin = 10.0
 distance_fade_shadow = 5.0
+distance_fade_length = 5.0
+omni_range = 4.0
 script = ExtResource("2_j08e6")
-flickeringSpeed = 80.0
+flickeringSpeed = 50.0

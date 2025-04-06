@@ -41,6 +41,12 @@ Pause={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Default Collider"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="Player Boundary"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

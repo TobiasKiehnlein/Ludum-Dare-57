@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dg4o38aradqm7"
-path="res://.godot/imported/Torch.blend-5f9a3b82189ec89258b6ab6b46ac4bfc.scn"
+uid="uid://b42kn042hg5h"
+path="res://.godot/imported/StairCase - OuterWallCollider.blend-adb6fb9b58b9033b18460cf05e3da9de.scn"
 
 [deps]
 
-source_file="res://models/Torch.blend"
-dest_files=["res://.godot/imported/Torch.blend-5f9a3b82189ec89258b6ab6b46ac4bfc.scn"]
+source_file="res://models/StairCase/StairCase - OuterWallCollider.blend"
+dest_files=["res://.godot/imported/StairCase - OuterWallCollider.blend-adb6fb9b58b9033b18460cf05e3da9de.scn"]
 
 [params]
 
@@ -32,22 +32,7 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Fire": {
-"use_external/enabled": true,
-"use_external/path": "uid://bweg7ycrlqjf8"
-},
-"Metal": {
-"use_external/enabled": true,
-"use_external/path": "uid://duvk1gal2acn5"
-},
-"Wood": {
-"use_external/enabled": true,
-"use_external/path": "uid://duvk1gal2acn5"
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
