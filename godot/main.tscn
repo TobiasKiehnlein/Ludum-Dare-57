@@ -44,6 +44,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.81943, -1.46614)
 physics_material_override = SubResource("PhysicsMaterial_ig7tw")
 continuous_cd = true
 script = ExtResource("2_1bvp3")
+maxFlyTime = null
+secondsUntilGameOver = null
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Player"]
 transform = Transform3D(0.358478, 0, 0, 0, 0.358478, 0, 0, 0, 0.358478, 0, 0, 0)
