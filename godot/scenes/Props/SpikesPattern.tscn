@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d10n3c3aujcb1"]
+
+[ext_resource type="PackedScene" uid="uid://1bcqyseldmw1" path="res://models/Props/SpikesPattern.blend" id="1_b28fj"]
+[ext_resource type="Script" uid="uid://10wccqn4eelm" path="res://Scripts/spikes.gd" id="2_2pcam"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2pcam"]
+size = Vector3(1.00507, 0.204926, 1)
+
+[node name="SpikesPattern" type="Node3D"]
+
+[node name="SpikesPattern" parent="." instance=ExtResource("1_b28fj")]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_2pcam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00222778, 0.125198, 0)
+shape = SubResource("BoxShape3D_2pcam")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

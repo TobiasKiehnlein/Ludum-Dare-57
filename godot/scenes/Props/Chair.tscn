@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://n7vj06ap53a"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cscad8edn7581" path="res://materials/physics/prop.tres" id="1_8r1jx"]
+[ext_resource type="PackedScene" uid="uid://cqwo0c0lupwh7" path="res://models/Props/Chair.blend" id="2_cgqoh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ckhbl"]
+size = Vector3(0.403839, 0.378418, 0.4021)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ce5l"]
+size = Vector3(0.403839, 0.53772, 0.05896)
+
+[node name="Chair" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+physics_material_override = ExtResource("1_8r1jx")
+
+[node name="Chair2" parent="RigidBody3D" instance=ExtResource("2_cgqoh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000289917, 0.187256, 0.000366211)
+visible = false
+shape = SubResource("BoxShape3D_ckhbl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.990212, -0.139571, 0, 0.139571, 0.990212, 0.000289917, 0.608862, 0.200058)
+visible = false
+shape = SubResource("BoxShape3D_8ce5l")

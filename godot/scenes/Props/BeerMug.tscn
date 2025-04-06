@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch5u0t3hdr6u0"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cscad8edn7581" path="res://materials/physics/prop.tres" id="1_avf1n"]
+[ext_resource type="PackedScene" uid="uid://cn7e4tbc8gu6i" path="res://models/Props/BeerMug.blend" id="2_8mlw7"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u5lku"]
+height = 0.151672
+radius = 0.0605469
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_igvgd"]
+size = Vector3(0.0827484, 0.128311, 0.0258789)
+
+[node name="BeerMug" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 0.1
+physics_material_override = ExtResource("1_avf1n")
+
+[node name="BeerMug" parent="RigidBody3D" instance=ExtResource("2_8mlw7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0766296, 0)
+shape = SubResource("CylinderShape3D_u5lku")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0813828, 0.0789719, 0.000244141)
+shape = SubResource("BoxShape3D_igvgd")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://d2jssux43iotq"]
+[gd_scene load_steps=34 format=3 uid="uid://d2jssux43iotq"]
 
 [ext_resource type="PackedScene" uid="uid://b0dt4hd2qh7o5" path="res://scenes/Camera.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://qgsmi0c71ho7" path="res://scenes/StairCases/StairCase.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://qgsmi0c71ho7" path="res://scenes/StairCases/StairCaseEmtpy.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://blomoleo6w2ia" path="res://Scripts/Player.gd" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://dunqmyfhm1wry" path="res://Scripts/Stairs.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://djbjvjd3xd5mg" path="res://Scripts/Bone.gd" id="4_dg77c"]
@@ -10,9 +10,11 @@
 [ext_resource type="Script" uid="uid://cqbkk0swo24id" path="res://Scripts/PauseButton.gd" id="6_7mycd"]
 [ext_resource type="PhysicsMaterial" uid="uid://ds4sd6kmbsj8w" path="res://materials/physics/playerguide.tres" id="6_dg77c"]
 [ext_resource type="Script" uid="uid://cmjksw0tk6mpd" path="res://Scripts/ResumeButton.gd" id="6_efxa6"]
+[ext_resource type="PackedScene" uid="uid://r3expihdev8h" path="res://scenes/StairCases/StairCaseBarrels.tscn" id="7_2cqfq"]
 [ext_resource type="Script" uid="uid://2p0cn3h61bid" path="res://Scripts/StartButton.gd" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bt1uxl7hey5ca" path="res://models/SkeleTON.blend" id="7_272bh"]
 [ext_resource type="Script" uid="uid://dnvuci0h6lixi" path="res://Scripts/HideByGameState.gd" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://cgf71npg6dttf" path="res://scenes/StairCases/StairCaseSpikes1.tscn" id="8_yaehf"]
 [ext_resource type="Environment" uid="uid://b8mm7hesg58rf" path="res://scenes/DefaultEnvironment.tres" id="13_ycdy4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ig7tw"]
@@ -247,7 +249,7 @@ shape = SubResource("CapsuleShape3D_82xsv")
 
 [node name="Stairs" type="Node" parent="."]
 script = ExtResource("2_h2yge")
-stairCaseScenes = Array[PackedScene]([ExtResource("1_ig7tw")])
+stairCaseScenes = Array[PackedScene]([ExtResource("1_ig7tw"), ExtResource("7_2cqfq"), ExtResource("8_yaehf")])
 
 [node name="StairCase" parent="Stairs" instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000471473, 0, -0.0011068)

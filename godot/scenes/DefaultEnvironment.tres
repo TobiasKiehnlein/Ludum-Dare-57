@@ -1,22 +1,12 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://b8mm7hesg58rf"]
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://b8mm7hesg58rf"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sx28f"]
-sky_top_color = Color(0.724643, 0.724643, 0.724643, 1)
-sky_horizon_color = Color(0.438108, 0.447748, 0.462965, 1)
-sky_curve = 1.00908
-ground_bottom_color = Color(0.0826605, 0.065772, 0.0461518, 1)
-ground_horizon_color = Color(0.79902, 0.80541, 0.815501, 1)
-ground_curve = 0.2884
-
-[sub_resource type="Sky" id="Sky_dyhr7"]
-sky_material = SubResource("ProceduralSkyMaterial_sx28f")
-process_mode = 1
+[ext_resource type="Sky" uid="uid://xmcp6ruhkvub" path="res://scenes/DefaultSky.tres" id="1_dyhr7"]
 
 [resource]
 background_mode = 2
 background_color = Color(0.233925, 0.233925, 0.233925, 1)
 background_energy_multiplier = 0.5
-sky = SubResource("Sky_dyhr7")
+sky = ExtResource("1_dyhr7")
 ambient_light_source = 3
 ambient_light_energy = 0.0
 tonemap_mode = 3

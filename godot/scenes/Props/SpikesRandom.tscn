@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnudnpfm8mtdr"]
+
+[ext_resource type="Script" uid="uid://10wccqn4eelm" path="res://Scripts/spikes.gd" id="2_otgoe"]
+[ext_resource type="PackedScene" uid="uid://cm7wy1no0fkh0" path="res://models/Props/SpikesRandom.blend" id="2_qey1u"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_otgoe"]
+radius = 0.298311
+
+[node name="SpikesPattern" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_otgoe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00222778, 0.285689, 0)
+shape = SubResource("SphereShape3D_otgoe")
+
+[node name="SpikesRandom" parent="." instance=ExtResource("2_qey1u")]
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
