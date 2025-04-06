@@ -16,3 +16,4 @@ distance_fade_enabled = true
 distance_fade_begin = 10.0
 distance_fade_shadow = 5.0
 script = ExtResource("2_j08e6")
+flickeringSpeed = 80.0
