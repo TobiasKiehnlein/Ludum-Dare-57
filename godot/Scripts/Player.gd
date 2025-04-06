@@ -30,8 +30,6 @@ func checkGrounded() -> bool:
 	DebugDraw3D.draw_arrow(from, to, Color(1,0,0), .1)
 	var params = PhysicsRayQueryParameters3D.create(from, to, 0xFFFFFFFF,[self])
 	var result = get_world_3d().direct_space_state.intersect_ray(params)
-	if 'position' in result:
-		print(result)
 	return 'position' in result
 
 

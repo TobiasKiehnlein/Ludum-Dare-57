@@ -1,7 +1,8 @@
 extends Node
 
 @export var stairCaseScenes: Array[PackedScene]
-@export var player: Node3D
+
+@onready var player: Node3D = $"/root/Root/Player"
 
 var bottom = 0
 
@@ -25,5 +26,6 @@ func _ready() -> void:
 		instantiateNext()
 
 func _process(delta: float) -> void:
+	
 	if player.position.y - 100 < bottom:
 		instantiateNext()
