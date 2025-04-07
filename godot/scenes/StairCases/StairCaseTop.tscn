@@ -143,6 +143,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.587
 transform = Transform3D(0.301005, 0, 0.953622, 0, 1, 0, -0.953622, 0, 0.301005, 4.6882, 6.05799, 1.40211)
 
 [node name="OmniLight3D" parent="Lighting/Torch2" index="1"]
+light_energy = 15.0
 distance_fade_begin = 15.0
 distance_fade_shadow = 15.0
 omni_range = 7.679
@@ -152,6 +153,7 @@ omni_shadow_mode = 1
 transform = Transform3D(0.751368, 0, -0.659884, 0, 1, 0, 0.659884, 0, 0.751368, -2.79278, 6.05799, 4.03416)
 
 [node name="OmniLight3D" parent="Lighting/Torch3" index="1"]
+light_energy = 15.0
 distance_fade_begin = 15.0
 distance_fade_shadow = 15.0
 omni_range = 7.679

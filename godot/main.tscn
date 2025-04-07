@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d2jssux43iotq"]
+[gd_scene load_steps=39 format=3 uid="uid://d2jssux43iotq"]
 
 [ext_resource type="PackedScene" uid="uid://b0dt4hd2qh7o5" path="res://scenes/Camera.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://qgsmi0c71ho7" path="res://scenes/StairCases/StairCaseEmtpy.tscn" id="1_ig7tw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cmjksw0tk6mpd" path="res://Scripts/ResumeButton.gd" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://r3expihdev8h" path="res://scenes/StairCases/StairCaseBarrels.tscn" id="7_2cqfq"]
 [ext_resource type="Script" uid="uid://2p0cn3h61bid" path="res://Scripts/StartButton.gd" id="7_5vw27"]
+[ext_resource type="Script" uid="uid://dxpysat66y44c" path="res://AnimationDisabler.gd" id="7_074og"]
 [ext_resource type="PackedScene" uid="uid://bt1uxl7hey5ca" path="res://models/SkeleTON.blend" id="7_272bh"]
 [ext_resource type="Script" uid="uid://dnvuci0h6lixi" path="res://Scripts/HideByGameState.gd" id="8_kek77"]
 [ext_resource type="PackedScene" uid="uid://cgf71npg6dttf" path="res://scenes/StairCases/StairCaseSpikes0.tscn" id="8_yaehf"]
@@ -22,24 +23,24 @@
 friction = 0.16
 bounce = 0.01
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w48qg"]
+height = 0.321167
+radius = 0.172363
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ycdy4"]
+radius = 0.249015
+height = 0.54674
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dg77c"]
+radius = 0.0931954
+height = 0.751554
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_ig7tw"]
 radius = 0.196804
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_efxa6"]
 radius = 0.177825
 height = 0.495549
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dg77c"]
-radius = 0.0931954
-height = 0.751554
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ycdy4"]
-radius = 0.249015
-height = 0.54674
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_w48qg"]
-height = 0.321167
-radius = 0.172363
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w48qg"]
 radius = 0.0665384
@@ -127,158 +128,184 @@ script = ExtResource("2_1bvp3")
 transform = Transform3D(0.358478, 0, 0, 0, 0.358478, 0, 0, 0, 0.358478, 0, 0, 0)
 visible = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("SphereShape3D_ig7tw")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(-1, 3.01225e-09, -8.59094e-08, 5.03496e-09, 1, -1.49012e-08, 9.14973e-08, 8.94069e-08, -1, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_efxa6")
-disabled = true
-
 [node name="SkeleTON" parent="Player" instance=ExtResource("7_272bh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.546, 0)
 
-[node name="SpineCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45058e-09, 1.13694, -0.13092)
-shape = SubResource("CapsuleShape3D_dg77c")
+[node name="Cylinder" parent="Player/SkeleTON" index="0"]
+script = ExtResource("4_dg77c")
 
-[node name="Spine" parent="Player/SkeleTON/Skeleton" index="1"]
+[node name="CylinderCollider" type="CollisionShape3D" parent="Player/SkeleTON/Cylinder" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89056, 0)
+shape = SubResource("CylinderShape3D_w48qg")
+
+[node name="Spine" parent="Player/SkeleTON/Skeleton" index="0"]
 script = ExtResource("4_dg77c")
 forceMultiplier = 1.1
 
 [node name="RibcageFront" parent="Player/SkeleTON/Skeleton/Spine" index="0"]
 script = ExtResource("4_dg77c")
 
-[node name="RibcageFrontCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Spine" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, 1.13557, -0.0250762)
+[node name="RibcageFrontCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Spine/RibcageFront" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 1.13557, -0.0250762)
 shape = SubResource("CapsuleShape3D_ycdy4")
 
-[node name="Cylinder" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="0"]
-transform = Transform3D(1, -2.69857e-09, 7.567e-09, 1.10271e-08, 1, 2.23527e-07, -4.88944e-09, -2.23514e-07, 1, -4.65661e-10, -5.96046e-07, 3.1665e-07)
+[node name="SpineCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Spine" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13694, -0.13092)
+shape = SubResource("CapsuleShape3D_dg77c")
 
-[node name="Cylinder" parent="Player/SkeleTON/Skeleton/Skeleton3D/Cylinder" index="0"]
-script = ExtResource("4_dg77c")
+[node name="Skeleton3D" parent="Player/SkeleTON/Skeleton" index="1"]
+bones/1/rotation = Quaternion(0.303664, -0.00414788, -0.00866509, 0.952731)
+bones/2/rotation = Quaternion(-0.128211, 0.00608968, 0.010508, 0.991673)
+bones/6/rotation = Quaternion(0.667208, 0.00734198, -0.00252894, 0.744831)
+bones/9/rotation = Quaternion(-0.0789106, 1.85045e-05, -0.652377, 0.753776)
+bones/10/rotation = Quaternion(-0.0159308, 0.000524561, -0.0556738, 0.998322)
+bones/11/rotation = Quaternion(2.46047e-07, 3.72529e-09, -2.82149e-08, 1)
+bones/13/rotation = Quaternion(-0.0589605, -8.12306e-08, -0.485893, 0.872028)
+bones/15/rotation = Quaternion(-0.0196054, -5.36942e-08, -0.161567, 0.986667)
+bones/17/rotation = Quaternion(0.0135818, 8.94512e-08, 0.111927, 0.993624)
+bones/19/rotation = Quaternion(0.0382895, -1.98936e-08, 0.31554, 0.948139)
+bones/20/rotation = Quaternion(-0.0709091, -3.01877e-07, -0.584355, 0.808394)
+bones/26/rotation = Quaternion(-0.0789106, -1.85019e-05, 0.652377, 0.753775)
+bones/27/rotation = Quaternion(-0.0159308, -0.000524552, 0.0556738, 0.998322)
+bones/28/rotation = Quaternion(2.46005e-07, -1.86263e-09, 2.85616e-08, 1)
+bones/37/rotation = Quaternion(-0.0709092, 3.30489e-07, 0.584355, 0.808394)
+bones/44/rotation = Quaternion(-0.0137947, -0.118992, 0.522882, 0.843946)
+bones/45/rotation = Quaternion(0.0336331, 0.00243061, -0.00634527, 0.999411)
+bones/46/rotation = Quaternion(-0.484164, 0.000154004, 0.00416195, 0.874967)
+bones/51/rotation = Quaternion(-0.099355, -0.0279048, -0.531939, 0.840471)
+bones/52/rotation = Quaternion(0.077772, 0.106454, 0.010127, 0.99122)
+bones/53/rotation = Quaternion(-0.627454, 0.041624, 0.0669836, 0.774649)
 
-[node name="CylinderCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Cylinder" index="1"]
-transform = Transform3D(0.999979, -8.52301e-17, -3.04112e-12, 2.33796e-13, 1, -3.12639e-13, 3.09797e-12, 5.05906e-12, 0.999979, 3.72529e-09, 1.88948, 0)
-shape = SubResource("CylinderShape3D_w48qg")
+[node name="Head_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="0"]
+transform = Transform3D(1, -2.34286e-09, -3.49246e-10, 1.04628e-08, 1, 1.78814e-07, -1.28057e-09, -1.3411e-07, 1, -8.14907e-10, -4.76837e-07, 6.70552e-08)
 
-[node name="Head_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="1"]
-transform = Transform3D(1, -5.38421e-09, 4.65661e-09, 1.36934e-08, 1, 2.08616e-07, -2.21189e-09, -1.78814e-07, 1, 4.19095e-09, -4.76837e-07, 1.2666e-07)
+[node name="SphereCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Head_2/Head_2" index="0"]
+transform = Transform3D(-1, 2.34286e-09, 8.9407e-08, 1.04628e-08, 1, 1.78814e-07, -8.9407e-08, 1.3411e-07, -1, -7.45058e-09, 1.546, 0)
+shape = SubResource("SphereShape3D_ig7tw")
 
-[node name="Jaw_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="2"]
-transform = Transform3D(1, 0, 5.12227e-09, 9.31323e-09, 1, 2.08616e-07, -4.65661e-09, -5.96046e-08, 1, -2.32831e-09, -2.38419e-07, 2.16067e-07)
+[node name="CapsuleCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Head_2/Head_2" index="1"]
+transform = Transform3D(1, -6.69385e-10, -7.45058e-09, -5.42787e-09, 1, -1.93715e-07, 0, 4.47035e-08, 1, -7.45058e-09, 1.546, 0)
+shape = SubResource("CapsuleShape3D_efxa6")
+disabled = true
 
-[node name="Bone_003" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="3"]
-transform = Transform3D(1, 2.80825e-08, -1.49012e-08, 6.76584e-08, 1, -1.6577e-08, -1.49012e-08, -9.41341e-08, 1, 5.96046e-08, 2.38419e-07, 1.63913e-07)
+[node name="Jaw_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="1"]
+transform = Transform3D(1, -2.79397e-09, 4.65661e-10, 9.31323e-09, 1, 2.98023e-08, -1.86265e-09, 1.19209e-07, 1, 1.16415e-09, -2.38419e-07, -5.21541e-08)
+
+[node name="Bone_003" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="2"]
+transform = Transform3D(1, 2.76168e-08, -2.23517e-08, 6.82281e-08, 1, -1.28935e-08, -7.45058e-09, -9.78594e-08, 1, 5.96046e-08, 2.38419e-07, 1.63913e-07)
 
 [node name="Bone_003" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_003" index="0"]
 script = ExtResource("4_dg77c")
 forceMultiplier = 0.9
 
-[node name="Bone_003Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_003" index="1"]
-transform = Transform3D(1, -2.78668e-16, 0, -1.69623e-15, 1, 0, 0, 0, 1, 0.282131, 0.874567, -0.113407)
+[node name="Bone_003Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_003/Bone_003" index="0"]
+transform = Transform3D(1, 3.55271e-15, 0, 0, 1, -8.88178e-16, 0, 3.9968e-15, 1, 0.282131, 0.874567, -0.113407)
 shape = SubResource("CapsuleShape3D_w48qg")
 
-[node name="Bone_002" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="4"]
+[node name="Bone_002" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="3"]
 transform = Transform3D(1, 2.30502e-08, -1.49012e-08, 6.89179e-08, 1, 0, -2.98023e-08, -1.08033e-07, 1, -2.98023e-08, 0, 2.08616e-07)
 
-[node name="Bone_002Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_002" index="1"]
-transform = Transform3D(1, 7.29333e-16, 0, -3.55271e-14, 1, -2.11758e-21, 3.55271e-14, 3.55271e-14, 1, 0.246047, 1.20551, -0.10619)
+[node name="Bone_002Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_002/Bone_002" index="0"]
+transform = Transform3D(1, 0, 0, -3.55271e-14, 1, 0, 0, 3.77476e-14, 1, 0.246047, 1.20551, -0.10619)
 shape = SubResource("CapsuleShape3D_vivmo")
 
-[node name="Bone_007" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="5"]
-transform = Transform3D(-1, -3.29928e-07, 2.23517e-08, -2.71811e-07, 1, 4.17118e-08, 2.23517e-08, -3.69378e-08, 1, 6.25849e-07, 3.57628e-07, 1.04308e-07)
+[node name="Bone_007" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="4"]
+transform = Transform3D(-1, -1.66015e-07, 2.23517e-08, -9.8905e-08, 1, 4.32462e-08, 2.23517e-08, -4.06631e-08, 1, 3.8743e-07, 2.38419e-07, 1.11759e-07)
 
 [node name="Bone_007" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_007" index="0"]
 script = ExtResource("4_dg77c")
 
-[node name="Bone_007Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_007" index="1"]
-transform = Transform3D(1, -2.78668e-16, 0, -1.69623e-15, 1, 0, 0, 0, 1, 0.282131, 0.874567, -0.113407)
+[node name="Bone_007Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_007/Bone_007" index="0"]
+transform = Transform3D(1, -1.42109e-14, 0, -7.10543e-15, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0.282131, 0.874567, -0.113407)
 shape = SubResource("CapsuleShape3D_2cqfq")
 
-[node name="Bone_006" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="6"]
-transform = Transform3D(-1, -3.02447e-07, 2.23517e-08, -2.61469e-07, 1, 5.21541e-08, -7.45058e-09, -5.21541e-08, 1, 4.17233e-07, 1.19209e-07, 1.3411e-07)
+[node name="Bone_006" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="5"]
+transform = Transform3D(-1, -1.23633e-07, 1.49012e-08, -7.26432e-08, 1, 5.21541e-08, -7.45058e-09, -5.21541e-08, 1, 2.08616e-07, 1.19209e-07, 1.3411e-07)
 
 [node name="Bone_006" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_006" index="0"]
 script = ExtResource("4_dg77c")
 
-[node name="Bone_006Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_006" index="1"]
-transform = Transform3D(1, -3.41469e-14, 7.10543e-15, -3.25926e-14, 1, 0, 2.84217e-14, 3.19744e-14, 1, 0.246047, 1.20551, -0.10619)
+[node name="Bone_006Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_006/Bone_006" index="0"]
+transform = Transform3D(1, -3.55271e-14, 0, -4.26326e-14, 1, -1.06581e-14, 0, 3.19744e-14, 1, 0.246047, 1.20551, -0.10619)
 shape = SubResource("CapsuleShape3D_yaehf")
 
-[node name="Foot_L_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="7"]
-transform = Transform3D(1, -7.07805e-08, 7.45058e-09, 1.11759e-07, 1, -1.19209e-07, -6.98492e-09, 0, 1, 2.98023e-08, 5.21541e-08, 7.45058e-09)
+[node name="Foot_L_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="6"]
+transform = Transform3D(0.981014, -0.00794617, 0.193773, 0.0474896, 0.978584, -0.200295, -0.188032, 0.205694, 0.960382, 0.060749, -0.0162539, 0.102961)
 
 [node name="Foot_L_2" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_L_2" index="0"]
 script = ExtResource("4_dg77c")
 
-[node name="Foot_L_2Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_L_2" index="1"]
-transform = Transform3D(1, 2.4093e-08, 1.65654e-07, -1.65654e-07, -4.37113e-08, 1, 2.40928e-08, -1, -4.37114e-08, 0.142151, 0.047637, -0.030229)
+[node name="Foot_L_2Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_L_2/Foot_L_2" index="0"]
+transform = Transform3D(1, 3.72529e-08, 1.56462e-07, -1.75089e-07, 9.54606e-09, 1, 7.45058e-09, -1, -3.88827e-08, 0.142151, 0.0476375, -0.0302289)
 shape = SubResource("CapsuleShape3D_074og")
 
-[node name="Bone_001" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="8"]
-transform = Transform3D(1, -4.6105e-08, 3.20142e-09, 8.24416e-08, 1, -2.6077e-08, -4.80213e-09, -9.31323e-10, 1, -4.47035e-08, 2.98023e-08, 2.23517e-08)
+[node name="Bone_001" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="7"]
+transform = Transform3D(0.982546, -0.0630756, 0.175001, 0.0452875, 0.993562, 0.103843, -0.180424, -0.0941051, 0.979077, 0.0624287, 0.00814965, 0.122137)
 
 [node name="Bone_001" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_001" index="0"]
 script = ExtResource("4_dg77c")
 
-[node name="Bone_001Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_001" index="1"]
-transform = Transform3D(1, -2.12319e-14, -2.13163e-14, -3.79321e-14, 1, 0, 5.68434e-14, 3.19744e-14, 1, 0.141456, 0.243445, -0.0758247)
+[node name="Bone_001Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_001/Bone_001" index="0"]
+transform = Transform3D(1, -3.72529e-09, 3.72529e-09, 0, 1, 9.31323e-10, 3.72529e-09, 6.98492e-10, 1, 0.141456, 0.243444, -0.0758249)
 shape = SubResource("CapsuleShape3D_yaehf")
 
-[node name="Bone" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="9"]
-transform = Transform3D(1, -3.67654e-08, -1.49012e-08, 8.52597e-08, 1, -2.98023e-08, 1.35042e-08, 0, 1, 0, -1.19209e-07, 3.35276e-08)
+[node name="Bone" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="8"]
+transform = Transform3D(0.98208, -0.0860701, 0.167665, 0.0451267, 0.971139, 0.234207, -0.182984, -0.222443, 0.95762, 0.0715524, 0.027859, 0.17459)
 
 [node name="Bone" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone" index="0"]
 script = ExtResource("4_dg77c")
 
-[node name="BoneCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone" index="1"]
-transform = Transform3D(1, -2.4869e-14, -1.42109e-14, -3.77301e-14, 1, 0, 4.9738e-14, 3.19744e-14, 1, 0.126274, 0.596017, -0.0893204)
+[node name="BoneCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone/Bone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -3.49246e-09, 0, 1.67638e-08, 1, 0.126274, 0.596016, -0.0893207)
 shape = SubResource("CapsuleShape3D_yaehf")
 
-[node name="Foot_R_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="10"]
-transform = Transform3D(-1, 7.45058e-08, -6.0536e-09, 1.15484e-07, 1, 1.49012e-07, -1.02445e-08, -1.19209e-07, 1, -7.45058e-08, 5.21541e-08, 7.45058e-09)
+[node name="Foot_R_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="9"]
+transform = Transform3D(-0.971485, 0.11501, -0.20734, 0.105439, 0.992809, 0.0566702, -0.212367, -0.0331923, 0.976626, -0.0524205, -0.00704876, 0.0854101)
 
 [node name="Foot_R_2" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_R_2" index="0"]
 script = ExtResource("4_dg77c")
 
-[node name="Foot_R_2Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_R_2" index="1"]
-transform = Transform3D(1, 2.4093e-08, 1.65654e-07, -1.65654e-07, -4.37112e-08, 1, 2.40928e-08, -1, -4.37114e-08, 0.145435, 0.0509214, -0.030229)
+[node name="Foot_R_2Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_R_2/Foot_R_2" index="0"]
+transform = Transform3D(1, 0, 1.63913e-07, -1.63913e-07, -4.47035e-08, 1, 0, -1, -4.47035e-08, 0.145435, 0.050921, -0.0302291)
 shape = SubResource("CapsuleShape3D_cegan")
 
-[node name="Bone_005" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="11"]
-transform = Transform3D(-1, 4.42417e-08, 6.98492e-10, 8.61307e-08, 1, -2.6077e-08, -9.02219e-10, -9.31323e-10, 1, 5.96046e-08, 2.98023e-08, 2.23517e-08)
+[node name="Bone_005" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="10"]
+transform = Transform3D(-0.997086, 0.045551, -0.0611931, 0.0458136, 0.998946, -0.00289351, -0.0609968, 0.00568861, 0.998122, -0.032396, -0.00380564, 0.0631026)
 
 [node name="Bone_005" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_005" index="0"]
 script = ExtResource("4_dg77c")
 
-[node name="Bone_005Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_005" index="1"]
-transform = Transform3D(1, -2.12319e-14, -2.13163e-14, -3.79321e-14, 1, 0, 5.68434e-14, 3.19744e-14, 1, 0.141456, 0.243445, -0.0758247)
+[node name="Bone_005Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_005/Bone_005" index="0"]
+transform = Transform3D(1, -3.72529e-09, 0, 0, 1, -9.31323e-10, 0, 0, 1, 0.141456, 0.243445, -0.0758247)
 shape = SubResource("CapsuleShape3D_yaehf")
 
-[node name="Bone_004" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="12"]
-transform = Transform3D(-1, 3.86208e-08, 1.851e-08, 8.49977e-08, 1, -3.72529e-08, 1.69966e-08, 1.49012e-08, 1, -1.49012e-08, -1.19209e-07, 3.35276e-08)
+[node name="Bone_004" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="11"]
+transform = Transform3D(-0.98646, 0.0178785, 0.163027, 0.0510711, 0.978102, 0.201762, 0.15585, -0.207356, 0.965771, -0.00451339, 0.0203835, 0.12105)
 
 [node name="Bone_004" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_004" index="0"]
 script = ExtResource("4_dg77c")
 
-[node name="Bone_004Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_004" index="1"]
-transform = Transform3D(1, -2.4869e-14, -1.42109e-14, -3.77301e-14, 1, 0, 4.9738e-14, 3.19744e-14, 1, 0.126274, 0.596017, -0.0893204)
+[node name="Bone_004Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_004/Bone_004" index="0"]
+transform = Transform3D(1, -3.72529e-09, 0, 3.72529e-09, 1, 2.42144e-08, 0, 2.1304e-08, 1, 0.126274, 0.596016, -0.0893204)
 shape = SubResource("CapsuleShape3D_yaehf")
 
 [node name="Hip_2" parent="Player/SkeleTON/Skeleton/Skeleton3D/Hip_2" index="0"]
 script = ExtResource("4_dg77c")
 
-[node name="Hip_2Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Hip_2" index="1"]
-transform = Transform3D(-4.37114e-08, -1, -8.74228e-08, 1, -4.37114e-08, 8.74228e-08, -8.74228e-08, -8.74228e-08, 1, 0, 0.803336, 0)
+[node name="Hip_2Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Hip_2/Hip_2" index="0"]
+transform = Transform3D(-4.37114e-08, -1, -8.9407e-08, 1, -4.37114e-08, 8.74228e-08, -8.74228e-08, -8.9407e-08, 1, 0, 0.803336, 0)
 shape = SubResource("CapsuleShape3D_82xsv")
+
+[node name="AnimationPlayer" parent="Player/SkeleTON" index="2"]
+autoplay = "IntroAnimation"
+script = ExtResource("7_074og")
 
 [node name="Stairs" type="Node" parent="."]
 script = ExtResource("2_h2yge")
 stairCaseScenes = Array[PackedScene]([ExtResource("1_ig7tw"), ExtResource("7_2cqfq"), ExtResource("8_yaehf")])
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stairs"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.85058, 0)

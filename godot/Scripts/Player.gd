@@ -17,10 +17,30 @@ func _ready() -> void:
 	GameManager.game_started.connect(handleGameStart)
 	GameManager.game_over.connect(func(): self.freeze = true)
 
+var wasInitialized = false
 func handleGameStart():
+	if wasInitialized:
+		return
+	wasInitialized = true
+	
 	self.freeze = false
 	head.reparent(self)
 	jaw.reparent(self)
+	var sphere = head.get_node("SphereCollider")
+	var capsule = head.get_node("CapsuleCollider")
+	sphere.reparent(self)
+	capsule.reparent(self)
+	
+	var old_global_transform = self.global_transform
+	var new_global_transform = sphere.global_transform
+	self.global_transform = new_global_transform
+	sphere.transform = Transform3D.IDENTITY
+	
+	var child_transform = old_global_transform * new_global_transform.inverse()
+	capsule.global_transform = child_transform * capsule.global_transform
+	head.global_transform = child_transform * head.global_transform
+	jaw.global_transform = child_transform * jaw.global_transform
+	
 	skeleton.hide()
 	
 

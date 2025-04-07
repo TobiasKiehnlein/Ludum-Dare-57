@@ -20,7 +20,7 @@ func makeRollin():
 		return
 	wasInitialized = true
 	
-	col = get_parent().get_children().filter(func(c): return c.name == name+"Collider").get(0)
+	col = self.get_children().filter(func(c): return c.name == name+"Collider").get(0)
 	rb = RigidBody3D.new()
 	#rb.continuous_cd = true
 	rb.collision_layer = 4
@@ -30,12 +30,12 @@ func makeRollin():
 	self.reparent(rb)
 	root.add_child(rb)
 	
-	rb.transform = col.transform * rb.transform
-	self.transform = col.transform.inverse() * self.transform
+	rb.global_transform = col.global_transform
+	self.global_transform = rb.global_transform.inverse() * self.global_transform
 	col.transform = Transform3D.IDENTITY
 	var material := PhysicsMaterial.new()
-	material.friction = 0.1
-	material.friction = 0
+	#material.friction = 0.1
+	material.friction = 0.0
 	material.bounce = 0.2
 	rb.physics_material_override = material
 
