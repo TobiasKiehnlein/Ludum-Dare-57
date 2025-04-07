@@ -3,8 +3,11 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehwsl"]
 
 [resource]
-Button/colors/font_hover_color = Color(0.544972, 0.544975, 0.544975, 1)
+default_base_scale = 0.05
 Button/colors/icon_focus_color = Color(1, 1, 1, 0)
+Button/colors/icon_hover_color = Color(0.84, 0.84, 0.84, 1)
 Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
-Button/font_sizes/font_size = 32
+Button/icons/icon = null
 Button/styles/focus = SubResource("StyleBoxEmpty_ehwsl")
+Button/styles/hover = null
+Button/styles/normal = null

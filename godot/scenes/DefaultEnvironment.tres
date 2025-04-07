@@ -1,0 +1,17 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://b8mm7hesg58rf"]
+
+[ext_resource type="Sky" uid="uid://xmcp6ruhkvub" path="res://scenes/DefaultSky.tres" id="1_dyhr7"]
+
+[resource]
+background_mode = 2
+background_color = Color(0.233925, 0.233925, 0.233925, 1)
+background_energy_multiplier = 0.5
+sky = ExtResource("1_dyhr7")
+ambient_light_source = 3
+ambient_light_energy = 0.0
+tonemap_mode = 3
+glow_enabled = true
+glow_strength = 0.47
+glow_bloom = 0.43
+glow_blend_mode = 0
+fog_light_color = Color(0.864104, 0.729428, 0, 1)

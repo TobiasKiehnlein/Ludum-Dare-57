@@ -51,9 +51,10 @@ func restart(force = false):
 	get_tree().reload_current_scene()
 
 func ready():
-	if startOnReady:
-		await get_tree().create_timer(.1).timeout
-		startGame()
+	return
+	#if startOnReady:
+		#await get_tree().create_timer(.1).timeout
+		#startGame()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
