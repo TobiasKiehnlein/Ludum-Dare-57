@@ -4,6 +4,8 @@ extends Node
 signal game_started()
 signal game_paused()
 signal game_over()
+signal score(score: int)
+var _score = 0
 
 var hasGameStarted = false
 var isGameOver = false
@@ -34,6 +36,11 @@ func gameOver():
 	isGameOver = true
 	game_over.emit()
 
+func setScore(score: int):
+	if score > self._score:
+		_score = score
+		self.score.emit(score)
+		# print(score)
 	
 func restart(force = false):
 	if !(isGameOver or force):

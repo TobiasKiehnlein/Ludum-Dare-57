@@ -75,7 +75,9 @@ func checkGameOver(delta: float):
 	
 	if l1 < .5 && l2 < .5:
 		GameManager.gameOver()
-	
+
+func _process(delta: float) -> void:
+	GameManager.setScore(self.position.y * -1)
 
 func _physics_process(delta: float) -> void:
 	if !GameManager.hasGameStarted:
