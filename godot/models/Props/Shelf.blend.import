@@ -32,7 +32,18 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Metal": {
+"use_external/enabled": true,
+"use_external/path": "uid://bkratdpfksmq4"
+},
+"Wood": {
+"use_external/enabled": true,
+"use_external/path": "uid://duvk1gal2acn5"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
