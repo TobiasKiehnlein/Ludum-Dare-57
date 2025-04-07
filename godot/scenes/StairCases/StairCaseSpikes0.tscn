@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgf71npg6dttf"]
+
+[ext_resource type="Script" uid="uid://dtgacxdur3m3j" path="res://Scripts/StairSection.gd" id="1_joyma"]
+[ext_resource type="PackedScene" uid="uid://c8b8soxdn1hbm" path="res://scenes/StairCaseBase.tscn" id="2_o7a3a"]
+[ext_resource type="PackedScene" uid="uid://cqwuwl28f1irm" path="res://scenes/Sets/basic_lighting.tscn" id="3_0bv52"]
+[ext_resource type="PackedScene" uid="uid://d10n3c3aujcb1" path="res://scenes/Props/SpikesPattern.tscn" id="4_0bv52"]
+[ext_resource type="PackedScene" uid="uid://byac0xonqbx3y" path="res://scenes/Props/Barricade.tscn" id="5_gyk6q"]
+[ext_resource type="PackedScene" uid="uid://cnudnpfm8mtdr" path="res://scenes/Props/SpikesRandom.tscn" id="6_gyk6q"]
+[ext_resource type="PackedScene" uid="uid://cbmjdm0wn4fuq" path="res://scenes/Sets/basic_bricks0.tscn" id="7_iitg3"]
+
+[node name="StairCase" type="Node3D"]
+script = ExtResource("1_joyma")
+
+[node name="StairCaseBase" parent="." instance=ExtResource("2_o7a3a")]
+
+[node name="BasicLighting" parent="." instance=ExtResource("3_0bv52")]
+
+[node name="SpikesPattern" parent="." instance=ExtResource("4_0bv52")]
+transform = Transform3D(0.019952, 0.452088, -0.89175, -0.999028, 0.0440901, 0, 0.0393174, 0.890883, 0.452528, -1.46975, 2.2265, 1.21108)
+
+[node name="Barricade" parent="." instance=ExtResource("5_gyk6q")]
+transform = Transform3D(0.831741, 0, 0.555164, 0, 1, 0, -0.555164, 0, 0.831741, -1.46209, 1.69493, 1.11808)
+
+[node name="Barricade2" parent="." instance=ExtResource("5_gyk6q")]
+transform = Transform3D(0.831741, 0, 0.555164, 0, 1, 0, -0.555164, 0, 0.831741, -1.46209, 2.55676, 1.11808)
+
+[node name="SpikesPattern2" parent="." instance=ExtResource("6_gyk6q")]
+transform = Transform3D(1, 0, 0, 0, 0.963537, -0.267575, 0, 0.267575, 0.963537, 1.38704, 3.28543, 0.711793)
+
+[node name="BasicBricks0" parent="." instance=ExtResource("7_iitg3")]

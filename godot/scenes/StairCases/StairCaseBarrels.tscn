@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://r3expihdev8h"]
+[gd_scene load_steps=6 format=3 uid="uid://r3expihdev8h"]
 
 [ext_resource type="Script" uid="uid://dtgacxdur3m3j" path="res://Scripts/StairSection.gd" id="1_b15m4"]
 [ext_resource type="PackedScene" uid="uid://c8b8soxdn1hbm" path="res://scenes/StairCaseBase.tscn" id="2_hc8gj"]
 [ext_resource type="PackedScene" uid="uid://cqwuwl28f1irm" path="res://scenes/Sets/basic_lighting.tscn" id="3_h8a64"]
 [ext_resource type="PackedScene" uid="uid://b3bxy1go8t06p" path="res://scenes/Props/Barrel.tscn" id="4_hc8gj"]
+[ext_resource type="PackedScene" uid="uid://cbmjdm0wn4fuq" path="res://scenes/Sets/basic_bricks0.tscn" id="5_h8a64"]
 
 [node name="StairCase" type="Node3D"]
 script = ExtResource("1_b15m4")
@@ -29,3 +30,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.994648, 4.49173, -1.37062)
 
 [node name="Barrel5" parent="." instance=ExtResource("4_hc8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73529, 4.57228, -0.14945)
+
+[node name="BasicBricks0" parent="." instance=ExtResource("5_h8a64")]

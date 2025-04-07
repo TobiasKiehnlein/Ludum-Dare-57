@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://qgsmi0c71ho7"]
+[gd_scene load_steps=5 format=3 uid="uid://qgsmi0c71ho7"]
 
 [ext_resource type="Script" uid="uid://dtgacxdur3m3j" path="res://Scripts/StairSection.gd" id="1_uwwho"]
 [ext_resource type="PackedScene" uid="uid://c8b8soxdn1hbm" path="res://scenes/StairCaseBase.tscn" id="2_yo6jb"]
 [ext_resource type="PackedScene" uid="uid://cqwuwl28f1irm" path="res://scenes/Sets/basic_lighting.tscn" id="3_uwwho"]
+[ext_resource type="PackedScene" uid="uid://cbmjdm0wn4fuq" path="res://scenes/Sets/basic_bricks0.tscn" id="4_qiu02"]
 
 [node name="StairCase" type="Node3D"]
 script = ExtResource("1_uwwho")
@@ -10,3 +11,5 @@ script = ExtResource("1_uwwho")
 [node name="StairCaseBase" parent="." instance=ExtResource("2_yo6jb")]
 
 [node name="BasicLighting" parent="." instance=ExtResource("3_uwwho")]
+
+[node name="BasicBricks0" parent="." instance=ExtResource("4_qiu02")]
