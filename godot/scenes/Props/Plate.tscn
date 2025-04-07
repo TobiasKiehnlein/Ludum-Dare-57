@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjocm66s42r1v"]
+[gd_scene load_steps=4 format=3 uid="uid://cjocm66s42r1v"]
 
 [ext_resource type="PackedScene" uid="uid://qp3284tp745m" path="res://models/Props/Plate.blend" id="1_7vec1"]
+[ext_resource type="Script" uid="uid://dntcswp3a1hjt" path="res://Scripts/Prop.gd" id="1_oca5s"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_oca5s"]
 height = 0.0161743
 radius = 0.144531
 
 [node name="Plate" type="Node3D"]
+script = ExtResource("1_oca5s")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 mass = 0.2

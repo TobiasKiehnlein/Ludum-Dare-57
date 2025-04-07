@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://d10n3c3aujcb1"]
+[gd_scene load_steps=5 format=3 uid="uid://d10n3c3aujcb1"]
 
 [ext_resource type="PackedScene" uid="uid://1bcqyseldmw1" path="res://models/Props/SpikesPattern.blend" id="1_b28fj"]
+[ext_resource type="Script" uid="uid://dntcswp3a1hjt" path="res://Scripts/Prop.gd" id="1_rrmwn"]
 [ext_resource type="Script" uid="uid://10wccqn4eelm" path="res://Scripts/spikes.gd" id="2_2pcam"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2pcam"]
 size = Vector3(1.00507, 0.204926, 1)
 
 [node name="SpikesPattern" type="Node3D"]
+script = ExtResource("1_rrmwn")
+min_difficulty = 3.0
 
 [node name="SpikesPattern" parent="." instance=ExtResource("1_b28fj")]
 

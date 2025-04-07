@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://n7vj06ap53a"]
+[gd_scene load_steps=6 format=3 uid="uid://n7vj06ap53a"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cscad8edn7581" path="res://materials/physics/prop.tres" id="1_8r1jx"]
+[ext_resource type="Script" uid="uid://dntcswp3a1hjt" path="res://Scripts/Prop.gd" id="1_cgqoh"]
 [ext_resource type="PackedScene" uid="uid://cqwo0c0lupwh7" path="res://models/Props/Chair.blend" id="2_cgqoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ckhbl"]
@@ -10,6 +11,7 @@ size = Vector3(0.403839, 0.378418, 0.4021)
 size = Vector3(0.403839, 0.53772, 0.05896)
 
 [node name="Chair" type="Node3D"]
+script = ExtResource("1_cgqoh")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 physics_material_override = ExtResource("1_8r1jx")

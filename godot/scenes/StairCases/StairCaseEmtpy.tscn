@@ -9,7 +9,10 @@
 script = ExtResource("1_uwwho")
 
 [node name="StairCaseBase" parent="." instance=ExtResource("2_yo6jb")]
+metadata/_edit_lock_ = true
 
 [node name="BasicLighting" parent="." instance=ExtResource("3_uwwho")]
+metadata/_edit_lock_ = true
 
 [node name="BasicBricks0" parent="." instance=ExtResource("4_qiu02")]
+metadata/_edit_lock_ = true

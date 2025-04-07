@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://g4rb00dco56a"]
+[gd_scene load_steps=5 format=3 uid="uid://g4rb00dco56a"]
 
 [ext_resource type="PackedScene" uid="uid://lchv3mnffuyb" path="res://models/Props/Shelf.blend" id="1_0acbb"]
+[ext_resource type="Script" uid="uid://dntcswp3a1hjt" path="res://Scripts/Prop.gd" id="1_8h2i3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b6rbr"]
 size = Vector3(1.75878, 0.202498, 0.747619)
@@ -9,6 +10,7 @@ size = Vector3(1.75878, 0.202498, 0.747619)
 size = Vector3(1.75878, 0.0876993, 0.747619)
 
 [node name="Shelf" type="Node3D"]
+script = ExtResource("1_8h2i3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

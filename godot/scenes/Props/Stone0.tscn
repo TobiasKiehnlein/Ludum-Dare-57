@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn06ox76y3dua"]
+[gd_scene load_steps=6 format=3 uid="uid://bn06ox76y3dua"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cscad8edn7581" path="res://materials/physics/prop.tres" id="1_2d2jm"]
+[ext_resource type="Script" uid="uid://dntcswp3a1hjt" path="res://Scripts/Prop.gd" id="1_cjqyf"]
 [ext_resource type="PackedScene" uid="uid://biea15er3r5h2" path="res://models/Props/Stone0.blend" id="2_2d2jm"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rop7x"]
@@ -12,6 +13,7 @@ height = 0.143738
 radius = 0.121582
 
 [node name="Stone0" type="Node3D"]
+script = ExtResource("1_cjqyf")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 mass = 2.0

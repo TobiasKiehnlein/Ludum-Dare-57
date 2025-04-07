@@ -8,23 +8,49 @@
 [ext_resource type="PackedScene" uid="uid://cnudnpfm8mtdr" path="res://scenes/Props/SpikesRandom.tscn" id="6_gyk6q"]
 [ext_resource type="PackedScene" uid="uid://cbmjdm0wn4fuq" path="res://scenes/Sets/basic_bricks0.tscn" id="7_iitg3"]
 
-[node name="StairCase" type="Node3D"]
+[node name="StairCase2" type="Node3D"]
 script = ExtResource("1_joyma")
 
 [node name="StairCaseBase" parent="." instance=ExtResource("2_o7a3a")]
+metadata/_edit_lock_ = true
 
 [node name="BasicLighting" parent="." instance=ExtResource("3_0bv52")]
+metadata/_edit_lock_ = true
 
 [node name="SpikesPattern" parent="." instance=ExtResource("4_0bv52")]
 transform = Transform3D(0.019952, 0.452088, -0.89175, -0.999028, 0.0440901, 0, 0.0393174, 0.890883, 0.452528, -1.46975, 2.2265, 1.21108)
+min_difficulty = 10.0
+metadata/_edit_lock_ = true
 
 [node name="Barricade" parent="." instance=ExtResource("5_gyk6q")]
 transform = Transform3D(0.831741, 0, 0.555164, 0, 1, 0, -0.555164, 0, 0.831741, -1.46209, 1.69493, 1.11808)
 
 [node name="Barricade2" parent="." instance=ExtResource("5_gyk6q")]
 transform = Transform3D(0.831741, 0, 0.555164, 0, 1, 0, -0.555164, 0, 0.831741, -1.46209, 2.55676, 1.11808)
+min_difficulty = 5.0
+
+[node name="SpikesPattern4" parent="Barricade2" instance=ExtResource("4_0bv52")]
+transform = Transform3D(-0.00523271, -0.118566, -0.992932, -0.999028, 0.0440901, 0, 0.0437785, 0.991967, -0.118681, -0.0580013, 0.280843, 0.0730992)
+min_difficulty = 13.0
+chance = 0.7
+
+[node name="Barricade3" parent="." instance=ExtResource("5_gyk6q")]
+transform = Transform3D(0.799374, -0.104886, 0.591608, -0.0431068, -0.992119, -0.117647, 0.599285, 0.0685418, -0.797596, -1.02042, 5.13941, -1.05026)
+min_difficulty = 10.0
+chance = 0.5
+
+[node name="SpikesPattern4" parent="Barricade3" instance=ExtResource("6_gyk6q")]
+transform = Transform3D(0.992315, -0.110072, -0.0565153, 0.0580352, 0.0106512, 0.998258, -0.109278, -0.993866, 0.0169574, 0.0353159, 0.526831, -0.0400795)
+min_difficulty = 15.0
+chance = 0.5
 
 [node name="SpikesPattern2" parent="." instance=ExtResource("6_gyk6q")]
 transform = Transform3D(1, 0, 0, 0, 0.963537, -0.267575, 0, 0.267575, 0.963537, 1.38704, 3.28543, 0.711793)
+min_difficulty = 3.0
+
+[node name="SpikesPattern3" parent="." instance=ExtResource("6_gyk6q")]
+transform = Transform3D(0.96493, 0.252937, -0.0702409, -0.262509, 0.929745, -0.258191, 0, 0.267575, 0.963537, 0.795626, 4.40746, -1.33301)
+min_difficulty = 15.0
+chance = 0.5
 
 [node name="BasicBricks0" parent="." instance=ExtResource("7_iitg3")]

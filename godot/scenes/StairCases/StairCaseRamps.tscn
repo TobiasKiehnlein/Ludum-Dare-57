@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://duu1bgxj316mg"]
+
+[ext_resource type="Script" uid="uid://dtgacxdur3m3j" path="res://Scripts/StairSection.gd" id="1_aq4sk"]
+[ext_resource type="PackedScene" uid="uid://c8b8soxdn1hbm" path="res://scenes/StairCaseBase.tscn" id="2_7uipg"]
+[ext_resource type="PackedScene" uid="uid://cqwuwl28f1irm" path="res://scenes/Sets/basic_lighting.tscn" id="3_gb4qv"]
+[ext_resource type="PackedScene" uid="uid://cbmjdm0wn4fuq" path="res://scenes/Sets/basic_bricks0.tscn" id="4_tyr74"]
+[ext_resource type="PackedScene" uid="uid://d36r3icp8rx34" path="res://scenes/Props/Ramp.tscn" id="5_y5viu"]
+[ext_resource type="PackedScene" uid="uid://bn06ox76y3dua" path="res://scenes/Props/Stone0.tscn" id="6_v7o7b"]
+[ext_resource type="PackedScene" uid="uid://b6vs8en50jr0k" path="res://scenes/Props/Table.tscn" id="7_7gfb3"]
+[ext_resource type="PackedScene" uid="uid://b3bxy1go8t06p" path="res://scenes/Props/Barrel.tscn" id="7_v7o7b"]
+[ext_resource type="PackedScene" uid="uid://cnudnpfm8mtdr" path="res://scenes/Props/SpikesRandom.tscn" id="8_x6wu1"]
+[ext_resource type="PackedScene" uid="uid://n7vj06ap53a" path="res://scenes/Props/Chair.tscn" id="9_f1v0j"]
+[ext_resource type="PackedScene" uid="uid://ch5u0t3hdr6u0" path="res://scenes/Props/BeerMug.tscn" id="10_1scgg"]
+[ext_resource type="PackedScene" uid="uid://byac0xonqbx3y" path="res://scenes/Props/Barricade.tscn" id="11_d6djp"]
+[ext_resource type="PackedScene" uid="uid://d10n3c3aujcb1" path="res://scenes/Props/SpikesPattern.tscn" id="12_5ffga"]
+[ext_resource type="PackedScene" uid="uid://dpnlgpyfb3wpd" path="res://scenes/Props/Crate.tscn" id="14_7gfb3"]
+
+[node name="StairCase" type="Node3D"]
+script = ExtResource("1_aq4sk")
+
+[node name="StairCaseBase" parent="." instance=ExtResource("2_7uipg")]
+metadata/_edit_lock_ = true
+
+[node name="StairCaseBase2" parent="." instance=ExtResource("2_7uipg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="BasicLighting" parent="." instance=ExtResource("3_gb4qv")]
+metadata/_edit_lock_ = true
+
+[node name="BasicBricks0" parent="." instance=ExtResource("4_tyr74")]
+metadata/_edit_lock_ = true
+
+[node name="Ramp" parent="." instance=ExtResource("5_y5viu")]
+transform = Transform3D(-0.53, -0.106568, 0.841275, -0.197127, 0.980378, -8.09713e-09, -0.824768, -0.165838, -0.540608, 1.3987, 4.43062, -0.616208)
+
+[node name="Stone0" parent="Ramp" instance=ExtResource("6_v7o7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.599047, -0.832484, 9.31323e-10)
+
+[node name="Ramp2" parent="." instance=ExtResource("5_y5viu")]
+transform = Transform3D(0.850704, 0.171053, -0.497035, -0.197127, 0.980378, 9.25163e-10, 0.487282, 0.0979789, 0.867731, -0.509933, 2.52019, 1.46272)
+
+[node name="Stone0" parent="Ramp2" instance=ExtResource("6_v7o7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.599047, -0.832484, 9.31323e-10)
+
+[node name="Barrel" parent="Ramp2" instance=ExtResource("7_v7o7b")]
+transform = Transform3D(0.999999, 4.47035e-08, -1.78814e-07, -1.86265e-08, 0.999999, 7.45058e-08, -2.68221e-07, 2.23517e-08, 1, -0.526541, 0.0810201, -0.407669)
+min_difficulty = 5.0
+chance = 0.7
+
+[node name="Barrel2" parent="Ramp2" instance=ExtResource("7_v7o7b")]
+transform = Transform3D(0.999999, 4.47035e-08, -1.78814e-07, -1.86265e-08, 0.999999, 7.45058e-08, -2.68221e-07, 2.23517e-08, 1, -0.526541, 0.0810202, 0.345423)
+min_difficulty = 5.0
+chance = 0.7
+
+[node name="Ramp3" parent="." instance=ExtResource("5_y5viu")]
+transform = Transform3D(-0.357574, -0.0718982, -0.931113, -0.197127, 0.980378, 1.85033e-09, 0.912843, 0.183547, -0.36473, -1.49266, 1.33524, -0.508217)
+chance = 0.7
+
+[node name="Stone0" parent="Ramp3" instance=ExtResource("6_v7o7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.599047, -0.832484, 9.31323e-10)
+
+[node name="SpikesPattern" parent="Ramp3" instance=ExtResource("12_5ffga")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 0, 7.45058e-09, 1, 0.00175965, -0.00875139, 0)
+min_difficulty = 8.0
+chance = 0.6
+
+[node name="Table2" parent="." instance=ExtResource("7_7gfb3")]
+transform = Transform3D(0.715648, -0.334286, 0.613271, 0.415371, 0.909584, 0.0110919, -0.561529, 0.246797, 0.789795, 0.958679, 2.99224, 1.34325)
+min_difficulty = 7.0
+chance = 0.3
+
+[node name="SpikesPattern" parent="Table2" instance=ExtResource("8_x6wu1")]
+transform = Transform3D(1, 0, 0, 0, 0.999333, -0.0365216, 0, 0.0365216, 0.999333, 2.98023e-08, 0.813503, 0)
+min_difficulty = 5.0
+
+[node name="Chair" parent="Table2" instance=ExtResource("9_f1v0j")]
+transform = Transform3D(0.91595, 0.385993, 0.109751, -0.375992, 0.921056, -0.101417, -0.140234, 0.0516273, 0.988771, -0.0289791, -0.0756607, 0.853637)
+
+[node name="BeerMug" parent="Table2" instance=ExtResource("10_1scgg")]
+transform = Transform3D(0.976189, 0.17758, 0.124583, -0.200933, 0.956645, 0.210844, -0.0817396, -0.230857, 0.969548, 1.52696, 1.00342, -1.18237)
+chance = 0.5
+
+[node name="Barricade3" parent="." instance=ExtResource("11_d6djp")]
+transform = Transform3D(-0.22828, 0.118585, -0.966347, 0.0124113, -0.992119, -0.124679, -0.973516, -0.0404555, 0.225009, 0.239033, 7.4489, 1.76937)
+min_difficulty = 12.0
+chance = 0.7
+
+[node name="Barricade4" parent="Barricade3" instance=ExtResource("11_d6djp")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.11759e-08, 0, 0, 1, 3.72529e-09, 0.954438, -1.86265e-09)
+min_difficulty = 12.0
+chance = 0.5
+
+[node name="SpikesPattern" parent="Barricade3/Barricade4" instance=ExtResource("12_5ffga")]
+transform = Transform3D(1, 0, -3.72529e-09, 0, -0.0263165, 0.999654, -1.49012e-08, -0.999654, -0.0263165, 0.00535619, -0.0278053, -0.0686425)
+min_difficulty = 15.0
+chance = 0.75
+
+[node name="SpikesPattern" parent="." instance=ExtResource("8_x6wu1")]
+transform = Transform3D(0.967117, -0.254332, -1.0584e-09, 0.240296, 0.913743, -0.327614, 0.0833226, 0.316841, 0.944812, 0.971799, 2.90131, 1.15587)
+min_difficulty = 6.0
+chance = 0.8
+
+[node name="Crate" parent="." instance=ExtResource("14_7gfb3")]
+transform = Transform3D(0.959751, 0, -0.280851, 0, 1, 0, 0.280851, 0, 0.959751, 0.205305, 4.96379, -0.922255)
+min_difficulty = 5.0
+chance = 0.1

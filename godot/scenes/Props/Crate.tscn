@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpnlgpyfb3wpd"]
+[gd_scene load_steps=5 format=3 uid="uid://dpnlgpyfb3wpd"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cscad8edn7581" path="res://materials/physics/prop.tres" id="1_0bxy4"]
+[ext_resource type="Script" uid="uid://dntcswp3a1hjt" path="res://Scripts/Prop.gd" id="1_i2lcc"]
 [ext_resource type="PackedScene" uid="uid://dv12adaiqe1lg" path="res://models/Props/Crate.blend" id="1_yq1vg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i2lcc"]
 size = Vector3(0.75531, 0.750854, 0.751221)
 
 [node name="Crate" type="Node3D"]
+script = ExtResource("1_i2lcc")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 mass = 2.0

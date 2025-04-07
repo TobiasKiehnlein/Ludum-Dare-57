@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3bxy1go8t06p"]
+[gd_scene load_steps=6 format=3 uid="uid://b3bxy1go8t06p"]
 
+[ext_resource type="Script" uid="uid://dntcswp3a1hjt" path="res://Scripts/Prop.gd" id="1_j6j8q"]
 [ext_resource type="PhysicsMaterial" uid="uid://cscad8edn7581" path="res://materials/physics/prop.tres" id="1_up7h3"]
 [ext_resource type="PackedScene" uid="uid://cuo65sildedy4" path="res://models/Props/Barrel.blend" id="2_j6j8q"]
 
@@ -11,6 +12,7 @@ height = 0.743637
 radius = 0.247559
 
 [node name="Barrel" type="Node3D"]
+script = ExtResource("1_j6j8q")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 mass = 0.5

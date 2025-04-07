@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6vs8en50jr0k"]
+[gd_scene load_steps=5 format=3 uid="uid://b6vs8en50jr0k"]
 
+[ext_resource type="Script" uid="uid://dntcswp3a1hjt" path="res://Scripts/Prop.gd" id="1_2woq5"]
 [ext_resource type="PackedScene" uid="uid://c75rl7je15gyt" path="res://models/Props/Table.blend" id="1_tf4yn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8h2i3"]
@@ -9,6 +10,7 @@ size = Vector3(1.49914, 0.0990254, 0.900284)
 size = Vector3(0.106934, 0.705048, 0.094696)
 
 [node name="Table" type="Node3D"]
+script = ExtResource("1_2woq5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

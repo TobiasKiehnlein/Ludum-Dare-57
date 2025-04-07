@@ -1,0 +1,123 @@
+[gd_scene load_steps=15 format=3 uid="uid://6oui2r3wkwrx"]
+
+[ext_resource type="Script" uid="uid://dtgacxdur3m3j" path="res://Scripts/StairSection.gd" id="1_3n6w2"]
+[ext_resource type="PackedScene" uid="uid://c8b8soxdn1hbm" path="res://scenes/StairCaseBase.tscn" id="2_8i2nm"]
+[ext_resource type="PackedScene" uid="uid://cqwuwl28f1irm" path="res://scenes/Sets/basic_lighting.tscn" id="3_1fpku"]
+[ext_resource type="PackedScene" uid="uid://cbmjdm0wn4fuq" path="res://scenes/Sets/basic_bricks0.tscn" id="4_p25hh"]
+[ext_resource type="PackedScene" uid="uid://b6vs8en50jr0k" path="res://scenes/Props/Table.tscn" id="5_355mc"]
+[ext_resource type="PackedScene" uid="uid://cjocm66s42r1v" path="res://scenes/Props/Plate.tscn" id="6_depyu"]
+[ext_resource type="PackedScene" uid="uid://bn06ox76y3dua" path="res://scenes/Props/Stone0.tscn" id="7_5cniq"]
+[ext_resource type="PackedScene" uid="uid://ch5u0t3hdr6u0" path="res://scenes/Props/BeerMug.tscn" id="8_kw585"]
+[ext_resource type="PackedScene" uid="uid://deje1qgv5in0l" path="res://scenes/Props/MEAT.tscn" id="9_tohiw"]
+[ext_resource type="PackedScene" uid="uid://cnudnpfm8mtdr" path="res://scenes/Props/SpikesRandom.tscn" id="10_depyu"]
+[ext_resource type="PackedScene" uid="uid://gdqnwp5nfe2n" path="res://scenes/Props/Stone1.tscn" id="11_5cniq"]
+[ext_resource type="PackedScene" uid="uid://n7vj06ap53a" path="res://scenes/Props/Chair.tscn" id="11_kw585"]
+[ext_resource type="PackedScene" uid="uid://byac0xonqbx3y" path="res://scenes/Props/Barricade.tscn" id="13_2lwwx"]
+[ext_resource type="PackedScene" uid="uid://d10n3c3aujcb1" path="res://scenes/Props/SpikesPattern.tscn" id="14_b0bjo"]
+
+[node name="StairCase" type="Node3D"]
+script = ExtResource("1_3n6w2")
+
+[node name="StairCaseBase" parent="." instance=ExtResource("2_8i2nm")]
+metadata/_edit_lock_ = true
+
+[node name="BasicLighting" parent="." instance=ExtResource("3_1fpku")]
+metadata/_edit_lock_ = true
+
+[node name="BasicBricks0" parent="." instance=ExtResource("4_p25hh")]
+metadata/_edit_lock_ = true
+
+[node name="Table" parent="." instance=ExtResource("5_355mc")]
+transform = Transform3D(0.857625, 0, -0.514275, 0, 1, 0, 0.514275, 0, 0.857625, 1.45684, 3.26573, 1.1609)
+
+[node name="Plate2" parent="Table" instance=ExtResource("6_depyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.258283, 0.798522, -0.154879)
+min_difficulty = 3.0
+chance = 0.8
+
+[node name="MEAT" parent="Table/Plate2" instance=ExtResource("9_tohiw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00658989, 0.0454526, -0.0771263)
+chance = 0.5
+
+[node name="BeerMug3" parent="Table/Plate2" instance=ExtResource("8_kw585")]
+transform = Transform3D(-0.737608, 0, -0.67523, 0, 1, 0, 0.67523, 0, -0.737608, 0.179163, -0.0205851, 0.16775)
+
+[node name="Stone0" parent="Table" instance=ExtResource("7_5cniq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.618557, -0.192195, 0.334188)
+
+[node name="Plate" parent="Table" instance=ExtResource("6_depyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38183, 0.797994, 0.228964)
+
+[node name="MEAT2" parent="Table/Plate" instance=ExtResource("9_tohiw")]
+transform = Transform3D(-0.99587, 0, -0.090789, 0, 1, 0, 0.090789, 0, -0.99587, 0.0235996, 0.0442495, 0.0626765)
+chance = 0.5
+
+[node name="BeerMug2" parent="Table" instance=ExtResource("8_kw585")]
+transform = Transform3D(-0.988457, 0, 0.151502, 0, 1, 0, -0.151502, 0, -0.988457, -0.374321, 0.777937, -0.0375412)
+
+[node name="SpikesPattern" parent="Table" instance=ExtResource("10_depyu")]
+transform = Transform3D(0.835342, -0.145632, -0.530091, -0.062309, 0.932975, -0.354506, 0.546189, 0.329163, 0.770279, -0.103583, -0.206597, -0.172739)
+min_difficulty = 5.0
+
+[node name="Chair2" parent="Table" instance=ExtResource("11_kw585")]
+transform = Transform3D(0.948401, 0, -0.317073, 0, 1, 0, 0.317073, 0, 0.948401, -0.26803, -0.330438, 0.668603)
+min_difficulty = 7.0
+chance = 0.3
+
+[node name="Stone1" parent="Table/Chair2" instance=ExtResource("11_5cniq")]
+transform = Transform3D(0.034603, 0, -0.999401, 0, 1, 0, 0.999401, 0, 0.034603, 0.0271226, -0.318286, 0.216361)
+
+[node name="Chair" parent="Table" instance=ExtResource("11_kw585")]
+transform = Transform3D(-0.980206, 0, -0.197982, 0, 1, 0, 0.197982, 0, -0.980206, -0.0348789, 0.176929, -0.746176)
+min_difficulty = 2.0
+chance = 0.5
+
+[node name="Stone0" parent="." instance=ExtResource("7_5cniq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10333, 2.32797, 1.21957)
+chance = 0.5
+
+[node name="Stone1" parent="." instance=ExtResource("11_5cniq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73145, 1.15166, 0)
+chance = 0.5
+
+[node name="Stone2" parent="." instance=ExtResource("11_5cniq")]
+transform = Transform3D(0.313943, 0, -0.949442, 0, 1, 0, 0.949442, 0, 0.313943, -2.03834, 0.894712, -0.827775)
+chance = 0.5
+
+[node name="Table2" parent="." instance=ExtResource("5_355mc")]
+transform = Transform3D(0.360365, -0.0990296, -0.92754, 0.385993, 0.921056, 0.0516273, 0.849204, -0.376628, 0.370141, -1.42724, 1.57575, 0.843112)
+chance = 0.8
+
+[node name="SpikesPattern" parent="Table2" instance=ExtResource("10_depyu")]
+transform = Transform3D(1, 0, 0, 0, 0.999333, -0.0365216, 0, 0.0365216, 0.999333, 2.98023e-08, 0.813503, 0)
+min_difficulty = 5.0
+
+[node name="Chair" parent="Table2" instance=ExtResource("11_kw585")]
+transform = Transform3D(0.91595, 0.385993, 0.109751, -0.375992, 0.921056, -0.101417, -0.140234, 0.0516273, 0.988771, -0.0289791, -0.0756607, 0.853637)
+
+[node name="BeerMug" parent="Table2" instance=ExtResource("8_kw585")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.583015, 0.797419, -0.312309)
+chance = 0.5
+
+[node name="Table3" parent="." instance=ExtResource("5_355mc")]
+transform = Transform3D(0.616243, -0.751039, -0.237036, -0.0122717, 0.291783, -0.956406, 0.787461, 0.592287, 0.170592, -0.43034, 0.695053, -1.83571)
+min_difficulty = 8.0
+
+[node name="SpikesPattern" parent="Table3" instance=ExtResource("10_depyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13175, 0.81709, -2.42144e-08)
+min_difficulty = 13.0
+
+[node name="Barricade3" parent="." instance=ExtResource("13_2lwwx")]
+transform = Transform3D(0.462082, -0.104886, 0.880613, 0.0124113, -0.992119, -0.124679, 0.88675, 0.0685418, -0.457139, -0.596065, 4.85039, -1.74333)
+min_difficulty = 12.0
+chance = 0.7
+
+[node name="Barricade4" parent="Barricade3" instance=ExtResource("13_2lwwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.11759e-08, 0, 0, 1, 3.72529e-09, 0.954438, -1.86265e-09)
+min_difficulty = 12.0
+chance = 0.5
+
+[node name="SpikesPattern" parent="Barricade3/Barricade4" instance=ExtResource("14_b0bjo")]
+transform = Transform3D(1, 0, 0, 0, -0.0263165, 0.999654, 0, -0.999654, -0.0263165, -3.72529e-09, 0.400332, -0.0148385)
+min_difficulty = 15.0
+chance = 0.75

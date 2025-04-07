@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqbx8caltsgm4"]
+[gd_scene load_steps=4 format=3 uid="uid://dqbx8caltsgm4"]
 
+[ext_resource type="Script" uid="uid://dntcswp3a1hjt" path="res://Scripts/Prop.gd" id="1_62t7r"]
 [ext_resource type="PackedScene" uid="uid://bslfab570s0w5" path="res://models/Props/BrickWall.blend" id="1_fioe5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_62t7r"]
 size = Vector3(1.72369, 0.995728, 0.410629)
 
 [node name="BrickWall0" type="Node3D"]
+script = ExtResource("1_62t7r")
+min_difficulty = 4.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
