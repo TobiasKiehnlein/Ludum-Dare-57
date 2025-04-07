@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://gdqnwp5nfe2n"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cscad8edn7581" path="res://materials/physics/prop.tres" id="1_2iaij"]
+[ext_resource type="PackedScene" uid="uid://co2ridaao2eb0" path="res://models/Props/Stone1.blend" id="2_2iaij"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cjgi7"]
+size = Vector3(0.45929, 0.399109, 0.536167)
+
+[node name="Stone1" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 2.0
+physics_material_override = ExtResource("1_2iaij")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0155189, 0.0999221, 0.0180868)
+shape = SubResource("BoxShape3D_cjgi7")
+
+[node name="Stone1" parent="RigidBody3D" instance=ExtResource("2_2iaij")]
+transform = Transform3D(0.995036, 0, 0.0995108, 0, 1, 0, -0.0995108, 0, 0.995036, 0, 0, 0)

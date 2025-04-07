@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d2jssux43iotq"]
+[gd_scene load_steps=37 format=3 uid="uid://d2jssux43iotq"]
 
 [ext_resource type="PackedScene" uid="uid://b0dt4hd2qh7o5" path="res://scenes/Camera.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://qgsmi0c71ho7" path="res://scenes/StairCases/StairCaseEmtpy.tscn" id="1_ig7tw"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bt1uxl7hey5ca" path="res://models/SkeleTON.blend" id="7_272bh"]
 [ext_resource type="Script" uid="uid://dnvuci0h6lixi" path="res://Scripts/HideByGameState.gd" id="8_kek77"]
 [ext_resource type="PackedScene" uid="uid://cgf71npg6dttf" path="res://scenes/StairCases/StairCaseSpikes1.tscn" id="8_yaehf"]
-[ext_resource type="Environment" uid="uid://b8mm7hesg58rf" path="res://scenes/DefaultEnvironment.tres" id="13_ycdy4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ig7tw"]
 friction = 0.16
@@ -80,6 +79,30 @@ data = PackedVector3Array(0, -0.1019, -3, 0.2941, 5.0981, -2.9856, 0.2941, -0.10
 [sub_resource type="Theme" id="Theme_5vw27"]
 Label/font_sizes/font_size = 64
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vivmo"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_2cqfq"]
+sky_material = SubResource("ProceduralSkyMaterial_vivmo")
+
+[sub_resource type="Environment" id="Environment_yaehf"]
+background_mode = 2
+background_color = Color(0.233925, 0.233925, 0.233925, 1)
+sky = SubResource("Sky_2cqfq")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_white = 6.0
+glow_enabled = true
+glow_strength = 0.47
+glow_bloom = 0.43
+glow_blend_mode = 0
+fog_light_color = Color(0.864104, 0.729428, 0, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_vivmo"]
+auto_exposure_scale = 0.1
+
 [node name="Root" type="Node3D"]
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("1_0xm2m")]
@@ -109,7 +132,7 @@ shape = SubResource("CapsuleShape3D_efxa6")
 disabled = true
 
 [node name="SkeleTON" parent="Player" instance=ExtResource("7_272bh")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.039154, -1.54556, -0.000499964)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.546, 0)
 
 [node name="SpineCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45058e-09, 1.13694, -0.13092)
@@ -376,7 +399,8 @@ script = ExtResource("8_kek77")
 visibleOnGameOver = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("13_ycdy4")
+environment = SubResource("Environment_yaehf")
+camera_attributes = SubResource("CameraAttributesPractical_vivmo")
 
 [connection signal="pressed" from="Control/ResumeButton" to="Control/ResumeButton" method="_on_pressed"]
 [connection signal="pressed" from="Control/ReStartButton" to="Control/ReStartButton" method="_on_pressed"]

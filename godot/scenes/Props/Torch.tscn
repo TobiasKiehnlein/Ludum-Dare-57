@@ -9,13 +9,16 @@
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515095, 0)
-light_color = Color(0.826544, 0.53831, 0.130859, 1)
-light_energy = 7.0
+light_color = Color(0.879417, 0.531073, 0.138039, 1)
+light_energy = 20.0
+light_bake_mode = 0
 shadow_enabled = true
 distance_fade_enabled = true
 distance_fade_begin = 10.0
 distance_fade_shadow = 7.5
 distance_fade_length = 5.0
-omni_range = 4.0
+omni_range = 3.0
+omni_attenuation = 0.75
+omni_shadow_mode = 0
 script = ExtResource("2_j08e6")
 flickeringSpeed = 50.0

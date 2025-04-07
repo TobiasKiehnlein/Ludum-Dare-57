@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfbkc3jit4tuc"]
+
+[ext_resource type="PackedScene" uid="uid://bslfab570s0w5" path="res://models/Props/BrickWall.blend" id="1_lnwiw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dtkyb"]
+size = Vector3(1.36691, 0.995728, 0.454773)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_txe3i"]
+size = Vector3(1.36691, 1.14366, 0.311371)
+
+[node name="BrickWall1" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="BrickWall" parent="StaticBody3D" instance=ExtResource("1_lnwiw")]
+
+[node name="StraightWall" parent="StaticBody3D/BrickWall" index="1"]
+visible = false
+
+[node name="BlobbyShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0070343, 0.496155, 0.00790405)
+shape = SubResource("BoxShape3D_dtkyb")
+
+[node name="BlobbyShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.893214, -0.449631, 0, 0.449631, 0.893214, 0.0070343, 0.400039, -0.328778)
+shape = SubResource("BoxShape3D_txe3i")
+
+[editable path="StaticBody3D/BrickWall"]

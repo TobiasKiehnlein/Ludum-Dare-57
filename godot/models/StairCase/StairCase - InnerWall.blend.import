@@ -38,6 +38,21 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "uid://ccwou3vu5abjp"
 }
+},
+"meshes": {
+"StairCase - InnerWall_Cylinder": {
+"generate/lightmap_uv": 0,
+"generate/lods": 2,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": false,
+"save_to_file/path": ""
+}
+},
+"nodes": {
+"PATH:Cylinder": {
+"mesh_instance/cast_shadow": 0
+}
 }
 }
 blender/nodes/visible=0
