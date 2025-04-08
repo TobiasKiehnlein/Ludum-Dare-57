@@ -1,0 +1,105 @@
+[gd_scene load_steps=11 format=3 uid="uid://cyqtr3mtlyjg7"]
+
+[ext_resource type="Script" uid="uid://dtgacxdur3m3j" path="res://Scripts/StairSection.gd" id="1_joyma"]
+[ext_resource type="PackedScene" uid="uid://c8b8soxdn1hbm" path="res://scenes/StairCaseBase.tscn" id="2_o7a3a"]
+[ext_resource type="PackedScene" uid="uid://cbmjdm0wn4fuq" path="res://scenes/Sets/basic_bricks0.tscn" id="3_jugao"]
+[ext_resource type="PackedScene" uid="uid://d10n3c3aujcb1" path="res://scenes/Props/SpikesPattern.tscn" id="4_0bv52"]
+[ext_resource type="PackedScene" uid="uid://yt2rhlwtfcia" path="res://scenes/Sets/green_lighting.tscn" id="4_lle5u"]
+[ext_resource type="PackedScene" uid="uid://dqbx8caltsgm4" path="res://scenes/Props/BrickWall0.tscn" id="5_h2m5y"]
+[ext_resource type="PackedScene" uid="uid://b3bxy1go8t06p" path="res://scenes/Props/Barrel.tscn" id="7_xfi62"]
+[ext_resource type="PackedScene" uid="uid://dpnlgpyfb3wpd" path="res://scenes/Props/Crate.tscn" id="8_65qi5"]
+[ext_resource type="PackedScene" uid="uid://ch5u0t3hdr6u0" path="res://scenes/Props/BeerMug.tscn" id="9_eljby"]
+[ext_resource type="PackedScene" uid="uid://d36r3icp8rx34" path="res://scenes/Props/Ramp.tscn" id="10_lle5u"]
+
+[node name="StairCaseSpikes1" type="Node3D"]
+script = ExtResource("1_joyma")
+
+[node name="StairCaseBase3" parent="." instance=ExtResource("2_o7a3a")]
+metadata/_edit_lock_ = true
+
+[node name="BasicBricks0" parent="." instance=ExtResource("3_jugao")]
+metadata/_edit_lock_ = true
+
+[node name="BasicLighting2" parent="." instance=ExtResource("4_lle5u")]
+
+[node name="BrickWall0" parent="." instance=ExtResource("5_h2m5y")]
+transform = Transform3D(0.301937, 0, -0.953328, 0, 1, 0, 0.953328, 0, 0.301937, 0.751245, 2.7085, 1.69028)
+min_difficulty = 2.0
+
+[node name="SpikesPattern8" parent="BrickWall0" instance=ExtResource("4_0bv52")]
+transform = Transform3D(-0.00132155, 0.0471054, -0.998889, 0.999607, 0.0280437, -3.1665e-08, 0.0280126, -0.998496, -0.0471239, 0.00789082, 0.442549, -0.217102)
+min_difficulty = 5.0
+chance = 0.5
+
+[node name="Barrel" parent="BrickWall0" instance=ExtResource("7_xfi62")]
+transform = Transform3D(0.301937, 0, 0.953328, 0, 1, 0, -0.953328, 0, 0.301937, -0.0769963, 1.03457, -0.0291442)
+min_difficulty = 8.0
+chance = 0.5
+
+[node name="BrickWall1" parent="." instance=ExtResource("5_h2m5y")]
+transform = Transform3D(-0.907279, 0, -0.420529, 0, 1, 0, 0.420529, 0, -0.907279, -1.67456, 1.52929, 0.774814)
+min_difficulty = 7.0
+chance = 0.9
+
+[node name="SpikesPattern7" parent="BrickWall1" instance=ExtResource("4_0bv52")]
+transform = Transform3D(-0.00132155, 0.0471054, -0.998889, 0.999607, 0.0280437, -3.1665e-08, 0.0280126, -0.998496, -0.0471239, 0.00789082, 0.442549, -0.217102)
+min_difficulty = 10.0
+chance = 0.5
+
+[node name="Crate" parent="BrickWall1" instance=ExtResource("8_65qi5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.993316, 0, 0.736185)
+min_difficulty = 15.0
+
+[node name="Crate2" parent="BrickWall1" instance=ExtResource("8_65qi5")]
+transform = Transform3D(0.74409, 0, 0.668079, 0, 1, 0, -0.668079, 0, 0.74409, 0.0241148, 0.695169, -1.34339)
+min_difficulty = 15.0
+
+[node name="BrickWall2" parent="." instance=ExtResource("5_h2m5y")]
+transform = Transform3D(-0.407853, 0, 0.913048, 0, 1, 0, -0.913048, 0, -0.407853, -0.377484, 0.157324, -1.77749)
+min_difficulty = 7.0
+chance = 0.8
+
+[node name="SpikesPattern6" parent="BrickWall2" instance=ExtResource("4_0bv52")]
+transform = Transform3D(-0.00132155, 0.0471054, -0.998889, 0.999607, 0.0280437, -3.1665e-08, 0.0280126, -0.998496, -0.0471239, 0.00789082, 0.442549, -0.217102)
+min_difficulty = 15.0
+chance = 0.5
+
+[node name="BeerMug" parent="BrickWall2" instance=ExtResource("9_eljby")]
+transform = Transform3D(0.0262816, 0, 0.999655, 0, 1, 0, -0.999655, 0, 0.0262816, 0, 1.00903, 0)
+chance = 0.5
+
+[node name="BeerMug2" parent="BrickWall2/BeerMug" instance=ExtResource("9_eljby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 0, -0.702974)
+
+[node name="BeerMug3" parent="BrickWall2/BeerMug" instance=ExtResource("9_eljby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.490245)
+
+[node name="BeerMug4" parent="BrickWall2/BeerMug" instance=ExtResource("9_eljby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.237017)
+
+[node name="BeerMug5" parent="BrickWall2/BeerMug" instance=ExtResource("9_eljby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.184896)
+
+[node name="BeerMug6" parent="BrickWall2/BeerMug" instance=ExtResource("9_eljby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.33562)
+
+[node name="BeerMug7" parent="BrickWall2/BeerMug" instance=ExtResource("9_eljby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51246)
+
+[node name="BeerMug8" parent="BrickWall2/BeerMug" instance=ExtResource("9_eljby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 0, 0.660488)
+
+[node name="Ramp" parent="." instance=ExtResource("10_lle5u")]
+transform = Transform3D(-0.715973, -0.073978, 0.694197, -0.068126, 0.997028, 0.0359865, -0.694796, -0.0215275, -0.718884, 1.1758, 4.49784, -0.995139)
+min_difficulty = 10.0
+
+[node name="Barrel" parent="Ramp" instance=ExtResource("7_xfi62")]
+transform = Transform3D(1, 1.86265e-09, -5.96046e-08, 0, 1, 4.65661e-09, -5.96046e-08, -9.31323e-10, 1, -0.389146, 0.00951815, -0.399014)
+min_difficulty = 15.0
+chance = 0.5
+
+[node name="Barrel2" parent="Ramp/Barrel" instance=ExtResource("7_xfi62")]
+transform = Transform3D(1, 9.31323e-10, -5.96046e-08, 0, 1, 9.31323e-10, -2.98023e-08, -5.58794e-09, 1, -1.19209e-07, 0, 0.715917)
+
+[node name="Barrel3" parent="Ramp/Barrel" instance=ExtResource("7_xfi62")]
+transform = Transform3D(1, 9.31323e-10, -5.96046e-08, 0, 1, 9.31323e-10, -2.98023e-08, -5.58794e-09, 1, -0.0399505, 0.772186, 0.350893)

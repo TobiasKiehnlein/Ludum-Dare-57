@@ -1,0 +1,163 @@
+[gd_scene load_steps=15 format=3 uid="uid://cxlg064vlaem0"]
+
+[ext_resource type="Script" uid="uid://dtgacxdur3m3j" path="res://Scripts/StairSection.gd" id="1_5hc2i"]
+[ext_resource type="PackedScene" uid="uid://c8b8soxdn1hbm" path="res://scenes/StairCaseBase.tscn" id="2_jfv21"]
+[ext_resource type="PackedScene" uid="uid://yt2rhlwtfcia" path="res://scenes/Sets/green_lighting.tscn" id="4_5hc2i"]
+[ext_resource type="PackedScene" uid="uid://cbmjdm0wn4fuq" path="res://scenes/Sets/basic_bricks0.tscn" id="4_56mjv"]
+[ext_resource type="PackedScene" uid="uid://d10n3c3aujcb1" path="res://scenes/Props/SpikesPattern.tscn" id="6_xdp0o"]
+[ext_resource type="PackedScene" uid="uid://cfbkc3jit4tuc" path="res://scenes/Props/BrickWall1.tscn" id="7_pthpq"]
+[ext_resource type="PackedScene" uid="uid://gdqnwp5nfe2n" path="res://scenes/Props/Stone1.tscn" id="8_2ljje"]
+[ext_resource type="PackedScene" uid="uid://g4rb00dco56a" path="res://scenes/Props/Shelf.tscn" id="9_6pg53"]
+[ext_resource type="PackedScene" uid="uid://cnudnpfm8mtdr" path="res://scenes/Props/SpikesRandom.tscn" id="9_8kyii"]
+[ext_resource type="PackedScene" uid="uid://cjocm66s42r1v" path="res://scenes/Props/Plate.tscn" id="10_xdp0o"]
+[ext_resource type="PackedScene" uid="uid://b3bxy1go8t06p" path="res://scenes/Props/Barrel.tscn" id="11_pthpq"]
+[ext_resource type="PackedScene" uid="uid://byac0xonqbx3y" path="res://scenes/Props/Barricade.tscn" id="12_2ljje"]
+[ext_resource type="PackedScene" uid="uid://b6vs8en50jr0k" path="res://scenes/Props/Table.tscn" id="13_nmavb"]
+[ext_resource type="PackedScene" uid="uid://bn06ox76y3dua" path="res://scenes/Props/Stone0.tscn" id="14_6xucx"]
+
+[node name="StairCase" type="Node3D"]
+script = ExtResource("1_5hc2i")
+height = 10.0
+
+[node name="StairCaseBase" parent="." instance=ExtResource("2_jfv21")]
+metadata/_edit_lock_ = true
+
+[node name="BasicBricks0" parent="StairCaseBase" instance=ExtResource("4_56mjv")]
+metadata/_edit_lock_ = true
+
+[node name="BasicLighting2" parent="StairCaseBase" instance=ExtResource("4_5hc2i")]
+
+[node name="StairCaseBase2" parent="." instance=ExtResource("2_jfv21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+metadata/_edit_lock_ = true
+
+[node name="BasicBricks0" parent="StairCaseBase2" instance=ExtResource("4_56mjv")]
+metadata/_edit_lock_ = true
+
+[node name="BasicLighting2" parent="StairCaseBase2" instance=ExtResource("4_5hc2i")]
+
+[node name="BrickWall3" parent="." instance=ExtResource("7_pthpq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51978, 8.54908, 0.343832)
+
+[node name="BrickWall4" parent="." instance=ExtResource("7_pthpq")]
+transform = Transform3D(-0.455498, 0, 0.890237, 0, 1, 0, -0.890237, 0, -0.455498, 0.814608, 7.70571, 1.44044)
+min_difficulty = 8.0
+chance = 0.9
+
+[node name="SpikesPattern" parent="BrickWall4" instance=ExtResource("9_8kyii")]
+transform = Transform3D(0.999913, 0.0121579, 0.00516984, -0.0127744, 0.989555, 0.14359, -0.00337009, -0.143643, 0.989624, 0.128423, 0.435706, 0.757432)
+min_difficulty = 5.0
+chance = 0.5
+
+[node name="SpikesPattern" parent="." instance=ExtResource("6_xdp0o")]
+transform = Transform3D(0.617725, -0.228671, 0.752413, -0.078311, 0.934145, 0.348196, -0.782485, -0.274011, 0.559138, -1.19179, 6.85908, 1.43638)
+min_difficulty = 5.0
+
+[node name="SpikesPattern2" parent="." instance=ExtResource("6_xdp0o")]
+transform = Transform3D(0.983649, -0.0118787, -0.179706, 0.0727007, 0.939101, 0.335864, 0.164772, -0.343437, 0.924609, -1.8815, 6.20642, 0.0764586)
+min_difficulty = 10.0
+chance = 0.5
+
+[node name="Stone1" parent="." instance=ExtResource("8_2ljje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64686, 6.2563, 0.156073)
+
+[node name="SpikesPattern3" parent="." instance=ExtResource("9_8kyii")]
+transform = Transform3D(0.960566, 0.278052, 0, -0.278052, 0.960566, 0, 0, 0, 1, 0.404619, 4.79296, -1.6947)
+min_difficulty = 5.0
+
+[node name="SpikesPattern4" parent="." instance=ExtResource("9_8kyii")]
+transform = Transform3D(0.960566, 0.267915, -0.0743951, -0.278052, 0.925545, -0.257007, 0, 0.267558, 0.963542, 1.4219, 4.16317, -0.804248)
+min_difficulty = 15.0
+chance = 0.9
+
+[node name="SpikesPattern5" parent="." instance=ExtResource("9_8kyii")]
+transform = Transform3D(0.990845, -0.118159, -0.0653022, 0.0901021, 0.939, -0.331905, 0.100536, 0.322982, 0.94105, 1.55153, 3.51462, 0.322354)
+min_difficulty = 25.0
+chance = 0.8
+
+[node name="Shelf" parent="." instance=ExtResource("9_6pg53")]
+transform = Transform3D(0.916223, 0, -0.400669, 0, 1, 0, 0.400669, 0, 0.916223, 1.37048, 9.58158, -2.07449)
+chance = 0.5
+
+[node name="Stone1" parent="Shelf" instance=ExtResource("8_2ljje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.750241, -0.234935, -0.179132)
+
+[node name="Stone2" parent="Shelf" instance=ExtResource("8_2ljje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.750241, -0.234935, 0.290102)
+
+[node name="Plate" parent="Shelf" instance=ExtResource("10_xdp0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.234489, 0)
+
+[node name="Plate3" parent="Shelf" instance=ExtResource("10_xdp0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.359405, 0)
+
+[node name="Plate4" parent="Shelf" instance=ExtResource("10_xdp0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.440896, 0)
+
+[node name="Plate2" parent="Shelf" instance=ExtResource("10_xdp0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.382982, 0.240313, 0)
+
+[node name="Shelf2" parent="." instance=ExtResource("9_6pg53")]
+transform = Transform3D(0.959427, 0, -0.281956, 0, 1, 0, 0.281956, 0, 0.959427, -1.70669, 0.829036, -0.689258)
+chance = 0.8
+
+[node name="Barrel" parent="Shelf2" instance=ExtResource("11_pthpq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.415504, 0.90286, 0)
+chance = 0.8
+
+[node name="Barrel2" parent="Shelf2/Barrel" instance=ExtResource("11_pthpq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.752188, 0.00185204, 2.98023e-08)
+
+[node name="Barrel3" parent="Shelf2/Barrel" instance=ExtResource("11_pthpq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.361565, 0.766029, 0)
+
+[node name="Barricade" parent="." instance=ExtResource("12_2ljje")]
+transform = Transform3D(0.142923, 0, 0.989734, 0, 1, 0, -0.989734, 0, 0.142923, -0.421524, 2.2067, 1.53077)
+min_difficulty = 15.0
+chance = 0.9
+
+[node name="Barricade3" parent="Barricade" instance=ExtResource("12_2ljje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.970154, 0)
+min_difficulty = 20.0
+chance = 0.5
+
+[node name="SpikesPattern" parent="Barricade/Barricade3" instance=ExtResource("6_xdp0o")]
+transform = Transform3D(1, 1.49012e-08, 0, 0, -0.0335041, -0.999439, 0, 0.999439, -0.0335041, -0.0480186, 0.352827, 0.0142366)
+min_difficulty = 25.0
+chance = 0.8
+
+[node name="SpikesPattern2" parent="Barricade" instance=ExtResource("6_xdp0o")]
+transform = Transform3D(1, 2.98023e-08, 0, 0, -0.0335041, -0.999439, 0, 0.999439, -0.0335041, -0.0480185, 0.324573, 0.0271734)
+min_difficulty = 20.0
+chance = 0.8
+
+[node name="Table" parent="." instance=ExtResource("13_nmavb")]
+transform = Transform3D(-0.578669, 0, 0.815562, 0, 1, 0, -0.815562, 0, -0.578669, -0.774976, 5.52374, -1.42734)
+chance = 0.9
+
+[node name="Stone0" parent="Table" instance=ExtResource("14_6xucx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.621457, -0.208695, 0.322345)
+
+[node name="Stone1" parent="Table" instance=ExtResource("14_6xucx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.662887, -0.409842, 0.255501)
+
+[node name="Stone2" parent="Table" instance=ExtResource("14_6xucx")]
+transform = Transform3D(0.838319, 0.54518, 0, -0.54518, 0.838319, 0, 0, 0, 1, -0.721815, -0.148553, 0.255501)
+
+[node name="SpikesPattern" parent="Table" instance=ExtResource("9_8kyii")]
+transform = Transform3D(1, 0, 0, 0, 0.992797, -0.119808, 0, 0.119808, 0.992797, 9.31323e-10, -0.137884, -0.0166394)
+min_difficulty = 25.0
+chance = 0.8
+
+[node name="Plate" parent="Table" instance=ExtResource("10_xdp0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838754, 0)
+chance = 0.5
+
+[node name="Plate2" parent="Table/Plate" instance=ExtResource("10_xdp0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0564675, 0)
+
+[node name="Plate3" parent="Table/Plate" instance=ExtResource("10_xdp0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.110946, 0)
+
+[node name="Plate4" parent="Table/Plate" instance=ExtResource("10_xdp0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.176343, 0)
