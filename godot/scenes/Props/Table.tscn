@@ -12,26 +12,26 @@ size = Vector3(0.106934, 0.705048, 0.094696)
 [node name="Table" type="Node3D"]
 script = ExtResource("1_2woq5")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3DWood" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D2Wood" type="CollisionShape3D" parent="StaticBody3DWood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00101286, 0.723643, -0.000205871)
 shape = SubResource("BoxShape3D_8h2i3")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D3Wood" type="CollisionShape3D" parent="StaticBody3DWood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65097, 0.358713, 0.351891)
 shape = SubResource("BoxShape3D_tf4yn")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D4Wood" type="CollisionShape3D" parent="StaticBody3DWood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.649321, 0.358713, 0.351891)
 shape = SubResource("BoxShape3D_tf4yn")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D5Wood" type="CollisionShape3D" parent="StaticBody3DWood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65097, 0.358713, -0.349905)
 shape = SubResource("BoxShape3D_tf4yn")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D6Wood" type="CollisionShape3D" parent="StaticBody3DWood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.649321, 0.358713, -0.349905)
 shape = SubResource("BoxShape3D_tf4yn")
 
-[node name="Table2" parent="StaticBody3D" instance=ExtResource("1_tf4yn")]
+[node name="Table2" parent="StaticBody3DWood" instance=ExtResource("1_tf4yn")]

@@ -14,18 +14,18 @@ radius = 0.247559
 [node name="Barrel" type="Node3D"]
 script = ExtResource("1_j6j8q")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="Wood" type="RigidBody3D" parent="."]
 mass = 0.5
 physics_material_override = ExtResource("1_up7h3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3DWood" type="CollisionShape3D" parent="Wood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.378268, 0)
 visible = false
 shape = SubResource("SphereShape3D_r2x71")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D2Wood" type="CollisionShape3D" parent="Wood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375596, 0)
 visible = false
 shape = SubResource("CylinderShape3D_rop7x")
 
-[node name="Barrel2" parent="RigidBody3D" instance=ExtResource("2_j6j8q")]
+[node name="Barrel2" parent="Wood" instance=ExtResource("2_j6j8q")]

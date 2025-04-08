@@ -6,6 +6,7 @@ signal game_paused()
 signal game_over()
 signal score(score: int)
 var _score = 0
+var audioManager: AudioManager
 
 var hasGameStarted = false
 var isGameOver = false
@@ -33,11 +34,14 @@ func pauseGame():
 		game_paused.emit()
 
 func gameOver():
+	if isGameOver:
+		return
 	isGameOver = true
+	AudioManager.create_audio(SfxSetting.SOUND_EFFECT_TYPE.GameOver)
 	game_over.emit()
 
 func setScore(score: int):
-	if score > self._score:
+	if score > _score:
 		_score = score
 		self.score.emit(score)
 		# print(score)

@@ -1,0 +1,447 @@
+[gd_scene load_steps=46 format=3 uid="uid://d2jssux43iotq"]
+
+[ext_resource type="PackedScene" uid="uid://b0dt4hd2qh7o5" path="res://scenes/Camera.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://qgsmi0c71ho7" path="res://scenes/StairCases/StairCaseEmtpy.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://blomoleo6w2ia" path="res://Scripts/Player.gd" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://buhj2mkghkelp" path="res://models/StairCase/StairCase - SideWall.blend" id="2_2cqfq"]
+[ext_resource type="Script" uid="uid://dunqmyfhm1wry" path="res://Scripts/Stairs.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://c8oy2jybrs41y" path="res://Scripts/SideWall.gd" id="2_yaehf"]
+[ext_resource type="Script" uid="uid://djbjvjd3xd5mg" path="res://Scripts/Bone.gd" id="4_dg77c"]
+[ext_resource type="Script" uid="uid://n6ykemupp7pd" path="res://Scripts/RestartButton.gd" id="6_4c57u"]
+[ext_resource type="Script" uid="uid://cqbkk0swo24id" path="res://Scripts/PauseButton.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://cmjksw0tk6mpd" path="res://Scripts/ResumeButton.gd" id="6_efxa6"]
+[ext_resource type="PackedScene" uid="uid://r3expihdev8h" path="res://scenes/StairCases/StairCaseBarrels.tscn" id="7_2cqfq"]
+[ext_resource type="Script" uid="uid://2p0cn3h61bid" path="res://Scripts/StartButton.gd" id="7_5vw27"]
+[ext_resource type="Script" uid="uid://dxpysat66y44c" path="res://Scripts/AnimationDisabler.gd" id="7_074og"]
+[ext_resource type="PackedScene" uid="uid://bt1uxl7hey5ca" path="res://models/SkeleTON.blend" id="7_272bh"]
+[ext_resource type="Script" uid="uid://dnvuci0h6lixi" path="res://Scripts/HideByGameState.gd" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://cgf71npg6dttf" path="res://scenes/StairCases/StairCaseSpikes0.tscn" id="8_yaehf"]
+[ext_resource type="PackedScene" uid="uid://n08cylibeglm" path="res://scenes/StairCases/StairCaseTop.tscn" id="10_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://6oui2r3wkwrx" path="res://scenes/StairCases/StairCaseTable.tscn" id="12_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://duu1bgxj316mg" path="res://scenes/StairCases/StairCaseRamps.tscn" id="13_0odxb"]
+[ext_resource type="Theme" uid="uid://dljleuupdkl6m" path="res://materials/iconButton.tres" id="13_d13ii"]
+[ext_resource type="Texture2D" uid="uid://djqdr2e0s188f" path="res://materials/icons/resume.svg" id="13_ryguw"]
+[ext_resource type="Texture2D" uid="uid://rgtjahsw3wqv" path="res://materials/icons/restart.svg" id="15_d13ii"]
+[ext_resource type="Texture2D" uid="uid://dhcd7k6e7mq3b" path="res://materials/icons/pause.svg" id="17_1u8w0"]
+[ext_resource type="Script" uid="uid://dqx4wxusb6xkv" path="res://Scripts/Score.gd" id="18_074og"]
+[ext_resource type="Texture2D" uid="uid://dv50m6f0af1cw" path="res://materials/icons/play.svg" id="19_0odxb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ig7tw"]
+friction = 0.16
+bounce = 0.01
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w48qg"]
+height = 0.321167
+radius = 0.172363
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ycdy4"]
+radius = 0.249015
+height = 0.54674
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dg77c"]
+radius = 0.0931954
+height = 0.751554
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ig7tw"]
+radius = 0.196804
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_efxa6"]
+radius = 0.177825
+height = 0.495549
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w48qg"]
+radius = 0.0665384
+height = 0.335447
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vivmo"]
+radius = 0.0711398
+height = 0.335447
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2cqfq"]
+radius = 0.0782657
+height = 0.335447
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yaehf"]
+radius = 0.0835257
+height = 0.344247
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_074og"]
+radius = 0.0369397
+height = 0.245867
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cegan"]
+radius = 0.0390292
+height = 0.196891
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_82xsv"]
+radius = 0.133838
+height = 0.40294
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ycdy4"]
+data = PackedVector3Array(-2.95, 0, 0, -2.9137, 4.9999, -0.4615, -2.95, 4.9999, 0, -2.9137, 4.9999, -0.4615, -2.95, 0, 0, -2.9137, 0, -0.4615, -2.9137, 0, -0.4615, -2.8057, 4.9999, -0.9116, -2.9137, 4.9999, -0.4615, -2.8057, 4.9999, -0.9116, -2.9137, 0, -0.4615, -2.8057, 0, -0.9116, -2.8057, 0, -0.9116, -2.6285, 4.9999, -1.3393, -2.8057, 4.9999, -0.9116, -2.6285, 4.9999, -1.3393, -2.8057, 0, -0.9116, -2.6285, 0, -1.3393, -2.6285, 0, -1.3393, -2.3866, 4.9999, -1.734, -2.6285, 4.9999, -1.3393, -2.3866, 4.9999, -1.734, -2.6285, 0, -1.3393, -2.3866, 0, -1.734, -2.3866, 0, -1.734, -2.086, 4.9999, -2.086, -2.3866, 4.9999, -1.734, -2.086, 4.9999, -2.086, -2.3866, 0, -1.734, -2.086, 0, -2.086, -2.086, 0, -2.086, -1.734, 4.9999, -2.3866, -2.086, 4.9999, -2.086, -1.734, 4.9999, -2.3866, -2.086, 0, -2.086, -1.734, 0, -2.3866, -1.734, 0, -2.3866, -1.3393, 4.9999, -2.6285, -1.734, 4.9999, -2.3866, -1.3393, 4.9999, -2.6285, -1.734, 0, -2.3866, -1.3393, 0, -2.6285, -1.3393, 0, -2.6285, -0.9117, 4.9999, -2.8056, -1.3393, 4.9999, -2.6285, -0.9117, 4.9999, -2.8056, -1.3393, 0, -2.6285, -0.9117, 0, -2.8056, -0.9117, 0, -2.8056, -0.4615, 4.9999, -2.9137, -0.9117, 4.9999, -2.8056, -0.4615, 4.9999, -2.9137, -0.9117, 0, -2.8056, -0.4615, 0, -2.9137, -0.4615, 0, -2.9137, 0, 4.9999, -2.95, -0.4615, 4.9999, -2.9137, 0, 4.9999, -2.95, -0.4615, 0, -2.9137, 0, 0, -2.95, 0, 0, -2.95, 0.4614, 4.9999, -2.9137, 0, 4.9999, -2.95, 0.4614, 4.9999, -2.9137, 0, 0, -2.95, 0.4614, 0, -2.9137, 0.4614, 0, -2.9137, 0.9116, 4.9999, -2.8056, 0.4614, 4.9999, -2.9137, 0.9116, 4.9999, -2.8056, 0.4614, 0, -2.9137, 0.9116, 0, -2.8056, 0.9116, 0, -2.8056, 1.3392, 4.9999, -2.6285, 0.9116, 4.9999, -2.8056, 1.3392, 4.9999, -2.6285, 0.9116, 0, -2.8056, 1.3392, 0, -2.6285, 1.3392, 0, -2.6285, 1.7339, 4.9999, -2.3866, 1.3392, 4.9999, -2.6285, 1.7339, 4.9999, -2.3866, 1.3392, 0, -2.6285, 1.7339, 0, -2.3866, 1.7339, 0, -2.3866, 2.0859, 4.9999, -2.086, 1.7339, 4.9999, -2.3866, 2.0859, 4.9999, -2.086, 1.7339, 0, -2.3866, 2.0859, 0, -2.086, 2.0859, 0, -2.086, 2.3865, 4.9999, -1.734, 2.0859, 4.9999, -2.086, 2.3865, 4.9999, -1.734, 2.0859, 0, -2.086, 2.3865, 0, -1.734, 2.3865, 0, -1.734, 2.6284, 4.9999, -1.3393, 2.3865, 4.9999, -1.734, 2.6284, 4.9999, -1.3393, 2.3865, 0, -1.734, 2.6284, 0, -1.3393, 2.6284, 0, -1.3393, 2.8056, 4.9999, -0.9116, 2.6284, 4.9999, -1.3393, 2.8056, 4.9999, -0.9116, 2.6284, 0, -1.3393, 2.8056, 0, -0.9116, 2.8056, 0, -0.9116, 2.9136, 4.9999, -0.4615, 2.8056, 4.9999, -0.9116, 2.9136, 4.9999, -0.4615, 2.8056, 0, -0.9116, 2.9136, 0, -0.4615, 2.9136, 0, -0.4615, 2.95, 4.9999, 0, 2.9136, 4.9999, -0.4615, 2.95, 4.9999, 0, 2.9136, 0, -0.4615, 2.95, 0, 0, 2.95, 0, 0, 2.9136, 4.9999, 0.4614, 2.95, 4.9999, 0, 2.9136, 4.9999, 0.4614, 2.95, 0, 0, 2.9136, 0, 0.4614, 2.9136, 0, 0.4614, 2.8056, 4.9999, 0.9116, 2.9136, 4.9999, 0.4614, 2.8056, 4.9999, 0.9116, 2.9136, 0, 0.4614, 2.8056, 0, 0.9116, 2.8056, 0, 0.9116, 2.6284, 4.9999, 1.3393, 2.8056, 4.9999, 0.9116, 2.6284, 4.9999, 1.3393, 2.8056, 0, 0.9116, 2.6284, 0, 1.3393, 2.6284, 0, 1.3393, 2.3865, 4.9999, 1.7339, 2.6284, 4.9999, 1.3393, 2.3865, 4.9999, 1.7339, 2.6284, 0, 1.3393, 2.3865, 0, 1.7339, 2.3865, 0, 1.7339, 2.0859, 4.9999, 2.086, 2.3865, 4.9999, 1.7339, 2.0859, 4.9999, 2.086, 2.3865, 0, 1.7339, 2.0859, 0, 2.086, 2.0859, 0, 2.086, 1.7339, 4.9999, 2.3866, 2.0859, 4.9999, 2.086, 1.7339, 4.9999, 2.3866, 2.0859, 0, 2.086, 1.7339, 0, 2.3866, 1.7339, 0, 2.3866, 1.3392, 4.9999, 2.6285, 1.7339, 4.9999, 2.3866, 1.3392, 4.9999, 2.6285, 1.7339, 0, 2.3866, 1.3392, 0, 2.6285, 1.3392, 0, 2.6285, 0.9116, 4.9999, 2.8056, 1.3392, 4.9999, 2.6285, 0.9116, 4.9999, 2.8056, 1.3392, 0, 2.6285, 0.9116, 0, 2.8056, 0.9116, 0, 2.8056, 0.4614, 4.9999, 2.9137, 0.9116, 4.9999, 2.8056, 0.4614, 4.9999, 2.9137, 0.9116, 0, 2.8056, 0.4614, 0, 2.9137, 0.4614, 0, 2.9137, 0, 4.9999, 2.95, 0.4614, 4.9999, 2.9137, 0, 4.9999, 2.95, 0.4614, 0, 2.9137, 0, 0, 2.95, 0, 0, 2.95, -0.4615, 4.9999, 2.9137, 0, 4.9999, 2.95, -0.4615, 4.9999, 2.9137, 0, 0, 2.95, -0.4615, 0, 2.9137, -0.4615, 0, 2.9137, -0.9117, 4.9999, 2.8056, -0.4615, 4.9999, 2.9137, -0.9117, 4.9999, 2.8056, -0.4615, 0, 2.9137, -0.9117, 0, 2.8056, -0.9117, 0, 2.8056, -1.3393, 4.9999, 2.6285, -0.9117, 4.9999, 2.8056, -1.3393, 4.9999, 2.6285, -0.9117, 0, 2.8056, -1.3393, 0, 2.6285, -1.3393, 0, 2.6285, -1.734, 4.9999, 2.3866, -1.3393, 4.9999, 2.6285, -1.734, 4.9999, 2.3866, -1.3393, 0, 2.6285, -1.734, 0, 2.3866, -1.734, 0, 2.3866, -2.086, 4.9999, 2.086, -1.734, 4.9999, 2.3866, -2.086, 4.9999, 2.086, -1.734, 0, 2.3866, -2.086, 0, 2.086, -2.086, 0, 2.086, -2.3866, 4.9999, 1.7339, -2.086, 4.9999, 2.086, -2.3866, 4.9999, 1.7339, -2.086, 0, 2.086, -2.3866, 0, 1.7339, -2.3866, 0, 1.7339, -2.6285, 4.9999, 1.3393, -2.3866, 4.9999, 1.7339, -2.6285, 4.9999, 1.3393, -2.3866, 0, 1.7339, -2.6285, 0, 1.3393, -2.6285, 0, 1.3393, -2.8057, 4.9999, 0.9116, -2.6285, 4.9999, 1.3393, -2.8057, 4.9999, 0.9116, -2.6285, 0, 1.3393, -2.8057, 0, 0.9116, -2.8057, 0, 0.9116, -2.9137, 4.9999, 0.4614, -2.8057, 4.9999, 0.9116, -2.9137, 4.9999, 0.4614, -2.8057, 0, 0.9116, -2.9137, 0, 0.4614, -2.9137, 0, 0.4614, -2.95, 4.9999, 0, -2.9137, 4.9999, 0.4614, -2.95, 4.9999, 0, -2.9137, 0, 0.4614, -2.95, 0, 0, 2.0859, 4.9999, 2.0859, 1.2856, 4.9999, 1.5321, 1.5321, 4.9999, 1.2856, 1.2856, 4.9999, 1.5321, 2.0859, 4.9999, 2.0859, 1.7339, 4.9999, 2.3865, 2.0859, 4.9999, 2.0859, 1.5321, 4.9999, 1.2856, 2.3865, 4.9999, 1.7339, 1.7339, 4.9999, 2.3865, 1, 4.9999, 1.732, 1.2856, 4.9999, 1.5321, 1.732, 4.9999, 1, 2.3865, 4.9999, 1.7339, 1.5321, 4.9999, 1.2856, 1, 4.9999, 1.732, 1.7339, 4.9999, 2.3865, 1.3392, 4.9999, 2.6284, 2.3865, 4.9999, 1.7339, 1.732, 4.9999, 1, 2.6284, 4.9999, 1.3392, 1.3392, 4.9999, 2.6284, 0.684, 4.9999, 1.8794, 1, 4.9999, 1.732, 1.8794, 4.9999, 0.684, 2.6284, 4.9999, 1.3392, 1.732, 4.9999, 1, 0.684, 4.9999, 1.8794, 1.3392, 4.9999, 2.6284, 0.9116, 4.9999, 2.8056, 2.6284, 4.9999, 1.3392, 1.8794, 4.9999, 0.684, 2.8056, 4.9999, 0.9116, 0.9116, 4.9999, 2.8056, 0.3473, 4.9999, 1.9696, 0.684, 4.9999, 1.8794, 1.9696, 4.9999, 0.3473, 2.8056, 4.9999, 0.9116, 1.8794, 4.9999, 0.684, 0.3473, 4.9999, 1.9696, 0.9116, 4.9999, 2.8056, 0.4614, 4.9999, 2.9136, 2.8056, 4.9999, 0.9116, 1.9696, 4.9999, 0.3473, 2.9136, 4.9999, 0.4614, 0.4614, 4.9999, 2.9136, 0, 4.9999, 1.9999, 0.3473, 4.9999, 1.9696, 1.9999, 4.9999, 0, 2.9136, 4.9999, 0.4614, 1.9696, 4.9999, 0.3473, 0, 4.9999, 1.9999, 0.4614, 4.9999, 2.9136, 0, 4.9999, 2.95, 2.9136, 4.9999, 0.4614, 1.9999, 4.9999, 0, 2.95, 4.9999, 0, -0.4615, 4.9999, 2.9136, 0, 4.9999, 1.9999, 0, 4.9999, 2.95, 1.9999, 4.9999, 0, 2.9136, 4.9999, -0.4615, 2.95, 4.9999, 0, 0, 4.9999, 1.9999, -0.4615, 4.9999, 2.9136, -0.3474, 4.9999, 1.9696, 2.9136, 4.9999, -0.4615, 1.9999, 4.9999, 0, 1.9696, 4.9999, -0.3474, -0.9117, 4.9999, 2.8056, -0.3474, 4.9999, 1.9696, -0.4615, 4.9999, 2.9136, 1.9696, 4.9999, -0.3474, 2.8056, 4.9999, -0.9117, 2.9136, 4.9999, -0.4615, -0.3474, 4.9999, 1.9696, -0.9117, 4.9999, 2.8056, -0.6841, 4.9999, 1.8794, 2.8056, 4.9999, -0.9117, 1.9696, 4.9999, -0.3474, 1.8794, 4.9999, -0.6841, -1.3393, 4.9999, 2.6284, -0.6841, 4.9999, 1.8794, -0.9117, 4.9999, 2.8056, 1.8794, 4.9999, -0.6841, 2.6284, 4.9999, -1.3393, 2.8056, 4.9999, -0.9117, -0.6841, 4.9999, 1.8794, -1.3393, 4.9999, 2.6284, -1.0001, 4.9999, 1.732, 2.6284, 4.9999, -1.3393, 1.8794, 4.9999, -0.6841, 1.732, 4.9999, -1.0001, -1.734, 4.9999, 2.3865, -1.0001, 4.9999, 1.732, -1.3393, 4.9999, 2.6284, 1.732, 4.9999, -1.0001, 2.3865, 4.9999, -1.734, 2.6284, 4.9999, -1.3393, -1.0001, 4.9999, 1.732, -1.734, 4.9999, 2.3865, -1.2856, 4.9999, 1.5321, 2.3865, 4.9999, -1.734, 1.732, 4.9999, -1.0001, 1.5321, 4.9999, -1.2856, -2.086, 4.9999, 2.0859, -1.2856, 4.9999, 1.5321, -1.734, 4.9999, 2.3865, 1.5321, 4.9999, -1.2856, 2.0859, 4.9999, -2.086, 2.3865, 4.9999, -1.734, -2.086, 4.9999, 2.0859, -1.5321, 4.9999, 1.2856, -1.2856, 4.9999, 1.5321, 1.2856, 4.9999, -1.5321, 2.0859, 4.9999, -2.086, 1.5321, 4.9999, -1.2856, -1.5321, 4.9999, 1.2856, -2.086, 4.9999, 2.0859, -2.3866, 4.9999, 1.7339, 2.0859, 4.9999, -2.086, 1.2856, 4.9999, -1.5321, 1.7339, 4.9999, -2.3866, -2.3866, 4.9999, 1.7339, -1.7321, 4.9999, 1, -1.5321, 4.9999, 1.2856, 1, 4.9999, -1.7321, 1.7339, 4.9999, -2.3866, 1.2856, 4.9999, -1.5321, -1.7321, 4.9999, 1, -2.3866, 4.9999, 1.7339, -2.6285, 4.9999, 1.3392, 1.7339, 4.9999, -2.3866, 1, 4.9999, -1.7321, 1.3392, 4.9999, -2.6285, -2.6285, 4.9999, 1.3392, -1.8795, 4.9999, 0.684, -1.7321, 4.9999, 1, 0.684, 4.9999, -1.8795, 1.3392, 4.9999, -2.6285, 1, 4.9999, -1.7321, -1.8795, 4.9999, 0.684, -2.6285, 4.9999, 1.3392, -2.8057, 4.9999, 0.9116, 1.3392, 4.9999, -2.6285, 0.684, 4.9999, -1.8795, 0.9116, 4.9999, -2.8057, -2.8057, 4.9999, 0.9116, -1.9697, 4.9999, 0.3473, -1.8795, 4.9999, 0.684, 0.3473, 4.9999, -1.9697, 0.9116, 4.9999, -2.8057, 0.684, 4.9999, -1.8795, -1.9697, 4.9999, 0.3473, -2.8057, 4.9999, 0.9116, -2.9137, 4.9999, 0.4614, 0.9116, 4.9999, -2.8057, 0.3473, 4.9999, -1.9697, 0.4614, 4.9999, -2.9137, -2.9137, 4.9999, 0.4614, -2, 4.9999, 0, -1.9697, 4.9999, 0.3473, 0, 4.9999, -2, 0.4614, 4.9999, -2.9137, 0.3473, 4.9999, -1.9697, -2, 4.9999, 0, -2.9137, 4.9999, 0.4614, -2.95, 4.9999, 0, 0.4614, 4.9999, -2.9137, 0, 4.9999, -2, 0, 4.9999, -2.95, -2.9137, 4.9999, -0.4615, -2, 4.9999, 0, -2.95, 4.9999, 0, 0, 4.9999, -2, -0.4615, 4.9999, -2.9137, 0, 4.9999, -2.95, -2, 4.9999, 0, -2.9137, 4.9999, -0.4615, -1.9697, 4.9999, -0.3474, -0.4615, 4.9999, -2.9137, 0, 4.9999, -2, -0.3474, 4.9999, -1.9697, -2.8057, 4.9999, -0.9117, -1.9697, 4.9999, -0.3474, -2.9137, 4.9999, -0.4615, -0.3474, 4.9999, -1.9697, -0.9117, 4.9999, -2.8057, -0.4615, 4.9999, -2.9137, -1.9697, 4.9999, -0.3474, -2.8057, 4.9999, -0.9117, -1.8795, 4.9999, -0.6841, -0.9117, 4.9999, -2.8057, -0.3474, 4.9999, -1.9697, -0.6841, 4.9999, -1.8795, -2.6285, 4.9999, -1.3393, -1.8795, 4.9999, -0.6841, -2.8057, 4.9999, -0.9117, -0.6841, 4.9999, -1.8795, -1.3393, 4.9999, -2.6285, -0.9117, 4.9999, -2.8057, -1.8795, 4.9999, -0.6841, -2.6285, 4.9999, -1.3393, -1.7321, 4.9999, -1.0001, -1.3393, 4.9999, -2.6285, -0.6841, 4.9999, -1.8795, -1.0001, 4.9999, -1.7321, -2.3866, 4.9999, -1.734, -1.7321, 4.9999, -1.0001, -2.6285, 4.9999, -1.3393, -1.0001, 4.9999, -1.7321, -1.734, 4.9999, -2.3866, -1.3393, 4.9999, -2.6285, -1.7321, 4.9999, -1.0001, -2.3866, 4.9999, -1.734, -1.5321, 4.9999, -1.2856, -1.734, 4.9999, -2.3866, -1.0001, 4.9999, -1.7321, -1.2856, 4.9999, -1.5321, -2.086, 4.9999, -2.086, -1.5321, 4.9999, -1.2856, -2.3866, 4.9999, -1.734, -1.2856, 4.9999, -1.5321, -2.086, 4.9999, -2.086, -1.734, 4.9999, -2.3866, -2.086, 4.9999, -2.086, -1.2856, 4.9999, -1.5321, -1.5321, 4.9999, -1.2856, 0.9116, 0, 2.8056, 0.3473, 0, 1.9696, 0.4614, 0, 2.9136, 0.3473, 0, 1.9696, 0.9116, 0, 2.8056, 0.684, 0, 1.8794, 0, 0, 1.9999, 0.4614, 0, 2.9136, 0.3473, 0, 1.9696, 1.3392, 0, 2.6284, 0.684, 0, 1.8794, 0.9116, 0, 2.8056, 0.4614, 0, 2.9136, 0, 0, 1.9999, 0, 0, 2.95, 0.684, 0, 1.8794, 1.3392, 0, 2.6284, 1, 0, 1.732, 0, 0, 1.9999, -0.4615, 0, 2.9136, 0, 0, 2.95, 1.7339, 0, 2.3865, 1, 0, 1.732, 1.3392, 0, 2.6284, -0.4615, 0, 2.9136, 0, 0, 1.9999, -0.3474, 0, 1.9696, 1, 0, 1.732, 1.7339, 0, 2.3865, 1.2856, 0, 1.5321, -0.3474, 0, 1.9696, -0.9117, 0, 2.8056, -0.4615, 0, 2.9136, 2.0859, 0, 2.0859, 1.2856, 0, 1.5321, 1.7339, 0, 2.3865, -0.9117, 0, 2.8056, -0.3474, 0, 1.9696, -0.6841, 0, 1.8794, 2.0859, 0, 2.0859, 1.5321, 0, 1.2856, 1.2856, 0, 1.5321, -0.6841, 0, 1.8794, -1.3393, 0, 2.6284, -0.9117, 0, 2.8056, 1.5321, 0, 1.2856, 2.0859, 0, 2.0859, 2.3865, 0, 1.7339, -1.3393, 0, 2.6284, -0.6841, 0, 1.8794, -1.0001, 0, 1.732, 2.3865, 0, 1.7339, 1.732, 0, 1, 1.5321, 0, 1.2856, -1.0001, 0, 1.732, -1.734, 0, 2.3865, -1.3393, 0, 2.6284, 1.732, 0, 1, 2.3865, 0, 1.7339, 2.6284, 0, 1.3392, -1.734, 0, 2.3865, -1.0001, 0, 1.732, -1.2856, 0, 1.5321, 2.6284, 0, 1.3392, 1.8794, 0, 0.684, 1.732, 0, 1, -1.2856, 0, 1.5321, -2.086, 0, 2.0859, -1.734, 0, 2.3865, 1.8794, 0, 0.684, 2.6284, 0, 1.3392, 2.8056, 0, 0.9116, -1.5321, 0, 1.2856, -2.086, 0, 2.0859, -1.2856, 0, 1.5321, 2.8056, 0, 0.9116, 1.9696, 0, 0.3473, 1.8794, 0, 0.684, -2.086, 0, 2.0859, -1.5321, 0, 1.2856, -2.3866, 0, 1.7339, 1.9696, 0, 0.3473, 2.8056, 0, 0.9116, 2.9136, 0, 0.4614, -1.7321, 0, 1, -2.3866, 0, 1.7339, -1.5321, 0, 1.2856, 2.9136, 0, 0.4614, 1.9999, 0, 0, 1.9696, 0, 0.3473, -2.3866, 0, 1.7339, -1.7321, 0, 1, -2.6285, 0, 1.3392, 1.9999, 0, 0, 2.9136, 0, 0.4614, 2.95, 0, 0, -1.8795, 0, 0.684, -2.6285, 0, 1.3392, -1.7321, 0, 1, 2.9136, 0, -0.4615, 1.9999, 0, 0, 2.95, 0, 0, -2.6285, 0, 1.3392, -1.8795, 0, 0.684, -2.8057, 0, 0.9116, 1.9999, 0, 0, 2.9136, 0, -0.4615, 1.9696, 0, -0.3474, -1.9697, 0, 0.3473, -2.8057, 0, 0.9116, -1.8795, 0, 0.684, 2.8056, 0, -0.9117, 1.9696, 0, -0.3474, 2.9136, 0, -0.4615, -2.8057, 0, 0.9116, -1.9697, 0, 0.3473, -2.9137, 0, 0.4614, 1.9696, 0, -0.3474, 2.8056, 0, -0.9117, 1.8794, 0, -0.6841, -2, 0, 0, -2.9137, 0, 0.4614, -1.9697, 0, 0.3473, 2.6284, 0, -1.3393, 1.8794, 0, -0.6841, 2.8056, 0, -0.9117, -2.9137, 0, 0.4614, -2, 0, 0, -2.95, 0, 0, 1.8794, 0, -0.6841, 2.6284, 0, -1.3393, 1.732, 0, -1.0001, -2, 0, 0, -2.9137, 0, -0.4615, -2.95, 0, 0, 2.3865, 0, -1.734, 1.732, 0, -1.0001, 2.6284, 0, -1.3393, -2.9137, 0, -0.4615, -2, 0, 0, -1.9697, 0, -0.3474, 1.732, 0, -1.0001, 2.3865, 0, -1.734, 1.5321, 0, -1.2856, -1.9697, 0, -0.3474, -2.8057, 0, -0.9117, -2.9137, 0, -0.4615, 2.0859, 0, -2.086, 1.5321, 0, -1.2856, 2.3865, 0, -1.734, -2.8057, 0, -0.9117, -1.9697, 0, -0.3474, -1.8795, 0, -0.6841, 2.0859, 0, -2.086, 1.2856, 0, -1.5321, 1.5321, 0, -1.2856, -1.8795, 0, -0.6841, -2.6285, 0, -1.3393, -2.8057, 0, -0.9117, 1.2856, 0, -1.5321, 2.0859, 0, -2.086, 1.7339, 0, -2.3866, -2.6285, 0, -1.3393, -1.8795, 0, -0.6841, -1.7321, 0, -1.0001, 1.7339, 0, -2.3866, 1, 0, -1.7321, 1.2856, 0, -1.5321, -1.7321, 0, -1.0001, -2.3866, 0, -1.734, -2.6285, 0, -1.3393, 1, 0, -1.7321, 1.7339, 0, -2.3866, 1.3392, 0, -2.6285, -2.3866, 0, -1.734, -1.7321, 0, -1.0001, -1.5321, 0, -1.2856, 1.3392, 0, -2.6285, 0.684, 0, -1.8795, 1, 0, -1.7321, -1.5321, 0, -1.2856, -2.086, 0, -2.086, -2.3866, 0, -1.734, 0.684, 0, -1.8795, 1.3392, 0, -2.6285, 0.9116, 0, -2.8057, -1.2856, 0, -1.5321, -2.086, 0, -2.086, -1.5321, 0, -1.2856, 0.9116, 0, -2.8057, 0.3473, 0, -1.9697, 0.684, 0, -1.8795, -2.086, 0, -2.086, -1.2856, 0, -1.5321, -1.734, 0, -2.3866, 0.3473, 0, -1.9697, 0.9116, 0, -2.8057, 0.4614, 0, -2.9137, -1.0001, 0, -1.7321, -1.734, 0, -2.3866, -1.2856, 0, -1.5321, 0.4614, 0, -2.9137, 0, 0, -2, 0.3473, 0, -1.9697, -1.734, 0, -2.3866, -1.0001, 0, -1.7321, -1.3393, 0, -2.6285, 0, 0, -2, 0.4614, 0, -2.9137, 0, 0, -2.95, -0.6841, 0, -1.8795, -1.3393, 0, -2.6285, -1.0001, 0, -1.7321, -0.4615, 0, -2.9137, 0, 0, -2, 0, 0, -2.95, -1.3393, 0, -2.6285, -0.6841, 0, -1.8795, -0.9117, 0, -2.8057, 0, 0, -2, -0.4615, 0, -2.9137, -0.3474, 0, -1.9697, -0.3474, 0, -1.9697, -0.9117, 0, -2.8057, -0.6841, 0, -1.8795, -0.9117, 0, -2.8057, -0.3474, 0, -1.9697, -0.4615, 0, -2.9137, -1.9697, 0, 0.3473, -2, 4.9999, 0, -2, 0, 0, -2, 4.9999, 0, -1.9697, 0, 0.3473, -1.9697, 4.9999, 0.3473, -1.8794, 0, 0.684, -1.9697, 4.9999, 0.3473, -1.9697, 0, 0.3473, -1.9697, 4.9999, 0.3473, -1.8794, 0, 0.684, -1.8794, 4.9999, 0.684, -1.7321, 0, 1, -1.8794, 4.9999, 0.684, -1.8794, 0, 0.684, -1.8794, 4.9999, 0.684, -1.7321, 0, 1, -1.7321, 4.9999, 1, -1.5321, 0, 1.2856, -1.7321, 4.9999, 1, -1.7321, 0, 1, -1.7321, 4.9999, 1, -1.5321, 0, 1.2856, -1.5321, 4.9999, 1.2856, -1.2856, 0, 1.5321, -1.5321, 4.9999, 1.2856, -1.5321, 0, 1.2856, -1.5321, 4.9999, 1.2856, -1.2856, 0, 1.5321, -1.2856, 4.9999, 1.5321, -1, 0, 1.732, -1.2856, 4.9999, 1.5321, -1.2856, 0, 1.5321, -1.2856, 4.9999, 1.5321, -1, 0, 1.732, -1, 4.9999, 1.732, -0.6841, 0, 1.8794, -1, 4.9999, 1.732, -1, 0, 1.732, -1, 4.9999, 1.732, -0.6841, 0, 1.8794, -0.6841, 4.9999, 1.8794, -0.3473, 0, 1.9696, -0.6841, 4.9999, 1.8794, -0.6841, 0, 1.8794, -0.6841, 4.9999, 1.8794, -0.3473, 0, 1.9696, -0.3473, 4.9999, 1.9696, 0, 0, 2, -0.3473, 4.9999, 1.9696, -0.3473, 0, 1.9696, -0.3473, 4.9999, 1.9696, 0, 0, 2, 0, 4.9999, 2, 0.3473, 0, 1.9696, 0, 4.9999, 2, 0, 0, 2, 0, 4.9999, 2, 0.3473, 0, 1.9696, 0.3473, 4.9999, 1.9696, 0.684, 0, 1.8794, 0.3473, 4.9999, 1.9696, 0.3473, 0, 1.9696, 0.3473, 4.9999, 1.9696, 0.684, 0, 1.8794, 0.684, 4.9999, 1.8794, 1, 0, 1.732, 0.684, 4.9999, 1.8794, 0.684, 0, 1.8794, 0.684, 4.9999, 1.8794, 1, 0, 1.732, 1, 4.9999, 1.732, 1.2856, 0, 1.5321, 1, 4.9999, 1.732, 1, 0, 1.732, 1, 4.9999, 1.732, 1.2856, 0, 1.5321, 1.2856, 4.9999, 1.5321, 1.532, 0, 1.2856, 1.2856, 4.9999, 1.5321, 1.2856, 0, 1.5321, 1.2856, 4.9999, 1.5321, 1.532, 0, 1.2856, 1.532, 4.9999, 1.2856, 1.732, 0, 1, 1.532, 4.9999, 1.2856, 1.532, 0, 1.2856, 1.532, 4.9999, 1.2856, 1.732, 0, 1, 1.732, 4.9999, 1, 1.8793, 0, 0.684, 1.732, 4.9999, 1, 1.732, 0, 1, 1.732, 4.9999, 1, 1.8793, 0, 0.684, 1.8793, 4.9999, 0.684, 1.9696, 0, 0.3473, 1.8793, 4.9999, 0.684, 1.8793, 0, 0.684, 1.8793, 4.9999, 0.684, 1.9696, 0, 0.3473, 1.9696, 4.9999, 0.3473, 2, 0, 0, 1.9696, 4.9999, 0.3473, 1.9696, 0, 0.3473, 1.9696, 4.9999, 0.3473, 2, 0, 0, 2, 4.9999, 0, 1.9696, 0, -0.3473, 2, 4.9999, 0, 2, 0, 0, 2, 4.9999, 0, 1.9696, 0, -0.3473, 1.9696, 4.9999, -0.3473, 1.8793, 0, -0.6841, 1.9696, 4.9999, -0.3473, 1.9696, 0, -0.3473, 1.9696, 4.9999, -0.3473, 1.8793, 0, -0.6841, 1.8793, 4.9999, -0.6841, 1.732, 0, -1, 1.8793, 4.9999, -0.6841, 1.8793, 0, -0.6841, 1.8793, 4.9999, -0.6841, 1.732, 0, -1, 1.732, 4.9999, -1, 1.532, 0, -1.2856, 1.732, 4.9999, -1, 1.732, 0, -1, 1.732, 4.9999, -1, 1.532, 0, -1.2856, 1.532, 4.9999, -1.2856, 1.2856, 0, -1.5321, 1.532, 4.9999, -1.2856, 1.532, 0, -1.2856, 1.532, 4.9999, -1.2856, 1.2856, 0, -1.5321, 1.2856, 4.9999, -1.5321, 1, 0, -1.7321, 1.2856, 4.9999, -1.5321, 1.2856, 0, -1.5321, 1.2856, 4.9999, -1.5321, 1, 0, -1.7321, 1, 4.9999, -1.7321, 0.684, 0, -1.8794, 1, 4.9999, -1.7321, 1, 0, -1.7321, 1, 4.9999, -1.7321, 0.684, 0, -1.8794, 0.684, 4.9999, -1.8794, 0.3473, 0, -1.9696, 0.684, 4.9999, -1.8794, 0.684, 0, -1.8794, 0.684, 4.9999, -1.8794, 0.3473, 0, -1.9696, 0.3473, 4.9999, -1.9696, 0, 0, -2, 0.3473, 4.9999, -1.9696, 0.3473, 0, -1.9696, 0.3473, 4.9999, -1.9696, 0, 0, -2, 0, 4.9999, -2, -0.3473, 0, -1.9696, 0, 4.9999, -2, 0, 0, -2, 0, 4.9999, -2, -0.3473, 0, -1.9696, -0.3473, 4.9999, -1.9696, -0.6841, 0, -1.8794, -0.3473, 4.9999, -1.9696, -0.3473, 0, -1.9696, -0.3473, 4.9999, -1.9696, -0.6841, 0, -1.8794, -0.6841, 4.9999, -1.8794, -1, 0, -1.7321, -0.6841, 4.9999, -1.8794, -0.6841, 0, -1.8794, -0.6841, 4.9999, -1.8794, -1, 0, -1.7321, -1, 4.9999, -1.7321, -1.2856, 0, -1.5321, -1, 4.9999, -1.7321, -1, 0, -1.7321, -1, 4.9999, -1.7321, -1.2856, 0, -1.5321, -1.2856, 4.9999, -1.5321, -1.5321, 0, -1.2856, -1.2856, 4.9999, -1.5321, -1.2856, 0, -1.5321, -1.2856, 4.9999, -1.5321, -1.5321, 0, -1.2856, -1.5321, 4.9999, -1.2856, -1.7321, 0, -1, -1.5321, 4.9999, -1.2856, -1.5321, 0, -1.2856, -1.5321, 4.9999, -1.2856, -1.7321, 0, -1, -1.7321, 4.9999, -1, -1.8794, 0, -0.6841, -1.7321, 4.9999, -1, -1.7321, 0, -1, -1.7321, 4.9999, -1, -1.8794, 0, -0.6841, -1.8794, 4.9999, -0.6841, -1.9697, 0, -0.3473, -1.8794, 4.9999, -0.6841, -1.8794, 0, -0.6841, -1.8794, 4.9999, -0.6841, -1.9697, 0, -0.3473, -1.9697, 4.9999, -0.3473, -2, 0, 0, -1.9697, 4.9999, -0.3473, -1.9697, 0, -0.3473, -1.9697, 4.9999, -0.3473, -2, 0, 0, -2, 4.9999, 0)
+
+[sub_resource type="Theme" id="Theme_5vw27"]
+Label/font_sizes/font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_yaehf"]
+font_size = 64
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vivmo"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_2cqfq"]
+sky_material = SubResource("ProceduralSkyMaterial_vivmo")
+
+[sub_resource type="Environment" id="Environment_yaehf"]
+background_mode = 2
+background_color = Color(0.233925, 0.233925, 0.233925, 1)
+sky = SubResource("Sky_2cqfq")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_white = 6.0
+glow_enabled = true
+glow_strength = 0.47
+glow_bloom = 0.43
+glow_blend_mode = 0
+fog_light_color = Color(0.864104, 0.729428, 0, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_vivmo"]
+auto_exposure_scale = 0.1
+
+[node name="Root" type="Node3D"]
+
+[node name="Camera" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("1_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6415, 0)
+ball = NodePath("../Player")
+cameraOffset = Vector3(0, 2, -8)
+cameraLookOffset = Vector3(0, -2, 0)
+
+[node name="SideWall" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20.2, 0)
+script = ExtResource("2_yaehf")
+
+[node name="StairCase - SideWall" parent="SideWall" instance=ExtResource("2_2cqfq")]
+
+[node name="Player" type="RigidBody3D" parent="."]
+transform = Transform3D(0.12232, 0, 0.992491, 0, 1, 0, -0.992491, 0, 0.12232, -1.137, 6.53242, -0.0983509)
+collision_layer = 3
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_ig7tw")
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 20
+script = ExtResource("2_1bvp3")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Player"]
+transform = Transform3D(0.358478, 0, 0, 0, 0.358478, 0, 0, 0, 0.358478, 0, 0, 0)
+visible = false
+
+[node name="SkeleTON" parent="Player" instance=ExtResource("7_272bh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.546, 0)
+
+[node name="Cylinder" parent="Player/SkeleTON" index="0"]
+script = ExtResource("4_dg77c")
+
+[node name="CylinderCollider" type="CollisionShape3D" parent="Player/SkeleTON/Cylinder" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89056, 0)
+shape = SubResource("CylinderShape3D_w48qg")
+
+[node name="Spine" parent="Player/SkeleTON/Skeleton" index="0"]
+script = ExtResource("4_dg77c")
+forceMultiplier = 1.1
+
+[node name="RibcageFront" parent="Player/SkeleTON/Skeleton/Spine" index="0"]
+script = ExtResource("4_dg77c")
+
+[node name="RibcageFrontCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Spine/RibcageFront" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 1.13557, -0.0250762)
+shape = SubResource("CapsuleShape3D_ycdy4")
+
+[node name="SpineCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Spine" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13694, -0.13092)
+shape = SubResource("CapsuleShape3D_dg77c")
+
+[node name="Skeleton3D" parent="Player/SkeleTON/Skeleton" index="1"]
+bones/1/rotation = Quaternion(0.303664, -0.00414788, -0.00866509, 0.952731)
+bones/2/rotation = Quaternion(-0.128211, 0.00608968, 0.010508, 0.991673)
+bones/6/rotation = Quaternion(0.667208, 0.00734198, -0.00252894, 0.744831)
+bones/9/rotation = Quaternion(-0.0789106, 1.85045e-05, -0.652377, 0.753776)
+bones/10/rotation = Quaternion(-0.0159308, 0.000524561, -0.0556738, 0.998322)
+bones/11/rotation = Quaternion(2.46047e-07, 3.72529e-09, -2.82149e-08, 1)
+bones/13/rotation = Quaternion(-0.0589605, -8.12306e-08, -0.485893, 0.872028)
+bones/15/rotation = Quaternion(-0.0196054, -5.36942e-08, -0.161567, 0.986667)
+bones/17/rotation = Quaternion(0.0135818, 8.94512e-08, 0.111927, 0.993624)
+bones/19/rotation = Quaternion(0.0382895, -1.98936e-08, 0.31554, 0.948139)
+bones/20/rotation = Quaternion(-0.0709091, -3.01877e-07, -0.584355, 0.808394)
+bones/26/rotation = Quaternion(-0.0789106, -1.85019e-05, 0.652377, 0.753775)
+bones/27/rotation = Quaternion(-0.0159308, -0.000524552, 0.0556738, 0.998322)
+bones/28/rotation = Quaternion(2.46005e-07, -1.86263e-09, 2.85616e-08, 1)
+bones/37/rotation = Quaternion(-0.0709092, 3.30489e-07, 0.584355, 0.808394)
+bones/44/rotation = Quaternion(-0.0137947, -0.118992, 0.522882, 0.843946)
+bones/45/rotation = Quaternion(0.0336331, 0.00243061, -0.00634527, 0.999411)
+bones/46/rotation = Quaternion(-0.484164, 0.000154004, 0.00416195, 0.874967)
+bones/51/rotation = Quaternion(-0.099355, -0.0279048, -0.531939, 0.840471)
+bones/52/rotation = Quaternion(0.077772, 0.106454, 0.010127, 0.99122)
+bones/53/rotation = Quaternion(-0.627454, 0.041624, 0.0669836, 0.774649)
+
+[node name="Head_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="0"]
+transform = Transform3D(1, 2.37924e-08, 6.51926e-09, -1.67202e-08, 1, -5.96046e-07, -6.75209e-09, 5.96046e-07, 1, -3.9232e-08, -4.76837e-07, -9.68575e-07)
+
+[node name="SphereCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Head_2/Head_2" index="0"]
+transform = Transform3D(-1, 2.34286e-09, 8.9407e-08, 1.04628e-08, 1, 1.78814e-07, -8.9407e-08, 1.3411e-07, -1, -7.45058e-09, 1.546, 0)
+shape = SubResource("SphereShape3D_ig7tw")
+
+[node name="CapsuleCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Head_2/Head_2" index="1"]
+transform = Transform3D(1, -6.69385e-10, -7.45058e-09, -5.42787e-09, 1, -1.93715e-07, 0, 4.47035e-08, 1, -7.45058e-09, 1.546, 0)
+shape = SubResource("CapsuleShape3D_efxa6")
+disabled = true
+
+[node name="Jaw_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="1"]
+transform = Transform3D(1, -1.39698e-08, -1.86265e-09, 1.95578e-08, 1, -3.8743e-07, 0, 5.06639e-07, 1, 1.72295e-08, -2.38419e-07, -5.51343e-07)
+
+[node name="Bone_003" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="2"]
+transform = Transform3D(1, -4.89267e-07, -3.72529e-08, 5.39861e-07, 1, -2.134e-08, 2.23517e-08, -6.43318e-08, 1, 7.45058e-07, 1.19209e-07, 1.2666e-07)
+
+[node name="Bone_003" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_003" index="0"]
+script = ExtResource("4_dg77c")
+forceMultiplier = 0.9
+
+[node name="Bone_003Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_003/Bone_003" index="0"]
+transform = Transform3D(1, 3.55271e-15, 0, 0, 1, -8.88178e-16, 0, 3.9968e-15, 1, 0.282131, 0.874567, -0.113407)
+shape = SubResource("CapsuleShape3D_w48qg")
+
+[node name="Bone_002" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="3"]
+transform = Transform3D(1, -4.54951e-07, -3.72529e-08, 5.20144e-07, 1, 4.47035e-08, 7.45058e-09, -1.2666e-07, 1, 5.81145e-07, -1.19209e-07, 2.23517e-07)
+
+[node name="Bone_002Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_002/Bone_002" index="0"]
+transform = Transform3D(1, 0, 0, -3.55271e-14, 1, 0, 0, 3.77476e-14, 1, 0.246047, 1.20551, -0.10619)
+shape = SubResource("CapsuleShape3D_vivmo")
+
+[node name="Bone_007" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="4"]
+transform = Transform3D(-1, -8.63576e-07, 5.21541e-08, -8.15493e-07, 1, 1.38697e-08, 5.96046e-08, -4.06631e-08, 1, 1.2815e-06, 3.57628e-07, 1.11759e-07)
+
+[node name="Bone_007" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_007" index="0"]
+script = ExtResource("4_dg77c")
+
+[node name="Bone_007Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_007/Bone_007" index="0"]
+transform = Transform3D(1, -1.42109e-14, 0, -7.10543e-15, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0.282131, 0.874567, -0.113407)
+shape = SubResource("CapsuleShape3D_2cqfq")
+
+[node name="Bone_006" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="5"]
+transform = Transform3D(-1, -8.45408e-07, 5.96046e-08, -8.10716e-07, 1, 7.45058e-08, 2.98023e-08, -9.68575e-08, 1, 1.19209e-06, 2.38419e-07, 1.93715e-07)
+
+[node name="Bone_006" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_006" index="0"]
+script = ExtResource("4_dg77c")
+
+[node name="Bone_006Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_006/Bone_006" index="0"]
+transform = Transform3D(1, -3.55271e-14, 0, -4.26326e-14, 1, -1.06581e-14, 0, 3.19744e-14, 1, 0.246047, 1.20551, -0.10619)
+shape = SubResource("CapsuleShape3D_yaehf")
+
+[node name="Foot_L_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="6"]
+transform = Transform3D(0.981014, -0.00794552, 0.193774, 0.047489, 0.978584, -0.200295, -0.188033, 0.205694, 0.960382, 0.0607488, -0.0162538, 0.102962)
+
+[node name="Foot_L_2" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_L_2" index="0"]
+script = ExtResource("4_dg77c")
+
+[node name="Foot_L_2Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_L_2/Foot_L_2" index="0"]
+transform = Transform3D(1, 3.72529e-08, 1.56462e-07, -1.75089e-07, 9.54606e-09, 1, 7.45058e-09, -1, -3.88827e-08, 0.142151, 0.0476375, -0.0302289)
+shape = SubResource("CapsuleShape3D_074og")
+
+[node name="Bone_001" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="7"]
+transform = Transform3D(0.982546, -0.0630752, 0.175002, 0.0452869, 0.993562, 0.103843, -0.180425, -0.0941054, 0.979077, 0.0624285, 0.00814977, 0.122137)
+
+[node name="Bone_001" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_001" index="0"]
+script = ExtResource("4_dg77c")
+
+[node name="Bone_001Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_001/Bone_001" index="0"]
+transform = Transform3D(1, -3.72529e-09, 3.72529e-09, 0, 1, 9.31323e-10, 3.72529e-09, 6.98492e-10, 1, 0.141456, 0.243444, -0.0758249)
+shape = SubResource("CapsuleShape3D_yaehf")
+
+[node name="Bone" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="8"]
+transform = Transform3D(0.98208, -0.0860698, 0.167665, 0.0451261, 0.971139, 0.234207, -0.182984, -0.222444, 0.95762, 0.0715522, 0.0278591, 0.174591)
+
+[node name="Bone" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone" index="0"]
+script = ExtResource("4_dg77c")
+
+[node name="BoneCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone/Bone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -3.49246e-09, 0, 1.67638e-08, 1, 0.126274, 0.596016, -0.0893207)
+shape = SubResource("CapsuleShape3D_yaehf")
+
+[node name="Foot_R_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="9"]
+transform = Transform3D(-0.971485, 0.115009, -0.207341, 0.105439, 0.99281, 0.05667, -0.212368, -0.0331921, 0.976626, -0.0524203, -0.00704877, 0.0854102)
+
+[node name="Foot_R_2" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_R_2" index="0"]
+script = ExtResource("4_dg77c")
+
+[node name="Foot_R_2Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_R_2/Foot_R_2" index="0"]
+transform = Transform3D(1, 0, 1.63913e-07, -1.63913e-07, -4.47035e-08, 1, 0, -1, -4.47035e-08, 0.145435, 0.050921, -0.0302291)
+shape = SubResource("CapsuleShape3D_cegan")
+
+[node name="Bone_005" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="10"]
+transform = Transform3D(-0.997086, 0.0455505, -0.0611939, 0.0458131, 0.998946, -0.0028935, -0.0609976, 0.00568863, 0.998122, -0.0323958, -0.00380564, 0.0631027)
+
+[node name="Bone_005" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_005" index="0"]
+script = ExtResource("4_dg77c")
+
+[node name="Bone_005Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_005/Bone_005" index="0"]
+transform = Transform3D(1, -3.72529e-09, 0, 0, 1, -9.31323e-10, 0, 0, 1, 0.141456, 0.243445, -0.0758247)
+shape = SubResource("CapsuleShape3D_yaehf")
+
+[node name="Bone_004" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="11"]
+transform = Transform3D(-0.98646, 0.017878, 0.163027, 0.0510707, 0.978102, 0.201762, 0.15585, -0.207356, 0.965771, -0.00451308, 0.0203837, 0.12105)
+
+[node name="Bone_004" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_004" index="0"]
+script = ExtResource("4_dg77c")
+
+[node name="Bone_004Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_004/Bone_004" index="0"]
+transform = Transform3D(1, -3.72529e-09, 0, 3.72529e-09, 1, 2.42144e-08, 0, 2.1304e-08, 1, 0.126274, 0.596016, -0.0893204)
+shape = SubResource("CapsuleShape3D_yaehf")
+
+[node name="Hip_2" parent="Player/SkeleTON/Skeleton/Skeleton3D/Hip_2" index="0"]
+script = ExtResource("4_dg77c")
+
+[node name="Hip_2Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Hip_2/Hip_2" index="0"]
+transform = Transform3D(-4.37114e-08, -1, -8.9407e-08, 1, -4.37114e-08, 8.74228e-08, -8.74228e-08, -8.9407e-08, 1, 0, 0.803336, 0)
+shape = SubResource("CapsuleShape3D_82xsv")
+
+[node name="AnimationPlayer" parent="Player/SkeleTON" index="2"]
+autoplay = "IntroAnimation"
+script = ExtResource("7_074og")
+
+[node name="Stairs" type="Node" parent="."]
+script = ExtResource("2_h2yge")
+stairCaseScenes = Array[PackedScene]([ExtResource("1_ig7tw"), ExtResource("7_2cqfq"), ExtResource("8_yaehf"), ExtResource("12_1u8w0"), ExtResource("13_0odxb")])
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stairs"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.85058, 0)
+shape = SubResource("ConcavePolygonShape3D_ycdy4")
+
+[node name="StairCase2" parent="Stairs" instance=ExtResource("10_2cqfq")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -131.0
+offset_right = 139.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_d13ii")
+icon = ExtResource("13_ryguw")
+flat = true
+expand_icon = true
+script = ExtResource("6_efxa6")
+visibleOnPause = true
+
+[node name="ReStartButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -131.0
+offset_right = 139.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_d13ii")
+icon = ExtResource("15_d13ii")
+flat = true
+expand_icon = true
+script = ExtResource("6_4c57u")
+visibleOnGameOver = true
+
+[node name="PauseButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -244.0
+offset_bottom = 233.0
+grow_horizontal = 0
+theme = ExtResource("13_d13ii")
+action_mode = 0
+keep_pressed_outside = true
+shortcut_feedback = false
+shortcut_in_tooltip = false
+icon = ExtResource("17_1u8w0")
+flat = true
+alignment = 2
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_7mycd")
+
+[node name="StartButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -131.0
+offset_right = 139.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_d13ii")
+icon = ExtResource("19_0odxb")
+flat = true
+expand_icon = true
+script = ExtResource("7_5vw27")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 295.0
+grow_horizontal = 2
+theme = SubResource("Theme_5vw27")
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("8_kek77")
+visibleOnGameOver = true
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+offset_right = 37.0
+offset_bottom = 100.0
+text = "0"
+label_settings = SubResource("LabelSettings_yaehf")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("18_074og")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yaehf")
+camera_attributes = SubResource("CameraAttributesPractical_vivmo")
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
+[connection signal="pressed" from="Control/ResumeButton" to="Control/ResumeButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/ReStartButton" to="Control/ReStartButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/PauseButton" to="Control/PauseButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/StartButton" to="Control/StartButton" method="_on_pressed"]
+
+[editable path="Player/SkeleTON"]

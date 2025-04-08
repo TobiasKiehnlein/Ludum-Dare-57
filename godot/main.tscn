@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://djqdr2e0s188f" path="res://materials/icons/resume.svg" id="13_ryguw"]
 [ext_resource type="Texture2D" uid="uid://rgtjahsw3wqv" path="res://materials/icons/restart.svg" id="15_d13ii"]
 [ext_resource type="Texture2D" uid="uid://dhcd7k6e7mq3b" path="res://materials/icons/pause.svg" id="17_1u8w0"]
-[ext_resource type="Script" path="res://Scripts/Score.gd" id="18_074og"]
+[ext_resource type="Script" uid="uid://dqx4wxusb6xkv" path="res://Scripts/Score.gd" id="18_074og"]
 [ext_resource type="Texture2D" uid="uid://dv50m6f0af1cw" path="res://materials/icons/play.svg" id="19_0odxb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ig7tw"]
@@ -130,6 +130,8 @@ collision_layer = 3
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_ig7tw")
 continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 20
 script = ExtResource("2_1bvp3")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Player"]
@@ -188,7 +190,7 @@ transform = Transform3D(1, 3.55271e-15, 0, 0, 1, -8.88178e-16, 0, 3.9968e-15, 1,
 shape = SubResource("CapsuleShape3D_w48qg")
 
 [node name="Bone_002" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="3"]
-transform = Transform3D(1, 2.30502e-08, -1.49012e-08, 6.89179e-08, 1, 0, -2.98023e-08, -1.08033e-07, 1, -2.98023e-08, 0, 2.08616e-07)
+transform = Transform3D(1, -4.54951e-07, -3.72529e-08, 5.20144e-07, 1, 4.47035e-08, 7.45058e-09, -1.2666e-07, 1, 5.81145e-07, -1.19209e-07, 2.23517e-07)
 
 [node name="Bone_002Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_002/Bone_002" index="0"]
 transform = Transform3D(1, 0, 0, -3.55271e-14, 1, 0, 0, 3.77476e-14, 1, 0.246047, 1.20551, -0.10619)
@@ -413,6 +415,7 @@ script = ExtResource("18_074og")
 environment = SubResource("Environment_yaehf")
 camera_attributes = SubResource("CameraAttributesPractical_vivmo")
 
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="pressed" from="Control/ResumeButton" to="Control/ResumeButton" method="_on_pressed"]
 [connection signal="pressed" from="Control/ReStartButton" to="Control/ReStartButton" method="_on_pressed"]
 [connection signal="pressed" from="Control/PauseButton" to="Control/PauseButton" method="_on_pressed"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=13 format=3 uid="uid://dv7ydkpfidggw"]
+
+[ext_resource type="Script" uid="uid://bfiuf2oc75mvm" path="res://Scripts/Audio/AudioManager.gd" id="1_4tesi"]
+[ext_resource type="Script" uid="uid://5ktsobwub2tv" path="res://Scripts/Audio/SfxSetting.gd" id="2_3dgps"]
+[ext_resource type="AudioStream" uid="uid://06o08c32a4y" path="res://audio/Swoosh.mp3" id="3_151wy"]
+[ext_resource type="AudioStream" uid="uid://brtmvwbl2b5l7" path="res://audio/C.mp3" id="4_3dgps"]
+[ext_resource type="AudioStream" uid="uid://bd6h1jokj32dp" path="res://audio/Jump.mp3" id="4_151wy"]
+[ext_resource type="AudioStream" uid="uid://dsu6gl5ydtf2b" path="res://audio/Scream.mp3" id="5_151wy"]
+[ext_resource type="AudioStream" uid="uid://b44fwicumaoqq" path="res://audio/Wood.mp3" id="7_v5v75"]
+
+[sub_resource type="Resource" id="Resource_qb6qo"]
+script = ExtResource("2_3dgps")
+limit = 5
+type = 0
+sound_effect = ExtResource("3_151wy")
+volume = -5.0
+pitch_scale = 1.0
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://5ktsobwub2tv"
+
+[sub_resource type="Resource" id="Resource_4tesi"]
+script = ExtResource("2_3dgps")
+limit = 5
+type = 1
+sound_effect = ExtResource("4_151wy")
+volume = 0.0
+pitch_scale = 1.0
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://5ktsobwub2tv"
+
+[sub_resource type="Resource" id="Resource_v5v75"]
+script = ExtResource("2_3dgps")
+limit = 1
+type = 2
+sound_effect = ExtResource("5_151wy")
+volume = 0.0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://5ktsobwub2tv"
+
+[sub_resource type="Resource" id="Resource_hmi33"]
+script = ExtResource("2_3dgps")
+limit = 5
+type = 3
+sound_effect = ExtResource("4_3dgps")
+volume = 0.0
+pitch_scale = 1.0
+pitch_randomness = 0.32
+metadata/_custom_type_script = "uid://5ktsobwub2tv"
+
+[sub_resource type="Resource" id="Resource_muqnj"]
+script = ExtResource("2_3dgps")
+limit = 5
+type = 4
+sound_effect = ExtResource("7_v5v75")
+volume = 0.0
+pitch_scale = 1.0
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://5ktsobwub2tv"
+
+[node name="AudioManager" type="Node3D"]
+script = ExtResource("1_4tesi")
+sound_effects = Array[ExtResource("2_3dgps")]([SubResource("Resource_qb6qo"), SubResource("Resource_4tesi"), SubResource("Resource_v5v75"), SubResource("Resource_hmi33"), SubResource("Resource_muqnj")])

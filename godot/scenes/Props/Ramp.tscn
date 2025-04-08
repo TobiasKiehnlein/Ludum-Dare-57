@@ -9,10 +9,10 @@ size = Vector3(1.49344, 0.683284, 1.50244)
 [node name="Ramp" type="Node3D"]
 script = ExtResource("1_b6rbr")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3DWood" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3DWood" type="CollisionShape3D" parent="StaticBody3DWood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000900269, -0.323493, -0.000244141)
 shape = SubResource("BoxShape3D_b6rbr")
 
-[node name="Ramp" parent="StaticBody3D" instance=ExtResource("1_pnl4y")]
+[node name="Ramp" parent="StaticBody3DWood" instance=ExtResource("1_pnl4y")]

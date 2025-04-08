@@ -76,11 +76,20 @@ func checkGameOver(delta: float):
 	if l1 < .5 && l2 < .5:
 		GameManager.gameOver()
 
+func _on_body_entered(body: Node) -> void:
+	if body.name == 'Stairs' || body.name == 'FloorCollider':
+		AudioManager.create_audio_at_location(position, SfxSetting.SOUND_EFFECT_TYPE.Stair)
+	elif body.name.to_lower().contains('wood'):
+		AudioManager.create_audio_at_location(position, SfxSetting.SOUND_EFFECT_TYPE.Wood)
+	else:
+		print(body.name)
+	
+
 func _process(delta: float) -> void:
 	GameManager.setScore(self.position.y * -1)
 
 func _physics_process(delta: float) -> void:
-	if !GameManager.hasGameStarted:
+	if !GameManager.hasGameStarted || GameManager.isGameOver:
 		return
 		
 	checkGameOver(delta)
@@ -93,11 +102,13 @@ func _physics_process(delta: float) -> void:
 			isAscending = true
 			self.linear_velocity.y = 0
 			self.apply_central_impulse(Vector3(0, 3, 0))
+			AudioManager.create_audio_at_location(self.position, SfxSetting.SOUND_EFFECT_TYPE.Jump)
 		else:
 			flyTime = -1
 			isAscending = false
 			self.linear_velocity.y = 0
 			self.apply_central_impulse(Vector3(0, -9, 0))
+			AudioManager.create_audio_at_location(self.position, SfxSetting.SOUND_EFFECT_TYPE.Swoosh)
 		
 	if Input.is_action_pressed("Jump") && isAscending:
 		flyTime -= delta;

@@ -14,16 +14,16 @@ size = Vector3(0.0827484, 0.128311, 0.0258789)
 [node name="BeerMug" type="Node3D"]
 script = ExtResource("1_8mlw7")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="RigidBody3DWood" type="RigidBody3D" parent="."]
 mass = 0.1
 physics_material_override = ExtResource("1_avf1n")
 
-[node name="BeerMug" parent="RigidBody3D" instance=ExtResource("2_8mlw7")]
+[node name="BeerMug" parent="RigidBody3DWood" instance=ExtResource("2_8mlw7")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3DWood" type="CollisionShape3D" parent="RigidBody3DWood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0766296, 0)
 shape = SubResource("CylinderShape3D_u5lku")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D2Wood" type="CollisionShape3D" parent="RigidBody3DWood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0813828, 0.0789719, 0.000244141)
 shape = SubResource("BoxShape3D_igvgd")

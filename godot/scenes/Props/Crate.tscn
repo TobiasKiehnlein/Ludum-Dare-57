@@ -10,12 +10,12 @@ size = Vector3(0.75531, 0.750854, 0.751221)
 [node name="Crate" type="Node3D"]
 script = ExtResource("1_i2lcc")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="RigidBody3DWood" type="RigidBody3D" parent="."]
 mass = 2.0
 physics_material_override = ExtResource("1_0bxy4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3DWood" type="CollisionShape3D" parent="RigidBody3DWood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00210571, 0.3797, 0.00402832)
 shape = SubResource("BoxShape3D_i2lcc")
 
-[node name="Crate2" parent="RigidBody3D" instance=ExtResource("1_yq1vg")]
+[node name="Crate2" parent="RigidBody3DWood" instance=ExtResource("1_yq1vg")]

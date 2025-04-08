@@ -13,10 +13,10 @@ min_difficulty = 2.0
 
 [node name="Barricade2" parent="." instance=ExtResource("1_ssbkx")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3DWood" type="StaticBody3D" parent="."]
 physics_material_override = ExtResource("2_76iei")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3DWood" type="CollisionShape3D" parent="StaticBody3DWood"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.446915, 0.000335693)
 visible = false
 shape = SubResource("BoxShape3D_76iei")
