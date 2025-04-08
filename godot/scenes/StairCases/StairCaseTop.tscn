@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://n08cylibeglm"]
+[gd_scene load_steps=30 format=4 uid="uid://n08cylibeglm"]
 
 [ext_resource type="Script" uid="uid://dtgacxdur3m3j" path="res://Scripts/StairSection.gd" id="1_3ste3"]
 [ext_resource type="PackedScene" uid="uid://c8b8soxdn1hbm" path="res://scenes/StairCaseBase.tscn" id="2_lthhr"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bn06ox76y3dua" path="res://scenes/Props/Stone0.tscn" id="18_l37nx"]
 [ext_resource type="Material" uid="uid://gufjr583vd21" path="res://materials/wallbricks.tres" id="19_gf2lp"]
 [ext_resource type="ArrayMesh" uid="uid://bqyc6uocyp161" path="res://models/Props/brick0.res" id="19_j647c"]
+[ext_resource type="PackedScene" uid="uid://bfk6e8rxjoky6" path="res://models/Props/Sign.blend" id="21_pih8d"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6u70w"]
 _surfaces = [{
@@ -290,6 +291,18 @@ chance = 0.5
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
 material_override = ExtResource("19_gf2lp")
 multimesh = SubResource("MultiMesh_pih8d")
+
+[node name="Table2" parent="." instance=ExtResource("10_i8ypq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2352, 4.99513, -2.65809)
+
+[node name="BeerMug" parent="Table2" instance=ExtResource("13_kg14c")]
+transform = Transform3D(-0.899642, 0, -0.436629, 0, 1, 0, 0.436629, 0, -0.899642, 0.517617, 0.773156, -0.269757)
+
+[node name="BeerMug2" parent="Table2" instance=ExtResource("13_kg14c")]
+transform = Transform3D(0.156176, 0, 0.987729, 0, 1, 0, -0.987729, 0, 0.156176, -0.489997, 0.773156, 0.215986)
+
+[node name="Sign2" parent="Table2" instance=ExtResource("21_pih8d")]
+transform = Transform3D(-0.128294, 0, -0.991736, 0, 1, 0, 0.991736, 0, -0.128294, 2.05228, 0.118232, 4.06325)
 
 [editable path="StairCaseBase"]
 [editable path="StairCaseBase/Stairs/Root"]
