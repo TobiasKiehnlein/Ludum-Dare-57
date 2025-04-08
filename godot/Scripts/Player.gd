@@ -85,13 +85,12 @@ func _on_body_entered(body: Node) -> void:
 		print(body.name)
 	
 
-func _process(delta: float) -> void:
-	GameManager.setScore(self.position.y * -1)
-
 func _physics_process(delta: float) -> void:
 	if !GameManager.hasGameStarted || GameManager.isGameOver:
 		return
-		
+	
+	GameManager.setScore((self.position.y - 5) * -1)
+	
 	checkGameOver(delta)
 	
 	var isGrounded = checkGrounded()

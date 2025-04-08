@@ -17,6 +17,7 @@ func _ready():
 
 func startGame():
 	hasGameStarted = true
+	_score = 0
 	game_started.emit()
 
 func pauseGame():
