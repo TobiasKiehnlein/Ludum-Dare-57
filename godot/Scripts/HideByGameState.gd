@@ -7,7 +7,6 @@ class_name HideByGameState extends CanvasItem
 
 func _init() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	print(visibleByDefault)
 	if has_method("hide") and has_method("show"):
 		if visibleByDefault:
 			show()

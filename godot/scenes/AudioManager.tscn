@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv7ydkpfidggw"]
+[gd_scene load_steps=15 format=3 uid="uid://dv7ydkpfidggw"]
 
 [ext_resource type="Script" uid="uid://bfiuf2oc75mvm" path="res://Scripts/Audio/AudioManager.gd" id="1_4tesi"]
 [ext_resource type="Script" uid="uid://5ktsobwub2tv" path="res://Scripts/Audio/SfxSetting.gd" id="2_3dgps"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bd6h1jokj32dp" path="res://audio/Jump.mp3" id="4_151wy"]
 [ext_resource type="AudioStream" uid="uid://dsu6gl5ydtf2b" path="res://audio/Scream.mp3" id="5_151wy"]
 [ext_resource type="AudioStream" uid="uid://b44fwicumaoqq" path="res://audio/Wood.mp3" id="7_v5v75"]
+[ext_resource type="AudioStream" uid="uid://b3c5d7vly73xv" path="res://audio/The Skeleton Serenade.mp3" id="8_hmi33"]
 
 [sub_resource type="Resource" id="Resource_qb6qo"]
 script = ExtResource("2_3dgps")
@@ -58,6 +59,16 @@ pitch_scale = 1.0
 pitch_randomness = 0.1
 metadata/_custom_type_script = "uid://5ktsobwub2tv"
 
+[sub_resource type="Resource" id="Resource_5jw7j"]
+script = ExtResource("2_3dgps")
+limit = 5
+type = 5
+sound_effect = ExtResource("8_hmi33")
+volume = -13.0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://5ktsobwub2tv"
+
 [node name="AudioManager" type="Node3D"]
 script = ExtResource("1_4tesi")
-sound_effects = Array[ExtResource("2_3dgps")]([SubResource("Resource_qb6qo"), SubResource("Resource_4tesi"), SubResource("Resource_v5v75"), SubResource("Resource_hmi33"), SubResource("Resource_muqnj")])
+sound_effects = Array[ExtResource("2_3dgps")]([SubResource("Resource_qb6qo"), SubResource("Resource_4tesi"), SubResource("Resource_v5v75"), SubResource("Resource_hmi33"), SubResource("Resource_muqnj"), SubResource("Resource_5jw7j")])
