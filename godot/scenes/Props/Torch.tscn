@@ -19,6 +19,5 @@ distance_fade_shadow = 7.5
 distance_fade_length = 5.0
 omni_range = 3.0
 omni_attenuation = 0.75
-omni_shadow_mode = 0
 script = ExtResource("2_j08e6")
 flickeringSpeed = 50.0

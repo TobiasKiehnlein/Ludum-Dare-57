@@ -47,7 +47,7 @@ func handleGameStart():
 func checkGrounded() -> bool:
 	var from = self.global_position
 	var to = from - Vector3.UP * 0.6  # Adjust length as needed
-	DebugDraw3D.draw_arrow(from, to, Color(1,0,0), .1)
+	#DebugDraw3D.draw_arrow(from, to, Color(1,0,0), .1)
 	var params = PhysicsRayQueryParameters3D.create(from, to, 0xFFFFFFFF,[self])
 	var result = get_world_3d().direct_space_state.intersect_ray(params)
 	return 'position' in result

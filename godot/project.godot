@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="LDJAM57"
+config/name="BOP"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://dx6sbuhbd72hr"
+config/macos_native_icon="res://icon.icns"
+
+[audio]
+
+buses/default_bus_layout="uid://brhdjxxx88yqk"
 
 [autoload]
 

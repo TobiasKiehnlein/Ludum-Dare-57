@@ -16,7 +16,7 @@ func _ready() -> void:
 	var sound_effect = sound_effect_dict[SfxSetting.SOUND_EFFECT_TYPE.Music]
 	audio.stream = sound_effect.sound_effect
 	audio.volume_db = sound_effect.volume
-	audio.bus = "Music"
+	#audio.bus = "Music"
 	audio.finished.connect(audio.play)
 	audio.play()
 
@@ -32,7 +32,7 @@ func create_audio_at_location(location: Vector3, type: SfxSetting.SOUND_EFFECT_T
 			audio.position = location
 			audio.stream = sound_effect.sound_effect
 			audio.volume_db = sound_effect.volume
-			audio.bus = "SFΧ"
+			#audio.bus = "SFΧ"
 			audio.pitch_scale = sound_effect.pitch_scale
 			audio.pitch_scale += randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
 			audio.finished.connect(sound_effect.on_audio_finished)
@@ -52,7 +52,7 @@ func create_audio(type: SfxSetting.SOUND_EFFECT_TYPE) -> void:
 			add_child(audio)
 			audio.stream = sound_effect.sound_effect
 			audio.volume_db = sound_effect.volume
-			audio.bus = "SFΧ"
+			#audio.bus = "SFΧ"
 			audio.pitch_scale = sound_effect.pitch_scale
 			audio.pitch_scale += randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
 			audio.finished.connect(sound_effect.on_audio_finished)

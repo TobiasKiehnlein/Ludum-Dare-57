@@ -60,8 +60,8 @@ func _physics_process(delta: float) -> void:
 	targetDirection = targetDirection.rotated(Vector3.UP, -1.0)
 	var targetDirectionBack = targetDirection.rotated(Vector3.UP, -1 * PI / 2)
 	
-	DebugDraw3D.draw_arrow(col.global_position, col.global_position+targetDirection, Color(1,0,0), .05)
-	DebugDraw3D.draw_arrow(col.global_position, col.global_position+targetDirectionBack, Color(0,1,0), .05)
+	#DebugDraw3D.draw_arrow(col.global_position, col.global_position+targetDirection, Color(1,0,0), .05)
+	#DebugDraw3D.draw_arrow(col.global_position, col.global_position+targetDirectionBack, Color(0,1,0), .05)
 
 	if verticalPlayerDistance > 0:
 		rb.apply_central_force(targetDirection.normalized() * 10 * forceMultiplier)

@@ -14,8 +14,8 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	value_changed.connect(adjust_audio)
 	value = 0
-	max_value = 6
-	min_value = -20
+	max_value = 15
+	min_value = -60
 	if has_method("hide") and has_method("show"):
 		GameManager.game_over.connect(_handle_game_over)
 		GameManager.game_paused.connect(_handle_game_paused)
@@ -23,6 +23,9 @@ func _ready() -> void:
 	
 func adjust_audio(amount: float):
 	var index = AudioServer.get_bus_index("Music" if bus == BUS.Music else "SFX")
+	print(index)
+	if index < 0:
+		return
 	AudioServer.set_bus_volume_db(index, amount)
 
 func _handle_game_over():
