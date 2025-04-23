@@ -1,0 +1,22 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://dgpkws0h2r82f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vivmo"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_2cqfq"]
+sky_material = SubResource("ProceduralSkyMaterial_vivmo")
+
+[resource]
+background_mode = 2
+background_color = Color(0.233925, 0.233925, 0.233925, 1)
+sky = SubResource("Sky_2cqfq")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_white = 6.0
+glow_enabled = true
+glow_strength = 0.47
+glow_bloom = 0.43
+glow_blend_mode = 0
+fog_light_color = Color(0.864104, 0.729428, 0, 1)
