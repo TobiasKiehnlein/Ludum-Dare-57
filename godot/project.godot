@@ -60,3 +60,5 @@ Pause={
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+driver/depth_prepass/enable=false
+lights_and_shadows/positional_shadow/atlas_size.mobile=1024

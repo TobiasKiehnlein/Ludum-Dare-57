@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://d2jssux43iotq"]
+[gd_scene load_steps=50 format=3 uid="uid://d2jssux43iotq"]
 
 [ext_resource type="PackedScene" uid="uid://b0dt4hd2qh7o5" path="res://scenes/Camera.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://qgsmi0c71ho7" path="res://scenes/StairCases/StairCaseEmtpy.tscn" id="1_ig7tw"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://n08cylibeglm" path="res://scenes/StairCases/StairCaseTop.tscn" id="10_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://6oui2r3wkwrx" path="res://scenes/StairCases/StairCaseTable.tscn" id="12_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://duu1bgxj316mg" path="res://scenes/StairCases/StairCaseRamps.tscn" id="13_0odxb"]
-[ext_resource type="Theme" uid="uid://dljleuupdkl6m" path="res://materials/iconButton.tres" id="13_d13ii"]
+[ext_resource type="Theme" uid="uid://dljleuupdkl6m" path="res://materials/ui_theme.tres" id="13_d13ii"]
 [ext_resource type="Texture2D" uid="uid://djqdr2e0s188f" path="res://materials/icons/resume.svg" id="13_ryguw"]
 [ext_resource type="PackedScene" uid="uid://cxlg064vlaem0" path="res://scenes/StairCases/StairCaseSpikeMania.tscn" id="14_lswn8"]
 [ext_resource type="PackedScene" uid="uid://cyqtr3mtlyjg7" path="res://scenes/StairCases/StairCaseSpikes1.tscn" id="15_a6jrf"]
@@ -87,15 +87,29 @@ data = PackedVector3Array(-2.95, 0, 0, -2.9137, 4.9999, -0.4615, -2.95, 4.9999, 
 [sub_resource type="Theme" id="Theme_5vw27"]
 Label/font_sizes/font_size = 64
 
-[sub_resource type="LabelSettings" id="LabelSettings_yaehf"]
-font_size = 64
+[sub_resource type="LabelSettings" id="LabelSettings_kq58d"]
+font_size = 80
 
-[sub_resource type="Environment" id="Environment_qsp4k"]
-background_mode = 1
-background_color = Color(0.250007, 0.409786, 0.667843, 1)
-ambient_light_source = 2
-ambient_light_color = Color(0.236869, 0.263127, 0.288598, 1)
-ambient_light_energy = 2.0
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qsp4k"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_kq58d"]
+sky_material = SubResource("ProceduralSkyMaterial_qsp4k")
+
+[sub_resource type="Environment" id="Environment_seu75"]
+background_mode = 2
+background_color = Color(0.233925, 0.233925, 0.233925, 1)
+sky = SubResource("Sky_kq58d")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_white = 6.0
+glow_enabled = true
+glow_strength = 0.47
+glow_bloom = 0.43
+glow_blend_mode = 0
+fog_light_color = Color(0.864104, 0.729428, 0, 1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_vivmo"]
 auto_exposure_scale = 0.1
@@ -334,54 +348,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ResumeButton" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = -131.0
-offset_right = 139.0
-offset_bottom = 131.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("13_d13ii")
-icon = ExtResource("13_ryguw")
-flat = true
-expand_icon = true
-script = ExtResource("6_efxa6")
-visibleOnPause = true
-
-[node name="ReStartButton" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = -131.0
-offset_right = 139.0
-offset_bottom = 131.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("13_d13ii")
-icon = ExtResource("15_d13ii")
-flat = true
-expand_icon = true
-script = ExtResource("6_4c57u")
-visibleOnGameOver = true
 
 [node name="PauseButton" type="Button" parent="Control"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.8
 anchor_right = 1.0
-offset_left = -244.0
-offset_bottom = 233.0
+anchor_bottom = 0.1
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 20.0
 grow_horizontal = 0
 theme = ExtResource("13_d13ii")
 action_mode = 0
@@ -391,34 +371,17 @@ shortcut_in_tooltip = false
 icon = ExtResource("17_1u8w0")
 flat = true
 alignment = 2
-icon_alignment = 1
+icon_alignment = 2
+vertical_icon_alignment = 0
 expand_icon = true
 script = ExtResource("6_7mycd")
 
-[node name="StartButton" type="Button" parent="Control"]
+[node name="GameOver" type="Label" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = -131.0
-offset_right = 139.0
-offset_bottom = 131.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("13_d13ii")
-icon = ExtResource("19_0odxb")
-flat = true
-expand_icon = true
-script = ExtResource("7_5vw27")
-
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
+anchor_top = 0.1
 anchor_right = 1.0
-offset_bottom = 295.0
+anchor_bottom = 0.2
 grow_horizontal = 2
 theme = SubResource("Theme_5vw27")
 text = "GAME OVER"
@@ -428,50 +391,112 @@ autowrap_mode = 2
 script = ExtResource("8_kek77")
 visibleOnGameOver = true
 
-[node name="Label2" type="Label" parent="Control"]
+[node name="Score" type="Label" parent="Control"]
 layout_mode = 1
-offset_right = 37.0
-offset_bottom = 100.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+offset_top = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme = ExtResource("13_d13ii")
 text = "0"
-label_settings = SubResource("LabelSettings_yaehf")
+label_settings = SubResource("LabelSettings_kq58d")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("18_074og")
 
-[node name="HSlider" type="HSlider" parent="Control"]
-visible = false
-layout_mode = 0
-offset_left = 75.0
-offset_top = 1049.0
-offset_right = 548.0
-offset_bottom = 1114.0
+[node name="CenterButtons" type="Control" parent="Control"]
+layout_mode = 1
+anchor_left = 0.3
+anchor_top = 0.55
+anchor_right = 0.7
+anchor_bottom = 0.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="Control/CenterButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_d13ii")
+icon = ExtResource("13_ryguw")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_efxa6")
+visibleOnPause = true
+
+[node name="ReStartButton" type="Button" parent="Control/CenterButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_d13ii")
+icon = ExtResource("15_d13ii")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_4c57u")
+visibleOnGameOver = true
+
+[node name="StartButton" type="Button" parent="Control/CenterButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_d13ii")
+icon = ExtResource("19_0odxb")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_5vw27")
+
+[node name="Sliders" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.85
+anchor_right = 0.85
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HSlider" type="HSlider" parent="Control/Sliders"]
+layout_mode = 2
 script = ExtResource("26_a6jrf")
 bus = 1
 visibleOnPause = true
 visibleOnGameOver = true
 
-[node name="HSlider2" type="HSlider" parent="Control"]
-visible = false
-layout_mode = 0
-offset_left = 75.0
-offset_top = 978.0
-offset_right = 548.0
-offset_bottom = 1043.0
+[node name="Control" type="Control" parent="Control/Sliders"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSlider2" type="HSlider" parent="Control/Sliders"]
+layout_mode = 2
 script = ExtResource("26_a6jrf")
 visibleOnPause = true
 visibleOnGameOver = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qsp4k")
+environment = SubResource("Environment_seu75")
 camera_attributes = SubResource("CameraAttributesPractical_vivmo")
 
 [node name="BoneDrop" parent="." instance=ExtResource("26_lswn8")]
 transform = Transform3D(-0.130942, 0, -0.583171, 0.187136, 0.566082, -0.0420185, 0.55233, -0.191795, -0.124017, -0.208373, 6.93101, -2.03323)
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
-[connection signal="pressed" from="Control/ResumeButton" to="Control/ResumeButton" method="_on_pressed"]
-[connection signal="pressed" from="Control/ReStartButton" to="Control/ReStartButton" method="_on_pressed"]
 [connection signal="pressed" from="Control/PauseButton" to="Control/PauseButton" method="_on_pressed"]
-[connection signal="pressed" from="Control/StartButton" to="Control/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterButtons/ResumeButton" to="Control/CenterButtons/ResumeButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterButtons/ReStartButton" to="Control/CenterButtons/ReStartButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/CenterButtons/StartButton" to="Control/CenterButtons/StartButton" method="_on_pressed"]
 
 [editable path="Player/SkeleTON"]

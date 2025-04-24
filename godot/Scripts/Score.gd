@@ -10,11 +10,10 @@ func _ready() -> void:
 
 func resize():
 	self.label_settings.font_size = get_viewport_rect().size.y * .05
-	self.size.x = get_viewport_rect().size.x
-	self.size.y = get_viewport_rect().size.y * .2
 
 func handle_game_over():
-	self.size.y = get_viewport_rect().size.y / 2
+	self.anchor_top = 0.2
+	self.anchor_bottom = 0.3
 
 func set_score(score: int):
 	self.text = str(score)
