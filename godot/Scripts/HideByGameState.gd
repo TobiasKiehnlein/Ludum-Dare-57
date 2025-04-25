@@ -5,7 +5,7 @@ class_name HideByGameState extends CanvasItem
 @export var visibleOnGameOver: bool
 @export var visibleWhilePlaying: bool
 
-func _init() -> void:
+func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	if has_method("hide") and has_method("show"):
 		if visibleByDefault:

@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dljleuupdkl6m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehwsl"]
+
+[resource]
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(0.84, 0.84, 0.84, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/icons/icon = null
+Button/styles/focus = SubResource("StyleBoxEmpty_ehwsl")
+Button/styles/hover = null
+Button/styles/normal = null

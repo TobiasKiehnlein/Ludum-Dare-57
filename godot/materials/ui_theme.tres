@@ -1,12 +1,19 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dljleuupdkl6m"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://35c0yowjlu4b"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehwsl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4pe2"]
+bg_color = Color(0.136826, 0.136826, 0.136826, 0.603922)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.842925, 0.548174, 0.305421, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [resource]
-Button/colors/icon_focus_color = Color(1, 1, 1, 0)
-Button/colors/icon_hover_color = Color(0.84, 0.84, 0.84, 1)
-Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
-Button/icons/icon = null
-Button/styles/focus = SubResource("StyleBoxEmpty_ehwsl")
-Button/styles/hover = null
-Button/styles/normal = null
+Button/font_sizes/font_size = 24
+Button/styles/pressed = SubResource("StyleBoxFlat_i4pe2")
+Label/font_sizes/font_size = 36

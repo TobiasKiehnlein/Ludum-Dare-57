@@ -2,6 +2,8 @@ extends RigidBody3D
 
 @export var maxFlyTime = 1
 @export var secondsUntilGameOver = 3
+@export var is_grounded_grace_time: float = 0.2
+@export var jump_timeout: float = 0.3
 
 @onready var head: MeshInstance3D = $SkeleTON/Skeleton/Skeleton3D/Head_2/Head_2
 @onready var jaw: MeshInstance3D = $SkeleTON/Skeleton/Skeleton3D/Jaw_2/Jaw_2
@@ -10,6 +12,8 @@ extends RigidBody3D
 
 var flyTime = -1;
 var isAscending = false
+var is_grounded_grace_time_left: float = 0.0
+var jump_timeout_left: float = 0.0
 
 func _ready() -> void:
 	self.freeze = true
@@ -46,7 +50,7 @@ func handleGameStart():
 
 func checkGrounded() -> bool:
 	var from = self.global_position
-	var to = from - Vector3.UP * 0.6  # Adjust length as needed
+	var to = from - Vector3.UP * 0.5  # Adjust length as needed
 	#DebugDraw3D.draw_arrow(from, to, Color(1,0,0), .1)
 	var params = PhysicsRayQueryParameters3D.create(from, to, 0xFFFFFFFF,[self])
 	var result = get_world_3d().direct_space_state.intersect_ray(params)
@@ -94,11 +98,26 @@ func _physics_process(delta: float) -> void:
 	checkGameOver(delta)
 	
 	var isGrounded = checkGrounded()
+	if isGrounded:
+		if jump_timeout_left <= 0.0:
+			is_grounded_grace_time_left = is_grounded_grace_time
+	else:
+		jump_timeout_left = -1.0
+		
+	# print("{isGrounded} {is_grounded_grace_time_left} {jump_timeout_left}".format({"isGrounded": isGrounded, "is_grounded_grace_time_left": is_grounded_grace_time_left, "jump_timeout_left": jump_timeout_left}))
+		
+	if is_grounded_grace_time_left > 0.0:
+		isGrounded = true
+		
+	
 	
 	if Input.is_action_just_pressed("Jump"):
-		if isGrounded:
+		if isGrounded and jump_timeout_left <= 0.0:
+			# print("Jump")
 			flyTime = maxFlyTime;
 			isAscending = true
+			is_grounded_grace_time_left = -1.0
+			jump_timeout_left = jump_timeout
 			self.linear_velocity.y = 0
 			self.apply_central_impulse(Vector3(0, 3, 0))
 			AudioManager.create_audio_at_location(self.position, SfxSetting.SOUND_EFFECT_TYPE.Jump)
@@ -114,5 +133,8 @@ func _physics_process(delta: float) -> void:
 		self.apply_central_force(Vector3(0, max(10 * (flyTime / maxFlyTime), 3), 0))
 	elif linear_velocity.y < 0 && !isGrounded && isAscending:
 		self.apply_central_force(Vector3(0, 3, 0))
+	
+	jump_timeout_left -=delta
+	is_grounded_grace_time_left -= delta
 	
 	controlSpeed()

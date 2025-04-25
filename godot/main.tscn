@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://d2jssux43iotq"]
+[gd_scene load_steps=56 format=3 uid="uid://d2jssux43iotq"]
 
 [ext_resource type="PackedScene" uid="uid://b0dt4hd2qh7o5" path="res://scenes/Camera.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://qgsmi0c71ho7" path="res://scenes/StairCases/StairCaseEmtpy.tscn" id="1_ig7tw"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://n08cylibeglm" path="res://scenes/StairCases/StairCaseTop.tscn" id="10_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://6oui2r3wkwrx" path="res://scenes/StairCases/StairCaseTable.tscn" id="12_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://duu1bgxj316mg" path="res://scenes/StairCases/StairCaseRamps.tscn" id="13_0odxb"]
-[ext_resource type="Theme" uid="uid://dljleuupdkl6m" path="res://materials/ui_theme.tres" id="13_d13ii"]
+[ext_resource type="Theme" uid="uid://dljleuupdkl6m" path="res://materials/big_button_theme.tres" id="13_d13ii"]
 [ext_resource type="Texture2D" uid="uid://djqdr2e0s188f" path="res://materials/icons/resume.svg" id="13_ryguw"]
 [ext_resource type="PackedScene" uid="uid://cxlg064vlaem0" path="res://scenes/StairCases/StairCaseSpikeMania.tscn" id="14_lswn8"]
 [ext_resource type="PackedScene" uid="uid://cyqtr3mtlyjg7" path="res://scenes/StairCases/StairCaseSpikes1.tscn" id="15_a6jrf"]
@@ -27,8 +27,14 @@
 [ext_resource type="Texture2D" uid="uid://dhcd7k6e7mq3b" path="res://materials/icons/pause.svg" id="17_1u8w0"]
 [ext_resource type="Script" uid="uid://dqx4wxusb6xkv" path="res://Scripts/Score.gd" id="18_074og"]
 [ext_resource type="Texture2D" uid="uid://dv50m6f0af1cw" path="res://materials/icons/play.svg" id="19_0odxb"]
-[ext_resource type="Script" uid="uid://c2uqncg7x7gxg" path="res://AudioSlider.gd" id="26_a6jrf"]
+[ext_resource type="Script" uid="uid://c2uqncg7x7gxg" path="res://Scripts/Audio/AudioSlider.gd" id="26_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://fbliap58uwvx" path="res://models/BoneDrop.blend" id="26_lswn8"]
+[ext_resource type="Theme" uid="uid://35c0yowjlu4b" path="res://materials/ui_theme.tres" id="29_jq2sk"]
+[ext_resource type="Texture2D" uid="uid://xqd6fw6b6ro" path="res://materials/icons/gear-solid.svg" id="29_kq58d"]
+[ext_resource type="Script" uid="uid://dffgdkcbfvgju" path="res://Scripts/GraphicsButton.gd" id="30_4k2k6"]
+[ext_resource type="Script" uid="uid://dgpuk8ebt2atq" path="res://Scripts/SettingsButton.gd" id="30_seu75"]
+[ext_resource type="Script" uid="uid://b36bojuh7mx7j" path="res://Scripts/HideBySettings.gd" id="31_htxhm"]
+[ext_resource type="Script" uid="uid://q46sqsp66ebi" path="res://Scripts/EnvironmentUpdater.gd" id="34_0rl1p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ig7tw"]
 friction = 0.16
@@ -105,10 +111,13 @@ ambient_light_source = 3
 reflected_light_source = 2
 tonemap_mode = 3
 tonemap_white = 6.0
+ssao_radius = 2.23
 glow_enabled = true
-glow_strength = 0.47
-glow_bloom = 0.43
+glow_intensity = 0.4
+glow_strength = 0.85
+glow_bloom = 0.1
 glow_blend_mode = 0
+glow_hdr_threshold = 0.8
 fog_light_color = Color(0.864104, 0.729428, 0, 1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_vivmo"]
@@ -152,40 +161,8 @@ script = ExtResource("4_dg77c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89056, 0)
 shape = SubResource("CylinderShape3D_w48qg")
 
-[node name="Skeleton3D" parent="Player/SkeleTON/Skeleton" index="0"]
-bones/1/rotation = Quaternion(0.303664, -0.00414788, -0.00866509, 0.952731)
-bones/2/rotation = Quaternion(-0.128211, 0.00608968, 0.010508, 0.991673)
-bones/6/rotation = Quaternion(0.667208, 0.00734198, -0.00252894, 0.744831)
-bones/9/rotation = Quaternion(-0.0789106, 1.85045e-05, -0.652377, 0.753776)
-bones/10/rotation = Quaternion(-0.0159308, 0.000524561, -0.0556738, 0.998322)
-bones/11/rotation = Quaternion(2.46047e-07, 3.72529e-09, -2.82149e-08, 1)
-bones/13/rotation = Quaternion(-0.0589605, -8.12306e-08, -0.485893, 0.872028)
-bones/15/rotation = Quaternion(-0.0196054, -5.36942e-08, -0.161567, 0.986667)
-bones/17/rotation = Quaternion(0.0135818, 8.94512e-08, 0.111927, 0.993624)
-bones/19/rotation = Quaternion(0.0382895, -1.98936e-08, 0.31554, 0.948139)
-bones/20/rotation = Quaternion(-0.0709091, -3.01877e-07, -0.584355, 0.808394)
-bones/21/rotation = Quaternion(0.030356, -7.30796e-08, 0.250161, 0.967728)
-bones/26/rotation = Quaternion(-0.0789106, -1.85019e-05, 0.652377, 0.753775)
-bones/27/rotation = Quaternion(-0.0159308, -0.000524552, 0.0556738, 0.998322)
-bones/28/rotation = Quaternion(2.46005e-07, -1.86263e-09, 2.85616e-08, 1)
-bones/30/rotation = Quaternion(-0.0589605, 9.22723e-08, 0.485892, 0.872028)
-bones/31/rotation = Quaternion(0.0218017, -1.58162e-07, -0.179669, 0.983486)
-bones/32/rotation = Quaternion(-0.0196054, 5.85493e-08, 0.161567, 0.986667)
-bones/33/rotation = Quaternion(-0.011148, 9.76872e-08, 0.0918676, 0.995709)
-bones/34/rotation = Quaternion(0.0135818, -9.31152e-08, -0.111927, 0.993624)
-bones/35/rotation = Quaternion(-0.0406792, 2.655e-07, 0.335231, 0.941257)
-bones/36/rotation = Quaternion(0.0382895, 2.14775e-09, -0.31554, 0.948139)
-bones/37/rotation = Quaternion(-0.0709092, 3.30489e-07, 0.584355, 0.808394)
-bones/38/rotation = Quaternion(0.030356, 7.0689e-08, -0.250161, 0.967728)
-bones/46/rotation = Quaternion(-0.0137947, -0.118992, 0.522882, 0.843946)
-bones/47/rotation = Quaternion(0.0336331, 0.00243061, -0.00634527, 0.999411)
-bones/48/rotation = Quaternion(-0.484164, 0.000154004, 0.00416195, 0.874967)
-bones/53/rotation = Quaternion(-0.099355, -0.0279048, -0.531939, 0.840471)
-bones/54/rotation = Quaternion(0.077772, 0.106454, 0.010127, 0.99122)
-bones/55/rotation = Quaternion(-0.627454, 0.041624, 0.0669836, 0.774649)
-
 [node name="Head_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="0"]
-transform = Transform3D(1, 2.37924e-08, 6.51926e-09, -1.67202e-08, 1, -5.96046e-07, -6.75209e-09, 5.96046e-07, 1, -3.9232e-08, -4.76837e-07, -9.68575e-07)
+transform = Transform3D(1, -5.38421e-09, 4.65661e-09, 1.36934e-08, 1, 2.08616e-07, -2.21189e-09, -1.78814e-07, 1, 4.19095e-09, -4.76837e-07, 1.2666e-07)
 
 [node name="SphereCollider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Head_2/Head_2" index="0"]
 transform = Transform3D(-1, 2.34286e-09, 8.9407e-08, 1.04628e-08, 1, 1.78814e-07, -8.9407e-08, 1.3411e-07, -1, -7.45058e-09, 1.546, 0)
@@ -197,10 +174,10 @@ shape = SubResource("CapsuleShape3D_efxa6")
 disabled = true
 
 [node name="Jaw_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="1"]
-transform = Transform3D(1, -1.39698e-08, -1.86265e-09, 1.95578e-08, 1, -3.8743e-07, 0, 5.06639e-07, 1, 1.72295e-08, -2.38419e-07, -5.51343e-07)
+transform = Transform3D(1, 0, 5.12227e-09, 9.31323e-09, 1, 2.08616e-07, -4.65661e-09, -5.96046e-08, 1, -2.32831e-09, -2.38419e-07, 2.16067e-07)
 
 [node name="Bone_003" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="2"]
-transform = Transform3D(1, -4.89267e-07, -3.72529e-08, 5.39861e-07, 1, -2.134e-08, 2.23517e-08, -6.43318e-08, 1, 7.45058e-07, 1.19209e-07, 1.2666e-07)
+transform = Transform3D(1, 2.80825e-08, -1.49012e-08, 6.76584e-08, 1, -1.6577e-08, -1.49012e-08, -9.41341e-08, 1, 5.96046e-08, 2.38419e-07, 1.63913e-07)
 
 [node name="Bone_003" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_003" index="0"]
 script = ExtResource("4_dg77c")
@@ -211,14 +188,14 @@ transform = Transform3D(1, 3.55271e-15, 0, 0, 1, -8.88178e-16, 0, 3.9968e-15, 1,
 shape = SubResource("CapsuleShape3D_w48qg")
 
 [node name="Bone_002" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="3"]
-transform = Transform3D(1, -4.54951e-07, -3.72529e-08, 5.20144e-07, 1, 4.47035e-08, 7.45058e-09, -1.2666e-07, 1, 5.81145e-07, -1.19209e-07, 2.23517e-07)
+transform = Transform3D(1, 2.30502e-08, -1.49012e-08, 6.89179e-08, 1, 0, -2.98023e-08, -1.08033e-07, 1, -2.98023e-08, 0, 2.08616e-07)
 
 [node name="Bone_002Collider" type="CollisionShape3D" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_002/Bone_002" index="0"]
 transform = Transform3D(1, 0, 0, -3.55271e-14, 1, 0, 0, 3.77476e-14, 1, 0.246047, 1.20551, -0.10619)
 shape = SubResource("CapsuleShape3D_vivmo")
 
 [node name="Bone_007" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="4"]
-transform = Transform3D(-1, -8.63576e-07, 5.21541e-08, -8.15493e-07, 1, 1.38697e-08, 5.96046e-08, -4.06631e-08, 1, 1.2815e-06, 3.57628e-07, 1.11759e-07)
+transform = Transform3D(-1, -3.29928e-07, 2.23517e-08, -2.71811e-07, 1, 4.17118e-08, 2.23517e-08, -3.69378e-08, 1, 6.25849e-07, 3.57628e-07, 1.04308e-07)
 
 [node name="Bone_007" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_007" index="0"]
 script = ExtResource("4_dg77c")
@@ -228,7 +205,7 @@ transform = Transform3D(1, -1.42109e-14, 0, -7.10543e-15, 1, 3.55271e-15, 0, -3.
 shape = SubResource("CapsuleShape3D_2cqfq")
 
 [node name="Bone_006" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="5"]
-transform = Transform3D(-1, -8.45408e-07, 5.96046e-08, -8.10716e-07, 1, 7.45058e-08, 2.98023e-08, -9.68575e-08, 1, 1.19209e-06, 2.38419e-07, 1.93715e-07)
+transform = Transform3D(-1, -3.02447e-07, 2.23517e-08, -2.61469e-07, 1, 5.21541e-08, -7.45058e-09, -5.21541e-08, 1, 4.17233e-07, 1.19209e-07, 1.3411e-07)
 
 [node name="Bone_006" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_006" index="0"]
 script = ExtResource("4_dg77c")
@@ -258,7 +235,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 1.13557, -0.025
 shape = SubResource("CapsuleShape3D_ycdy4")
 
 [node name="Foot_L_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="8"]
-transform = Transform3D(0.981014, -0.00794552, 0.193774, 0.047489, 0.978584, -0.200295, -0.188033, 0.205694, 0.960382, 0.0607488, -0.0162538, 0.102962)
+transform = Transform3D(1, -5.7742e-08, -3.72529e-09, 9.68575e-08, 1, -1.19209e-07, 3.72529e-09, 0, 1, 2.98023e-08, 4.84288e-08, 7.45058e-09)
 
 [node name="Foot_L_2" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_L_2" index="0"]
 script = ExtResource("4_dg77c")
@@ -268,7 +245,7 @@ transform = Transform3D(1, 3.72529e-08, 1.56462e-07, -1.75089e-07, 9.54606e-09, 
 shape = SubResource("CapsuleShape3D_074og")
 
 [node name="Bone_001" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="9"]
-transform = Transform3D(0.982546, -0.0630752, 0.175002, 0.0452869, 0.993562, 0.103843, -0.180425, -0.0941054, 0.979077, 0.0624285, 0.00814977, 0.122137)
+transform = Transform3D(1, -4.23759e-08, 4.62751e-09, 7.87295e-08, 1, -3.63216e-08, -6.19912e-09, 9.31323e-09, 1, -1.49012e-08, 8.9407e-08, 7.45058e-09)
 
 [node name="Bone_001" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_001" index="0"]
 script = ExtResource("4_dg77c")
@@ -278,7 +255,7 @@ transform = Transform3D(1, -3.72529e-09, 3.72529e-09, 0, 1, 9.31323e-10, 3.72529
 shape = SubResource("CapsuleShape3D_yaehf")
 
 [node name="Bone" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="10"]
-transform = Transform3D(0.98208, -0.0860698, 0.167665, 0.0451261, 0.971139, 0.234207, -0.182984, -0.222444, 0.95762, 0.0715522, 0.0278591, 0.174591)
+transform = Transform3D(1, -4.42305e-08, -4.88944e-09, 9.34961e-08, 1, -7.45058e-09, 3.49246e-09, -2.23517e-08, 1, 4.47035e-08, 5.96046e-08, 3.35276e-08)
 
 [node name="Bone" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone" index="0"]
 script = ExtResource("4_dg77c")
@@ -288,7 +265,7 @@ transform = Transform3D(1, 0, 0, 0, 1, -3.49246e-09, 0, 1.67638e-08, 1, 0.126274
 shape = SubResource("CapsuleShape3D_yaehf")
 
 [node name="Foot_R_2" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="11"]
-transform = Transform3D(-0.971485, 0.115009, -0.207341, 0.105439, 0.99281, 0.05667, -0.212368, -0.0331921, 0.976626, -0.0524203, -0.00704877, 0.0854102)
+transform = Transform3D(-1, 5.40167e-08, 8.3819e-09, 9.49949e-08, 1, 0, 5.58794e-09, 0, 1, -4.47035e-08, 4.09782e-08, 7.45058e-09)
 
 [node name="Foot_R_2" parent="Player/SkeleTON/Skeleton/Skeleton3D/Foot_R_2" index="0"]
 script = ExtResource("4_dg77c")
@@ -298,7 +275,7 @@ transform = Transform3D(1, 0, 1.63913e-07, -1.63913e-07, -4.47035e-08, 1, 0, -1,
 shape = SubResource("CapsuleShape3D_cegan")
 
 [node name="Bone_005" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="12"]
-transform = Transform3D(-0.997086, 0.0455505, -0.0611939, 0.0458131, 0.998946, -0.0028935, -0.0609976, 0.00568863, 0.998122, -0.0323958, -0.00380564, 0.0631027)
+transform = Transform3D(-1, 4.05164e-08, -1.42609e-09, 8.24257e-08, 1, -2.6077e-08, -3.0559e-09, -9.31323e-10, 1, 2.98023e-08, 8.9407e-08, 0)
 
 [node name="Bone_005" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_005" index="0"]
 script = ExtResource("4_dg77c")
@@ -308,7 +285,7 @@ transform = Transform3D(1, -3.72529e-09, 0, 0, 1, -9.31323e-10, 0, 0, 1, 0.14145
 shape = SubResource("CapsuleShape3D_yaehf")
 
 [node name="Bone_004" parent="Player/SkeleTON/Skeleton/Skeleton3D" index="13"]
-transform = Transform3D(-0.98646, 0.017878, 0.163027, 0.0510707, 0.978102, 0.201762, 0.15585, -0.207356, 0.965771, -0.00451308, 0.0203837, 0.12105)
+transform = Transform3D(-1, 3.67509e-08, 5.3551e-09, 8.40955e-08, 1, -4.47035e-08, 3.95812e-09, 2.23517e-08, 1, -1.49012e-08, 0, 1.49012e-08)
 
 [node name="Bone_004" parent="Player/SkeleTON/Skeleton/Skeleton3D/Bone_004" index="0"]
 script = ExtResource("4_dg77c")
@@ -341,42 +318,25 @@ shape = SubResource("ConcavePolygonShape3D_ycdy4")
 
 [node name="StairCase2" parent="Stairs" instance=ExtResource("10_2cqfq")]
 
-[node name="Control" type="Control" parent="."]
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("13_d13ii")
 
-[node name="PauseButton" type="Button" parent="Control"]
-custom_minimum_size = Vector2(50, 50)
+[node name="GameUI" type="Control" parent="UI"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.8
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.1
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = 20.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("13_d13ii")
-action_mode = 0
-keep_pressed_outside = true
-shortcut_feedback = false
-shortcut_in_tooltip = false
-icon = ExtResource("17_1u8w0")
-flat = true
-alignment = 2
-icon_alignment = 2
-vertical_icon_alignment = 0
-expand_icon = true
-script = ExtResource("6_7mycd")
+script = ExtResource("31_htxhm")
 
-[node name="GameOver" type="Label" parent="Control"]
+[node name="GameOver" type="Label" parent="UI/GameUI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.1
@@ -391,7 +351,7 @@ autowrap_mode = 2
 script = ExtResource("8_kek77")
 visibleOnGameOver = true
 
-[node name="Score" type="Label" parent="Control"]
+[node name="Score" type="Label" parent="UI/GameUI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -406,7 +366,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("18_074og")
 
-[node name="CenterButtons" type="Control" parent="Control"]
+[node name="CenterButtons" type="Control" parent="UI/GameUI"]
 layout_mode = 1
 anchor_left = 0.3
 anchor_top = 0.55
@@ -415,7 +375,7 @@ anchor_bottom = 0.75
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResumeButton" type="Button" parent="Control/CenterButtons"]
+[node name="ResumeButton" type="Button" parent="UI/GameUI/CenterButtons"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -430,7 +390,7 @@ expand_icon = true
 script = ExtResource("6_efxa6")
 visibleOnPause = true
 
-[node name="ReStartButton" type="Button" parent="Control/CenterButtons"]
+[node name="ReStartButton" type="Button" parent="UI/GameUI/CenterButtons"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -445,7 +405,7 @@ expand_icon = true
 script = ExtResource("6_4c57u")
 visibleOnGameOver = true
 
-[node name="StartButton" type="Button" parent="Control/CenterButtons"]
+[node name="StartButton" type="Button" parent="UI/GameUI/CenterButtons"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -459,44 +419,233 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("7_5vw27")
 
-[node name="Sliders" type="VBoxContainer" parent="Control"]
+[node name="TopRightButtons" type="Control" parent="UI/GameUI"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchor_left = 0.7
+anchor_right = 1.0
+anchor_bottom = 0.1
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+
+[node name="PauseButton" type="Button" parent="UI/GameUI/TopRightButtons"]
 layout_mode = 1
 anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_d13ii")
+action_mode = 0
+keep_pressed_outside = true
+shortcut_feedback = false
+shortcut_in_tooltip = false
+icon = ExtResource("17_1u8w0")
+flat = true
+alignment = 2
+icon_alignment = 2
+expand_icon = true
+script = ExtResource("6_7mycd")
+
+[node name="SettingsUI" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("29_jq2sk")
+script = ExtResource("31_htxhm")
+visibleInSettings = true
+
+[node name="Label" type="Label" parent="UI/SettingsUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+offset_top = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Items" type="Control" parent="UI/SettingsUI"]
+layout_mode = 1
 anchor_left = 0.15
-anchor_top = 0.85
+anchor_top = 0.3
 anchor_right = 0.85
 anchor_bottom = 0.9
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
-[node name="HSlider" type="HSlider" parent="Control/Sliders"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SettingsUI/Items"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.35
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="UI/SettingsUI/Items/VBoxContainer"]
 layout_mode = 2
-script = ExtResource("26_a6jrf")
-bus = 1
-visibleOnPause = true
-visibleOnGameOver = true
+text = "Quality"
 
-[node name="Control" type="Control" parent="Control/Sliders"]
+[node name="Quality" type="HBoxContainer" parent="UI/SettingsUI/Items/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button2" type="Button" parent="UI/SettingsUI/Items/VBoxContainer/Quality"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "HIGH"
+script = ExtResource("30_4k2k6")
+set_quality = true
+quality = 3
+
+[node name="Button3" type="Button" parent="UI/SettingsUI/Items/VBoxContainer/Quality"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "MEDIUM"
+script = ExtResource("30_4k2k6")
+set_quality = true
+quality = 2
+
+[node name="Button4" type="Button" parent="UI/SettingsUI/Items/VBoxContainer/Quality"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "LOW"
+script = ExtResource("30_4k2k6")
+set_quality = true
+quality = 1
+
+[node name="Separator" type="Control" parent="UI/SettingsUI/Items/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HSlider2" type="HSlider" parent="Control/Sliders"]
+[node name="Label2" type="Label" parent="UI/SettingsUI/Items/VBoxContainer"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="Resolution" type="HBoxContainer" parent="UI/SettingsUI/Items/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="UI/SettingsUI/Items/VBoxContainer/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "NATIVE"
+script = ExtResource("30_4k2k6")
+set_resolution = true
+resolution = 4
+
+[node name="Button2" type="Button" parent="UI/SettingsUI/Items/VBoxContainer/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "HIGH"
+script = ExtResource("30_4k2k6")
+set_resolution = true
+resolution = 3
+
+[node name="Resolution2" type="HBoxContainer" parent="UI/SettingsUI/Items/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button4" type="Button" parent="UI/SettingsUI/Items/VBoxContainer/Resolution2"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "MEDIUM"
+script = ExtResource("30_4k2k6")
+set_resolution = true
+resolution = 2
+
+[node name="Button3" type="Button" parent="UI/SettingsUI/Items/VBoxContainer/Resolution2"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "POTATO"
+script = ExtResource("30_4k2k6")
+set_resolution = true
+
+[node name="Sound" type="VBoxContainer" parent="UI/SettingsUI/Items"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sfx" type="Label" parent="UI/SettingsUI/Items/Sound"]
+layout_mode = 2
+text = "Sound effects"
+
+[node name="HSlider" type="HSlider" parent="UI/SettingsUI/Items/Sound"]
 layout_mode = 2
 script = ExtResource("26_a6jrf")
+bus = 1
+
+[node name="Separator" type="Control" parent="UI/SettingsUI/Items/Sound"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Music" type="Label" parent="UI/SettingsUI/Items/Sound"]
+layout_mode = 2
+text = "Music"
+
+[node name="HSlider2" type="HSlider" parent="UI/SettingsUI/Items/Sound"]
+layout_mode = 2
+script = ExtResource("26_a6jrf")
+
+[node name="TopLeftButtons" type="Control" parent="UI"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchor_right = 0.3
+anchor_bottom = 0.1
+offset_left = 20.0
+offset_top = 20.0
+offset_bottom = 20.0
+mouse_filter = 1
+
+[node name="SettingsButton" type="Button" parent="UI/TopLeftButtons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_d13ii")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+icon = ExtResource("29_kq58d")
+flat = true
+alignment = 2
+expand_icon = true
+script = ExtResource("30_seu75")
+visibleByDefault = true
 visibleOnPause = true
-visibleOnGameOver = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_seu75")
 camera_attributes = SubResource("CameraAttributesPractical_vivmo")
+script = ExtResource("34_0rl1p")
 
 [node name="BoneDrop" parent="." instance=ExtResource("26_lswn8")]
 transform = Transform3D(-0.130942, 0, -0.583171, 0.187136, 0.566082, -0.0420185, 0.55233, -0.191795, -0.124017, -0.208373, 6.93101, -2.03323)
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
-[connection signal="pressed" from="Control/PauseButton" to="Control/PauseButton" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterButtons/ResumeButton" to="Control/CenterButtons/ResumeButton" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterButtons/ReStartButton" to="Control/CenterButtons/ReStartButton" method="_on_pressed"]
-[connection signal="pressed" from="Control/CenterButtons/StartButton" to="Control/CenterButtons/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="UI/GameUI/CenterButtons/ResumeButton" to="UI/GameUI/CenterButtons/ResumeButton" method="_on_pressed"]
+[connection signal="pressed" from="UI/GameUI/CenterButtons/ReStartButton" to="UI/GameUI/CenterButtons/ReStartButton" method="_on_pressed"]
+[connection signal="pressed" from="UI/GameUI/CenterButtons/StartButton" to="UI/GameUI/CenterButtons/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="UI/GameUI/TopRightButtons/PauseButton" to="UI/GameUI/TopRightButtons/PauseButton" method="_on_pressed"]
+[connection signal="pressed" from="UI/TopLeftButtons/SettingsButton" to="UI/TopLeftButtons/SettingsButton" method="_on_pressed"]
 
 [editable path="Player/SkeleTON"]

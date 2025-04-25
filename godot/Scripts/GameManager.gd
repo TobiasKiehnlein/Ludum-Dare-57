@@ -1,11 +1,13 @@
 extends Node
 
-@export var pauseButton: Button
 signal game_started()
 signal game_paused()
 signal game_over()
 signal score(score: int)
 var _score = 0
+
+signal settings_opened(open: bool)
+
 var audioManager: AudioManager
 
 var hasGameStarted = false
@@ -54,6 +56,9 @@ func restart(force = false):
 	isGameOver = false
 	startOnReady = true
 	get_tree().reload_current_scene()
+
+func open_settings(open: bool):
+	self.settings_opened.emit(open)
 
 func ready():
 	return

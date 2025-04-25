@@ -58,6 +58,12 @@ _subresources={
 "nodes": {
 "PATH:Helpers": {
 "import/skip_import": true
+},
+"PATH:Roof": {
+"import/skip_import": true
+},
+"PATH:Wall": {
+"import/skip_import": true
 }
 }
 }

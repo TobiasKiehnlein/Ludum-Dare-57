@@ -22,13 +22,17 @@ buses/default_bus_layout="uid://brhdjxxx88yqk"
 
 [autoload]
 
+SceneLoader="*res://Scripts/SceneLoader.gd"
 AudioManager="*res://scenes/AudioManager.tscn"
 GameManager="*res://Scripts/GameManager.gd"
+SettingsManager="*res://Scripts/SettingsManager.gd"
 
 [display]
 
 window/size/viewport_width=648
 window/size/viewport_height=1152
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/handheld/orientation=1
 
 [input]
@@ -59,6 +63,9 @@ Pause={
 
 [rendering]
 
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/directional_shadow/size.mobile=1024
 driver/depth_prepass/enable=false
+environment/ssao/quality=1
 lights_and_shadows/positional_shadow/atlas_size.mobile=1024
